@@ -55,10 +55,12 @@ Rails.application.configure do
   config.log_tags = [ :request_id ]
 
   # Use a different cache store in production.
-  # config.cache_store = :mem_cache_store
+  config.cache_store = :dalli_store, ENV["MEMCACHEDCLOUD_SERVERS"].split(","), {
+    username: ENV["MEMCACHEDCLOUD_USERNAME"], password: ENV["MEMCACHEDCLOUD_PASSWORD"]
+  }
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
-  # config.active_job.queue_adapter     = :resque
+  config.active_job.queue_adapter     = :sidekiq
   # config.active_job.queue_name_prefix = "decidim_staging_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
@@ -110,4 +112,16 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.lograge.enabled = true
+  config.lograge.formatter = Lograge::Formatters::Json.new
+  config.lograge.custom_options = lambda do |event|
+    {
+      remote_ip: event.payload[:remote_ip],
+      params: event.payload[:params].except('controller', 'action', 'format', 'utf8'),
+      user_id: event.payload[:user_id],
+      organization_id: event.payload[:organization_id],
+      referer: event.payload[:referer],
+    }
+  end
 end
