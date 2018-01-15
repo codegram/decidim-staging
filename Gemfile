@@ -12,11 +12,10 @@ gem "decidim-assemblies"
 gem "uglifier", ">= 1.3.0"
 
 gem "faker", "~> 1.8.4"
+gem "decidim-dev"
 
 group :development, :test do
   gem "byebug", platform: :mri
-
-  gem "decidim-dev"
 end
 
 group :development do
