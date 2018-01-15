@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:decidim/decidim.git
+  remote: https://github.com/decidim/decidim
   revision: 2d98f4318570ec2654ae6bf1a8183b797c2d0dbd
   specs:
     decidim (0.9.0.pre)
@@ -605,7 +605,7 @@ DEPENDENCIES
   web-console
 
 RUBY VERSION
-   ruby 2.4.1p111
+   ruby 2.4.2p198
 
 BUNDLED WITH
    1.16.0
