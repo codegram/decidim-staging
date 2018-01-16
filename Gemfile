@@ -7,12 +7,12 @@ ruby RUBY_VERSION
 gem "decidim", git: "https://github.com/decidim/decidim"
 
 # Uncomment the following line if you want to use decidim-assemblies plugin
-gem "decidim-assemblies"
+gem "decidim-assemblies", git: "https://github.com/decidim/decidim"
 
 gem "uglifier", ">= 1.3.0"
 
 gem "faker", "~> 1.8.4"
-gem "decidim-dev"
+gem "decidim-dev", git: "https://github.com/decidim/decidim"
 
 group :development, :test do
   gem "byebug", platform: :mri
