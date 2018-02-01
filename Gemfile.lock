@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 9067917a64e0b7f9e0552d01d40e3feafa70adee
+  revision: 09c035bb4b1e0da29fb1afdc1503e6f9a5f54b12
+  branch: feature/copy_proposals
   specs:
     decidim (0.9.0.pre)
       decidim-accountability (= 0.9.0.pre)
@@ -248,7 +249,7 @@ GEM
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.5.0)
+    devise-i18n (1.5.1)
       devise (>= 3.4)
     devise_invitable (1.7.2)
       actionmailer (>= 4.1.0)
@@ -437,7 +438,7 @@ GEM
       premailer (~> 1.7, >= 1.7.9)
     public_suffix (3.0.1)
     puma (3.11.2)
-    rack (2.0.3)
+    rack (2.0.4)
     rack-cors (1.0.2)
     rack-protection (2.0.0)
       rack
