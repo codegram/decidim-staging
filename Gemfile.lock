@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 09c035bb4b1e0da29fb1afdc1503e6f9a5f54b12
+  revision: 85959215b3cfd1d00f61164132cc39d6d5cf24fe
   branch: feature/copy_proposals
   specs:
     decidim (0.9.0.pre)
@@ -307,7 +307,7 @@ GEM
       activesupport (>= 4.2.0)
     graphiql-rails (1.4.8)
       rails
-    graphql (1.7.8)
+    graphql (1.7.9)
     hashdiff (0.3.7)
     hashie (3.5.7)
     high_voltage (3.0.0)
