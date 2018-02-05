@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 68b954bb6477a2ac5868fc338d325908c832b83e
+  revision: 704623a6b022b62ad4e5ae9c8f94bae3f9678767
   branch: feature/copy_proposals
   specs:
     decidim (0.9.0.pre)
