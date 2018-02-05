@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 85959215b3cfd1d00f61164132cc39d6d5cf24fe
+  revision: 68b954bb6477a2ac5868fc338d325908c832b83e
   branch: feature/copy_proposals
   specs:
     decidim (0.9.0.pre)
@@ -602,7 +602,7 @@ GEM
     truncato (0.7.10)
       htmlentities (~> 4.3.1)
       nokogiri (~> 1.8.0, >= 1.7.0)
-    tzinfo (1.2.4)
+    tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.5)
       execjs (>= 0.3.0, < 3)
