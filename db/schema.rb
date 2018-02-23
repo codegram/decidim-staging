@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180216080928) do
+ActiveRecord::Schema.define(version: 20180223150527) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_trgm"
 
   create_table "decidim_accountability_results", id: :serial, force: :cascade do |t|
     t.jsonb "title"
@@ -76,6 +77,23 @@ ActiveRecord::Schema.define(version: 20180216080928) do
     t.index ["resource_type", "resource_id"], name: "index_action_logs_on_resource_type_and_id"
   end
 
+  create_table "decidim_area_types", force: :cascade do |t|
+    t.bigint "decidim_organization_id"
+    t.jsonb "name", null: false
+    t.jsonb "plural", null: false
+    t.index ["decidim_organization_id"], name: "index_decidim_area_types_on_decidim_organization_id"
+  end
+
+  create_table "decidim_areas", force: :cascade do |t|
+    t.jsonb "name"
+    t.bigint "area_type_id"
+    t.bigint "decidim_organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_type_id"], name: "index_decidim_areas_on_area_type_id"
+    t.index ["decidim_organization_id"], name: "index_decidim_areas_on_decidim_organization_id"
+  end
+
   create_table "decidim_assemblies", id: :serial, force: :cascade do |t|
     t.string "slug", null: false
     t.string "hashtag"
@@ -100,6 +118,8 @@ ActiveRecord::Schema.define(version: 20180216080928) do
     t.integer "decidim_scope_id"
     t.boolean "scopes_enabled", default: true, null: false
     t.string "reference"
+    t.bigint "decidim_area_id"
+    t.index ["decidim_area_id"], name: "index_decidim_assemblies_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_assembly_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_assemblies_on_decidim_organization_id"
   end
@@ -580,6 +600,7 @@ ActiveRecord::Schema.define(version: 20180216080928) do
     t.float "longitude"
     t.integer "proposal_notes_count", default: 0, null: false
     t.integer "proposal_endorsements_count", default: 0, null: false
+    t.datetime "published_at"
     t.index ["body"], name: "decidim_proposals_proposal_body_search"
     t.index ["created_at"], name: "index_decidim_proposals_proposals_on_created_at"
     t.index ["decidim_author_id"], name: "index_decidim_proposals_proposals_on_decidim_author_id"
@@ -758,7 +779,7 @@ ActiveRecord::Schema.define(version: 20180216080928) do
     t.boolean "managed", default: false, null: false
     t.string "roles", default: [], array: true
     t.boolean "email_on_notification", default: false, null: false
-    t.string "nickname", limit: 20
+    t.string "nickname", limit: 20, default: "", null: false
     t.datetime "officialized_at"
     t.jsonb "officialized_as"
     t.string "personal_url"
@@ -785,6 +806,9 @@ ActiveRecord::Schema.define(version: 20180216080928) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
+  add_foreign_key "decidim_area_types", "decidim_organizations"
+  add_foreign_key "decidim_areas", "decidim_area_types", column: "area_type_id"
+  add_foreign_key "decidim_areas", "decidim_organizations"
   add_foreign_key "decidim_attachments", "decidim_attachment_collections", column: "attachment_collection_id", name: "fk_decidim_attachments_attachment_collection_id", on_delete: :nullify
   add_foreign_key "decidim_authorizations", "decidim_users"
   add_foreign_key "decidim_categorizations", "decidim_categories"
