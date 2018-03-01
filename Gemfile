@@ -8,6 +8,7 @@ gem "decidim", git: "https://github.com/decidim/decidim"
 
 # Uncomment the following line if you want to use decidim-assemblies plugin
 gem "decidim-assemblies", git: "https://github.com/decidim/decidim"
+gem "decidim-initiatives", git: "https://github.com/decidim/decidim-initiatives"
 
 gem "uglifier", ">= 1.3.0"
 
