@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 16299cb721c48f72043f039782ca1ca7dfe77de6
+  revision: dc2bb6c2c13e94cb547e27028d2d7655735bd503
   specs:
     decidim (0.10.0.pre)
       decidim-accountability (= 0.10.0.pre)
