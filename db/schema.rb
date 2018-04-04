@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180404081673) do
+ActiveRecord::Schema.define(version: 20180404084756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "pg_trgm"
+  enable_extension "ltree"
 
   create_table "decidim_accountability_results", id: :serial, force: :cascade do |t|
     t.jsonb "title"
@@ -120,9 +121,14 @@ ActiveRecord::Schema.define(version: 20180404081673) do
     t.boolean "scopes_enabled", default: true, null: false
     t.string "reference"
     t.bigint "decidim_area_id"
+    t.boolean "private_space", default: false
+    t.bigint "parent_id"
+    t.ltree "parents_path"
+    t.integer "children_count", default: 0
     t.index ["decidim_area_id"], name: "index_decidim_assemblies_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_assembly_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_assemblies_on_decidim_organization_id"
+    t.index ["parent_id"], name: "decidim_assemblies_assemblies_on_parent_id"
   end
 
   create_table "decidim_assembly_user_roles", force: :cascade do |t|
@@ -752,6 +758,29 @@ ActiveRecord::Schema.define(version: 20180404081673) do
     t.index ["parent_id"], name: "index_decidim_scopes_on_parent_id"
     t.index ["part_of"], name: "index_decidim_scopes_on_part_of", using: :gin
     t.index ["scope_type_id"], name: "index_decidim_scopes_on_scope_type_id"
+  end
+
+  create_table "decidim_sortitions_sortitions", force: :cascade do |t|
+    t.bigint "decidim_component_id"
+    t.integer "decidim_proposals_component_id"
+    t.integer "dice", null: false
+    t.integer "target_items", null: false
+    t.datetime "request_timestamp", null: false
+    t.jsonb "selected_proposals"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.jsonb "witnesses"
+    t.jsonb "additional_info"
+    t.bigint "decidim_author_id"
+    t.string "reference"
+    t.jsonb "title"
+    t.jsonb "cancel_reason"
+    t.datetime "cancelled_on"
+    t.integer "cancelled_by_user_id"
+    t.jsonb "candidate_proposals"
+    t.index ["decidim_author_id"], name: "index_decidim_sortitions_sortitions_on_decidim_author_id"
+    t.index ["decidim_component_id"], name: "index_sortitions__on_feature"
+    t.index ["decidim_proposals_component_id"], name: "index_sortitions__on_proposals_feature"
   end
 
   create_table "decidim_static_pages", id: :serial, force: :cascade do |t|
