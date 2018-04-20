@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: a6035a36765849492328aba9227fab1b68e51668
+  revision: 454ca5ebc0cc0a06c65207ce78612c67eb329cf8
   branch: spaces/activate-and-publish-spaces
   specs:
     decidim (0.11.0.pre)
@@ -12,6 +12,7 @@ GIT
       decidim-comments (= 0.11.0.pre)
       decidim-core (= 0.11.0.pre)
       decidim-debates (= 0.11.0.pre)
+      decidim-generators (= 0.11.0.pre)
       decidim-meetings (= 0.11.0.pre)
       decidim-pages (= 0.11.0.pre)
       decidim-participatory_processes (= 0.11.0.pre)
@@ -114,6 +115,8 @@ GIT
       simplecov (~> 0.13)
       webmock (~> 3.0)
       wisper-rspec (~> 1.0)
+    decidim-generators (0.11.0.pre)
+      decidim-core (= 0.11.0.pre)
     decidim-meetings (0.11.0.pre)
       cells-erb (~> 0.1.0)
       cells-rails (~> 0.0.8)
