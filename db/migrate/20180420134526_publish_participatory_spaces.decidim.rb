@@ -14,7 +14,7 @@ class PublishParticipatorySpaces < ActiveRecord::Migration[5.1]
     %w(participatory_processes assemblies).each do |space_name|
       Organization.find_each do |organization|
         space = ParticipatorySpace.find_or_create_by(
-          decidim_organization_id: organization,
+          decidim_organization_id: organization.id,
           manifest_name: space_name
         )
         space.update!(activated_at: Time.current, published_at: Time.current)

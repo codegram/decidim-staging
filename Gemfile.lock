@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 9d5937152230378dcfd3a60c8a881950a50306f0
+  revision: 41fe7af8d0978e6e4cb434f330e446c97846229a
   branch: spaces/activate-and-publish-spaces
   specs:
     decidim (0.11.0.pre)
