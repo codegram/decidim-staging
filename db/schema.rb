@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180419080045) do
+ActiveRecord::Schema.define(version: 20180420133252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -347,7 +347,10 @@ ActiveRecord::Schema.define(version: 20180419080045) do
     t.jsonb "description", null: false
     t.integer "decidim_organization_id"
     t.bigint "decidim_author_id"
+    t.string "banner_image"
     t.datetime "published_at"
+    t.integer "decidim_scope_id"
+    t.bigint "type_id"
     t.integer "state", default: 0, null: false
     t.integer "signature_type", default: 0, null: false
     t.date "signature_start_time"
@@ -360,17 +363,14 @@ ActiveRecord::Schema.define(version: 20180419080045) do
     t.datetime "updated_at", null: false
     t.integer "decidim_user_group_id"
     t.string "hashtag"
-    t.integer "initiative_supports_count", default: 0, null: false
-    t.integer "scoped_type_id"
-    t.datetime "first_progress_notification_at"
-    t.datetime "second_progress_notification_at"
-    t.integer "offline_votes"
-    t.index "md5((description)::text)", name: "decidim_initiatives_description_search"
     t.index ["answered_at"], name: "index_decidim_initiatives_on_answered_at"
     t.index ["decidim_author_id"], name: "index_decidim_initiatives_on_decidim_author_id"
     t.index ["decidim_organization_id"], name: "index_decidim_initiatives_on_decidim_organization_id"
+    t.index ["decidim_scope_id"], name: "index_decidim_initiatives_on_decidim_scope_id"
+    t.index ["description"], name: "decidim_initiatives_description_search"
     t.index ["published_at"], name: "index_decidim_initiatives_on_published_at"
     t.index ["title"], name: "decidim_initiatives_title_search"
+    t.index ["type_id"], name: "index_decidim_initiatives_on_type_id"
   end
 
   create_table "decidim_initiatives_committee_members", force: :cascade do |t|
@@ -384,19 +384,10 @@ ActiveRecord::Schema.define(version: 20180419080045) do
     t.index ["state"], name: "index_decidim_initiatives_committee_members_on_state"
   end
 
-  create_table "decidim_initiatives_type_scopes", force: :cascade do |t|
-    t.bigint "decidim_initiatives_types_id"
-    t.bigint "decidim_scopes_id"
-    t.integer "supports_required", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["decidim_initiatives_types_id"], name: "idx_scoped_initiative_type_type"
-    t.index ["decidim_scopes_id"], name: "idx_scoped_initiative_type_scope"
-  end
-
   create_table "decidim_initiatives_types", force: :cascade do |t|
     t.jsonb "title", null: false
     t.jsonb "description", null: false
+    t.integer "supports_required", null: false
     t.integer "decidim_organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -411,7 +402,6 @@ ActiveRecord::Schema.define(version: 20180419080045) do
     t.datetime "updated_at", null: false
     t.integer "decidim_user_group_id"
     t.index ["decidim_author_id"], name: "index_decidim_initiatives_votes_on_decidim_author_id"
-    t.index ["decidim_initiative_id", "decidim_author_id", "decidim_user_group_id"], name: "decidim_initiatives_voutes_author_uniqueness_index", unique: true
     t.index ["decidim_initiative_id"], name: "index_decidim_initiatives_votes_on_decidim_initiative_id"
   end
 
@@ -669,6 +659,13 @@ ActiveRecord::Schema.define(version: 20180419080045) do
     t.datetime "updated_at", null: false
     t.index ["decidim_user_id"], name: "index_decidim_spaces_users_on_private_user_id"
     t.index ["privatable_to_type", "privatable_to_id"], name: "space_privatable_to_privatable_id"
+  end
+
+  create_table "decidim_participatory_spaces", force: :cascade do |t|
+    t.integer "decidim_organization_id", null: false
+    t.string "manifest_name", null: false
+    t.datetime "activated_at"
+    t.datetime "published_at"
   end
 
   create_table "decidim_proposals_proposal_endorsements", force: :cascade do |t|
