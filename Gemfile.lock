@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 454ca5ebc0cc0a06c65207ce78612c67eb329cf8
+  revision: 9d5937152230378dcfd3a60c8a881950a50306f0
   branch: spaces/activate-and-publish-spaces
   specs:
     decidim (0.11.0.pre)
@@ -305,7 +305,7 @@ GEM
       html_tokenizer
       rubocop (~> 0.51)
       smart_properties
-    erbse (0.1.2)
+    erbse (0.1.3)
       temple
     erubi (1.7.1)
     excon (0.60.0)
