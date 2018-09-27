@@ -641,6 +641,7 @@ GEM
       sprockets (> 2.11)
       sprockets-rails
       tilt
+    scout_apm (2.4.19)
     searchlight (4.1.0)
     selenium-webdriver (3.14.0)
       childprocess (~> 0.5)
@@ -745,6 +746,7 @@ DEPENDENCIES
   lograge
   newrelic_rpm
   passenger
+  scout_apm
   sendgrid-ruby
   sentry-raven
   sidekiq
