@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   mount Decidim::Core::Engine => "/"
-  authenticate :user, lambda { |u| u.roles.include?("admin") } do
+  authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => "/sidekiq"
   end
 end
