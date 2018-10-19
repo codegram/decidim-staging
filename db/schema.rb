@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_17_082949) do
+ActiveRecord::Schema.define(version: 2018_10_19_080514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -870,6 +870,15 @@ ActiveRecord::Schema.define(version: 2018_10_17_082949) do
     t.index ["updated_at"], name: "decidim_proposals_collaborative_drafts_on_updated_at"
   end
 
+  create_table "decidim_proposals_participatory_texts", force: :cascade do |t|
+    t.jsonb "title"
+    t.jsonb "description"
+    t.bigint "decidim_component_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_component_id"], name: "idx_participatory_texts_on_decidim_component_id"
+  end
+
   create_table "decidim_proposals_proposal_endorsements", force: :cascade do |t|
     t.bigint "decidim_proposal_id", null: false
     t.bigint "decidim_author_id", null: false
@@ -898,6 +907,7 @@ ActiveRecord::Schema.define(version: 2018_10_17_082949) do
     t.integer "decidim_author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "temporary", default: false, null: false
     t.index ["decidim_author_id"], name: "decidim_proposals_proposal_vote_author"
     t.index ["decidim_proposal_id", "decidim_author_id"], name: "decidim_proposals_proposal_vote_proposal_author_unique", unique: true
     t.index ["decidim_proposal_id"], name: "decidim_proposals_proposal_vote_proposal"
@@ -922,6 +932,8 @@ ActiveRecord::Schema.define(version: 2018_10_17_082949) do
     t.integer "proposal_endorsements_count", default: 0, null: false
     t.datetime "published_at"
     t.integer "coauthorships_count", default: 0, null: false
+    t.string "participatory_text_level"
+    t.integer "position"
     t.index ["body"], name: "decidim_proposals_proposal_body_search"
     t.index ["created_at"], name: "index_decidim_proposals_proposals_on_created_at"
     t.index ["decidim_component_id"], name: "index_decidim_proposals_proposals_on_decidim_component_id"

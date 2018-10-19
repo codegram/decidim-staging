@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 2d30e314ca6df38d8f00cfacf4478d1fecd67ec3
-  branch: fix/activity_search
+  revision: 6b62e54aa7e25bc21cc9a06d4b307ae9f0ca4f52
+  branch: master
   specs:
     decidim (0.15.0.dev)
       decidim-accountability (= 0.15.0.dev)
@@ -93,7 +93,7 @@ GIT
       rack-attack (~> 5.2)
       rails (>= 5.2, < 6.0.x)
       rails-i18n (~> 5.0)
-      rectify (~> 0.11.0)
+      rectify (~> 0.13.0)
       redis (~> 4.0)
       rubyzip (~> 1.2, >= 1.2.2)
       sassc (~> 1.12, >= 1.12.1)
@@ -148,12 +148,14 @@ GIT
     decidim-participatory_processes (0.15.0.dev)
       decidim-core (= 0.15.0.dev)
     decidim-proposals (0.15.0.dev)
+      acts_as_list (>= 0.9)
       cells-erb (~> 0.1.0)
       cells-rails (~> 0.0.9)
       decidim-comments (= 0.15.0.dev)
       decidim-core (= 0.15.0.dev)
       kaminari (~> 1.0)
       ransack (~> 2.0)
+      redcarpet (>= 3.4)
       social-share-button (~> 1.0)
     decidim-sortitions (0.15.0.dev)
       decidim-admin (= 0.15.0.dev)
@@ -222,6 +224,8 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    acts_as_list (0.9.16)
+      activerecord (>= 3.0)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (9.0.0)
@@ -575,12 +579,13 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    rectify (0.11.0)
+    rectify (0.13.0)
       activemodel (>= 4.1.0)
       activerecord (>= 4.1.0)
       activesupport (>= 4.1.0)
       virtus (~> 1.0.5)
       wisper (>= 1.6.1)
+    redcarpet (3.4.0)
     redis (4.0.2)
     request_store (1.4.1)
       rack (>= 1.4)
@@ -758,7 +763,7 @@ DEPENDENCIES
   web-console
 
 RUBY VERSION
-   ruby 2.5.0p0
+   ruby 2.5.3p105
 
 BUNDLED WITH
-   1.16.4
+   1.17.0.pre.2
