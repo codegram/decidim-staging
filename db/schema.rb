@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_19_080514) do
+ActiveRecord::Schema.define(version: 2018_10_19_120212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -227,7 +227,9 @@ ActiveRecord::Schema.define(version: 2018_10_19_080514) do
     t.integer "decidim_component_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "decidim_author_id"
+    t.integer "decidim_author_id", null: false
+    t.string "decidim_author_type", null: false
+    t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_blogs_posts_on_decidim_author"
     t.index ["decidim_component_id"], name: "index_decidim_blogs_posts_on_decidim_component_id"
   end
 
@@ -290,8 +292,9 @@ ActiveRecord::Schema.define(version: 2018_10_19_080514) do
     t.bigint "coauthorable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "decidim_author_type", null: false
     t.index ["coauthorable_type", "coauthorable_id"], name: "index_coauthorable_on_coauthorship"
-    t.index ["decidim_author_id"], name: "index_author_on_coauthorsihp"
+    t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_coauthorships_on_decidim_author"
     t.index ["decidim_user_group_id"], name: "index_user_group_on_coauthorsihp"
   end
 
@@ -301,6 +304,8 @@ ActiveRecord::Schema.define(version: 2018_10_19_080514) do
     t.integer "decidim_author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "decidim_author_type", null: false
+    t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_comments_comment_votes_on_decidim_author"
     t.index ["decidim_author_id"], name: "decidim_comments_comment_vote_author"
     t.index ["decidim_comment_id", "decidim_author_id"], name: "decidim_comments_comment_vote_comment_author_unique", unique: true
     t.index ["decidim_comment_id"], name: "decidim_comments_comment_vote_comment"
@@ -318,7 +323,9 @@ ActiveRecord::Schema.define(version: 2018_10_19_080514) do
     t.integer "decidim_user_group_id"
     t.string "decidim_root_commentable_type", null: false
     t.integer "decidim_root_commentable_id", null: false
+    t.string "decidim_author_type", null: false
     t.index ["created_at"], name: "index_decidim_comments_comments_on_created_at"
+    t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_comments_comments_on_decidim_author"
     t.index ["decidim_author_id"], name: "decidim_comments_comment_author"
     t.index ["decidim_commentable_type", "decidim_commentable_id"], name: "decidim_comments_comment_commentable"
     t.index ["decidim_root_commentable_type", "decidim_root_commentable_id"], name: "decidim_comments_comment_root_commentable"
@@ -371,9 +378,11 @@ ActiveRecord::Schema.define(version: 2018_10_19_080514) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.jsonb "information_updates"
-    t.integer "decidim_author_id"
+    t.integer "decidim_author_id", null: false
     t.string "reference"
     t.integer "decidim_user_group_id"
+    t.string "decidim_author_type", null: false
+    t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_debates_debates_on_decidim_author"
     t.index ["decidim_component_id"], name: "index_decidim_debates_debates_on_decidim_component_id"
   end
 
@@ -885,8 +894,9 @@ ActiveRecord::Schema.define(version: 2018_10_19_080514) do
     t.bigint "decidim_user_group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "decidim_author_type", null: false
     t.index "decidim_proposal_id, decidim_author_id, (COALESCE(decidim_user_group_id, ('-1'::integer)::bigint))", name: "decidim_proposals_proposal_endorsmt_proposal_auth_ugroup_uniq", unique: true
-    t.index ["decidim_author_id"], name: "decidim_proposals_proposal_endorsement_author"
+    t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_proposals_proposal_endorsements_on_decidim_author"
     t.index ["decidim_proposal_id"], name: "decidim_proposals_proposal_endorsement_proposal"
     t.index ["decidim_user_group_id"], name: "decidim_proposals_proposal_endorsement_user_group"
   end
@@ -1032,13 +1042,15 @@ ActiveRecord::Schema.define(version: 2018_10_19_080514) do
     t.datetime "updated_at", null: false
     t.jsonb "witnesses"
     t.jsonb "additional_info"
-    t.bigint "decidim_author_id"
+    t.bigint "decidim_author_id", null: false
     t.string "reference"
     t.jsonb "title"
     t.jsonb "cancel_reason"
     t.datetime "cancelled_on"
     t.integer "cancelled_by_user_id"
     t.jsonb "candidate_proposals"
+    t.string "decidim_author_type", null: false
+    t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_sortitions_sortitions_on_decidim_author"
     t.index ["decidim_author_id"], name: "index_decidim_sortitions_sortitions_on_decidim_author_id"
     t.index ["decidim_component_id"], name: "index_sortitions__on_feature"
     t.index ["decidim_proposals_component_id"], name: "index_sortitions__on_proposals_feature"
