@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 52e9985a4c177269bb8b5aa9ffbbe7e9036ec59a
-  branch: master
+  revision: 45855cbdb586ecb1e2b99583bf58ac4d5e0e510f
+  branch: user_group_badges
   specs:
     decidim (0.15.0.dev)
       decidim-accountability (= 0.15.0.dev)
