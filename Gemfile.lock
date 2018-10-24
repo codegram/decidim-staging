@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: a3e167144a8c0fc8ebfe95888140c9319048fc72
-  branch: master
+  revision: 26595e77a11e8afeb556f689515436bc7e30dd7a
+  branch: fix_data_portability_images
   specs:
     decidim (0.15.0.dev)
       decidim-accountability (= 0.15.0.dev)
