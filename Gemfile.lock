@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 6224a626bba521e49c9a6e8806b14c6db38c1764
+  revision: b1b25b36cea207837afd104f7e50ea74cbb6a023
   branch: fix_assets
   specs:
     decidim (0.15.0.dev)
