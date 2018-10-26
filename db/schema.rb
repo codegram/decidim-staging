@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_19_120212) do
+ActiveRecord::Schema.define(version: 2018_10_26_131620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -983,6 +983,13 @@ ActiveRecord::Schema.define(version: 2018_10_19_120212) do
     t.index ["decidim_proposals_component_id"], name: "index_sortitions__on_proposals_feature"
   end
 
+  create_table "decidim_static_page_topics", force: :cascade do |t|
+    t.jsonb "title", null: false
+    t.jsonb "description", null: false
+    t.bigint "organization_id", null: false
+    t.index ["organization_id"], name: "index_decidim_static_page_topics_on_organization_id"
+  end
+
   create_table "decidim_static_pages", id: :integer, default: nil, force: :cascade do |t|
     t.jsonb "title", null: false
     t.string "slug", null: false
@@ -990,7 +997,11 @@ ActiveRecord::Schema.define(version: 2018_10_19_120212) do
     t.integer "decidim_organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "weight"
+    t.boolean "show_in_footer", default: false, null: false
+    t.bigint "topic_id"
     t.index ["decidim_organization_id"], name: "index_decidim_static_pages_on_decidim_organization_id"
+    t.index ["topic_id"], name: "index_decidim_static_pages_on_topic_id"
   end
 
   create_table "decidim_surveys_survey_answer_choices", force: :cascade do |t|
