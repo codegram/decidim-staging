@@ -4,8 +4,8 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-gem "decidim", git: "https://github.com/decidim/decidim", branch: "master"
-gem "decidim-dev", git: "https://github.com/decidim/decidim", branch: "master"
+gem "decidim", git: "https://github.com/decidim/decidim", branch: "0.15-stable"
+gem "decidim-dev", git: "https://github.com/decidim/decidim", branch: "0.15-stable"
 
 gem "uglifier", ">= 1.3.0"
 
