@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 60e659dea1cb191375ef796ccb4a7fda51e6312e
+  revision: 4ff62233f644b7434eacc8465079fa8ebe183fcd
   branch: improve_static_pages
   specs:
     decidim (0.15.0.dev)
