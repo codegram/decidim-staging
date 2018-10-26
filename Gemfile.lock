@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 26595e77a11e8afeb556f689515436bc7e30dd7a
-  branch: fix_data_portability_images
+  revision: 6d01d2e82cd6b085f1b08f091cfc3311b57f76fb
+  branch: master
   specs:
     decidim (0.15.0.dev)
       decidim-accountability (= 0.15.0.dev)
@@ -294,7 +294,7 @@ GEM
     crass (1.0.4)
     css_parser (1.6.0)
       addressable
-    dalli (2.7.8)
+    dalli (2.7.9)
     date_validator (0.9.0)
       activemodel
       activesupport
@@ -649,13 +649,13 @@ GEM
       sprockets (> 2.11)
       sprockets-rails
       tilt
-    scout_apm (2.4.19)
+    scout_apm (2.4.20)
     searchlight (4.1.0)
     selenium-webdriver (3.14.1)
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
-    sendgrid-ruby (5.2.0)
-      ruby_http_client (~> 3.2)
+    sendgrid-ruby (5.3.0)
+      ruby_http_client (~> 3.3.0)
       sinatra (>= 1.4.7, < 3)
     sentry-raven (2.7.4)
       faraday (>= 0.7.6, < 1.0)
