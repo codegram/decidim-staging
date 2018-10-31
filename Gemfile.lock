@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 1c609ca166772d2c05ca801ba5a505da1ccbf10d
-  branch: improve_static_pages
+  revision: 19e0f950e8ddfacb7464ea7d692edd4e82381343
+  branch: master
   specs:
     decidim (0.16.0.dev)
       decidim-accountability (= 0.16.0.dev)
@@ -13,6 +13,7 @@ GIT
       decidim-comments (= 0.16.0.dev)
       decidim-core (= 0.16.0.dev)
       decidim-debates (= 0.16.0.dev)
+      decidim-forms (= 0.16.0.dev)
       decidim-generators (= 0.16.0.dev)
       decidim-meetings (= 0.16.0.dev)
       decidim-pages (= 0.16.0.dev)
@@ -132,6 +133,8 @@ GIT
       system_test_html_screenshots (~> 0.1.1)
       webmock (~> 3.0)
       wisper-rspec (~> 1.0)
+    decidim-forms (0.16.0.dev)
+      decidim-core (= 0.16.0.dev)
     decidim-generators (0.16.0.dev)
       decidim-core (= 0.16.0.dev)
     decidim-meetings (0.16.0.dev)
@@ -165,6 +168,7 @@ GIT
       social-share-button (~> 1.0)
     decidim-surveys (0.16.0.dev)
       decidim-core (= 0.16.0.dev)
+      decidim-forms (= 0.16.0.dev)
     decidim-system (0.16.0.dev)
       active_link_to (~> 1.0)
       decidim-core (= 0.16.0.dev)

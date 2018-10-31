@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_075806) do
+ActiveRecord::Schema.define(version: 2018_10_31_081362) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -394,6 +394,61 @@ ActiveRecord::Schema.define(version: 2018_10_31_075806) do
     t.datetime "updated_at", null: false
     t.index ["decidim_user_id", "decidim_followable_id", "decidim_followable_type"], name: "index_uniq_on_follows_user_and_followable", unique: true
     t.index ["decidim_user_id"], name: "index_decidim_follows_on_decidim_user_id"
+  end
+
+  create_table "decidim_forms_answer_choices", force: :cascade do |t|
+    t.bigint "decidim_answer_id"
+    t.bigint "decidim_answer_option_id"
+    t.integer "position"
+    t.jsonb "body"
+    t.text "custom_body"
+    t.index ["decidim_answer_id"], name: "index_decidim_forms_answer_choices_answer_id"
+    t.index ["decidim_answer_option_id"], name: "index_decidim_forms_answer_choices_answer_option_id"
+  end
+
+  create_table "decidim_forms_answer_options", force: :cascade do |t|
+    t.bigint "decidim_question_id"
+    t.jsonb "body"
+    t.boolean "free_text"
+    t.index ["decidim_question_id"], name: "index_decidim_forms_answer_options_question_id"
+  end
+
+  create_table "decidim_forms_answers", id: :serial, force: :cascade do |t|
+    t.text "body"
+    t.integer "decidim_user_id"
+    t.integer "decidim_questionnaire_id"
+    t.integer "decidim_question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_question_id"], name: "index_decidim_forms_answers_question_id"
+    t.index ["decidim_questionnaire_id"], name: "index_decidim_forms_answers_on_decidim_questionnaire_id"
+    t.index ["decidim_user_id"], name: "index_decidim_forms_answers_on_decidim_user_id"
+  end
+
+  create_table "decidim_forms_questionnaires", id: :serial, force: :cascade do |t|
+    t.jsonb "title"
+    t.jsonb "description"
+    t.jsonb "tos"
+    t.string "questionnaire_for_type"
+    t.integer "questionnaire_for_id"
+    t.datetime "published_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["questionnaire_for_type", "questionnaire_for_id"], name: "index_decidim_forms_questionnaires_questionnaire_for"
+  end
+
+  create_table "decidim_forms_questions", id: :serial, force: :cascade do |t|
+    t.integer "decidim_questionnaire_id"
+    t.integer "position"
+    t.string "question_type"
+    t.boolean "mandatory"
+    t.jsonb "body"
+    t.jsonb "description"
+    t.integer "max_choices"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_questionnaire_id"], name: "index_decidim_forms_questions_on_decidim_questionnaire_id"
+    t.index ["position"], name: "index_decidim_forms_questions_on_position"
   end
 
   create_table "decidim_gamification_badge_scores", force: :cascade do |t|
