@@ -4,8 +4,8 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-gem "decidim", git: "https://github.com/decidim/decidim", branch: "master"
-gem "decidim-dev", git: "https://github.com/decidim/decidim", branch: "master"
+gem "decidim", git: "https://github.com/decidim/decidim", branch: "feature/split-merge-proposals-to-same-component"
+gem "decidim-dev", git: "https://github.com/decidim/decidim", branch: "feature/split-merge-proposals-to-same-component"
 
 gem "uglifier", ">= 1.3.0"
 
