@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 6418dbd24c88428b05a3362b05392116bcf0a8b2
-  branch: feature/split-merge-proposals-to-same-component
+  revision: be499657c61ac90263a5cff66a4d1cdab759d568
+  branch: fix_data_portability_images
   specs:
     decidim (0.16.0.dev)
       decidim-accountability (= 0.16.0.dev)
@@ -291,7 +291,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.0.5)
+    concurrent-ruby (1.1.1)
     connection_pool (2.2.2)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -535,7 +535,7 @@ GEM
       premailer (~> 1.7, >= 1.7.9)
     public_suffix (3.0.3)
     puma (3.12.0)
-    rack (2.0.5)
+    rack (2.0.6)
     rack-attack (5.4.2)
       rack (>= 1.0, < 3)
     rack-cors (1.0.2)
