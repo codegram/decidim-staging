@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_081362) do
+ActiveRecord::Schema.define(version: 2018_11_13_090549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -340,6 +340,8 @@ ActiveRecord::Schema.define(version: 2018_10_31_081362) do
     t.jsonb "permissions"
     t.datetime "published_at"
     t.string "participatory_space_type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_components_on_decidim_participatory_space"
   end
 
@@ -555,6 +557,7 @@ ActiveRecord::Schema.define(version: 2018_10_31_081362) do
     t.boolean "private_meeting", default: false
     t.boolean "transparent", default: true
     t.bigint "organizer_id"
+    t.boolean "registration_form_enabled", default: false
     t.index ["decidim_author_id"], name: "index_decidim_meetings_meetings_on_decidim_author_id"
     t.index ["decidim_component_id"], name: "index_decidim_meetings_meetings_on_decidim_component_id"
     t.index ["decidim_scope_id"], name: "index_decidim_meetings_meetings_on_decidim_scope_id"
@@ -716,6 +719,10 @@ ActiveRecord::Schema.define(version: 2018_10_31_081362) do
     t.string "highlighted_content_banner_image"
     t.datetime "tos_version"
     t.boolean "badges_enabled", default: false, null: false
+    t.boolean "send_welcome_notification", default: false, null: false
+    t.jsonb "welcome_notification_subject"
+    t.jsonb "welcome_notification_body"
+    t.integer "users_registration_mode", default: 0, null: false
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
@@ -877,7 +884,7 @@ ActiveRecord::Schema.define(version: 2018_10_31_081362) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "decidim_author_type", null: false
-    t.index "decidim_proposal_id, decidim_author_id, COALESCE(decidim_user_group_id, ('-1'::integer)::bigint)", name: "decidim_proposals_proposal_endorsmt_proposal_auth_ugroup_uniq", unique: true
+    t.index "decidim_proposal_id, decidim_author_id, (COALESCE(decidim_user_group_id, ('-1'::integer)::bigint))", name: "decidim_proposals_proposal_endorsmt_proposal_auth_ugroup_uniq", unique: true
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_proposals_proposal_endorsements_on_decidim_author"
     t.index ["decidim_proposal_id"], name: "decidim_proposals_proposal_endorsement_proposal"
     t.index ["decidim_user_group_id"], name: "decidim_proposals_proposal_endorsement_user_group"
@@ -926,6 +933,7 @@ ActiveRecord::Schema.define(version: 2018_10_31_081362) do
     t.integer "coauthorships_count", default: 0, null: false
     t.string "participatory_text_level"
     t.integer "position"
+    t.boolean "created_in_meeting", default: false
     t.index ["body"], name: "decidim_proposals_proposal_body_search"
     t.index ["created_at"], name: "index_decidim_proposals_proposals_on_created_at"
     t.index ["decidim_component_id"], name: "index_decidim_proposals_proposals_on_decidim_component_id"
