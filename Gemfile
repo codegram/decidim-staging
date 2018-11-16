@@ -11,6 +11,8 @@ gem "uglifier", ">= 1.3.0"
 
 gem "faker", "~> 1.8.4"
 
+gem "puma"
+
 group :development, :test do
   gem "byebug", platform: :mri
 end
@@ -24,7 +26,6 @@ group :development do
 end
 
 group :production do
-  gem "passenger"
   gem "fog-aws"
   gem "dalli"
   gem "sendgrid-ruby"
