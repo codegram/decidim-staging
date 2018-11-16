@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_13_090549) do
+ActiveRecord::Schema.define(version: 2018_11_16_131627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -358,6 +358,13 @@ ActiveRecord::Schema.define(version: 2018_11_13_090549) do
     t.index ["manifest_name"], name: "index_decidim_content_blocks_on_manifest_name"
     t.index ["published_at"], name: "index_decidim_content_blocks_on_published_at"
     t.index ["scope"], name: "index_decidim_content_blocks_on_scope"
+  end
+
+  create_table "decidim_contextual_help_sections", force: :cascade do |t|
+    t.string "section_id", null: false
+    t.bigint "organization_id", null: false
+    t.jsonb "content", null: false
+    t.index ["organization_id"], name: "index_decidim_contextual_help_sections_on_organization_id"
   end
 
   create_table "decidim_continuity_badge_statuses", force: :cascade do |t|
@@ -884,7 +891,7 @@ ActiveRecord::Schema.define(version: 2018_11_13_090549) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "decidim_author_type", null: false
-    t.index "decidim_proposal_id, decidim_author_id, (COALESCE(decidim_user_group_id, ('-1'::integer)::bigint))", name: "decidim_proposals_proposal_endorsmt_proposal_auth_ugroup_uniq", unique: true
+    t.index "decidim_proposal_id, decidim_author_id, COALESCE(decidim_user_group_id, ('-1'::integer)::bigint)", name: "decidim_proposals_proposal_endorsmt_proposal_auth_ugroup_uniq", unique: true
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_proposals_proposal_endorsements_on_decidim_author"
     t.index ["decidim_proposal_id"], name: "decidim_proposals_proposal_endorsement_proposal"
     t.index ["decidim_user_group_id"], name: "decidim_proposals_proposal_endorsement_user_group"
@@ -1192,6 +1199,9 @@ ActiveRecord::Schema.define(version: 2018_11_13_090549) do
     t.datetime "newsletter_notifications_at"
     t.string "type", null: false
     t.jsonb "extended_data", default: {}
+    t.integer "following_count", default: 0, null: false
+    t.integer "following_users_count", default: 0, null: false
+    t.integer "followers_count", default: 0, null: false
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["email", "decidim_organization_id"], name: "index_decidim_users_on_email_and_decidim_organization_id", unique: true, where: "((deleted_at IS NULL) AND (managed = false) AND ((type)::text = 'Decidim::User'::text))"
