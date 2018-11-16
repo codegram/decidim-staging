@@ -45,6 +45,12 @@ Decidim.configure do |config|
   if ENV["HEROKU_APP_NAME"].present?
     config.base_uploads_path = ENV["HEROKU_APP_NAME"] + "/"
   end
+
+  config.etherpad = {
+    server: Rails.application.secrets.etherpad[:server],
+    api_key: Rails.application.secrets.etherpad[:api_key],
+    api_version: Rails.application.api_versions.etherpad[:api_version]
+  }
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
