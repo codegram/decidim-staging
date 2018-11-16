@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 34687c17f02f6c1c1268d9cdfd94b3f0ed5dfa60
+  revision: 1b846fa976ef42399c0a39a8b2669d5191634eb1
   branch: feature/etherpad-integration
   specs:
     decidim (0.16.0.dev)
