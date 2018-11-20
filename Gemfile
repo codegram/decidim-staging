@@ -4,8 +4,8 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-gem "decidim", git: "https://github.com/decidim/decidim", branch: "feature/etherpad-integration"
-gem "decidim-dev", git: "https://github.com/decidim/decidim", branch: "feature/etherpad-integration"
+gem "decidim", git: "https://github.com/decidim/decidim"
+gem "decidim-dev", git: "https://github.com/decidim/decidim"
 
 gem "uglifier", ">= 1.3.0"
 
