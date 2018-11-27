@@ -12,6 +12,8 @@ if Rails.application.secrets.aws_access_key_id.present?
   require "carrierwave/storage/fog"
 
   CarrierWave.configure do |config|
+    config.root = Rails.root.join('tmp')
+    config.cache_dir = 'carrierwave'
     config.storage = :fog
     config.fog_provider = 'fog/aws'                                             # required
     config.fog_credentials = {
