@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_21_152330) do
+ActiveRecord::Schema.define(version: 2018_11_30_133940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -81,6 +81,21 @@ ActiveRecord::Schema.define(version: 2018_11_21_152330) do
     t.index ["participatory_space_type", "participatory_space_id"], name: "index_action_logs_on_space_type_and_id"
     t.index ["resource_type", "resource_id"], name: "index_action_logs_on_resource_type_and_id"
     t.index ["visibility"], name: "index_decidim_action_logs_on_visibility"
+  end
+
+  create_table "decidim_amendments", force: :cascade do |t|
+    t.bigint "decidim_user_id", null: false
+    t.string "decidim_amendable_type"
+    t.bigint "decidim_amendable_id"
+    t.string "decidim_emendation_type"
+    t.bigint "decidim_emendation_id"
+    t.string "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_amendable_id", "decidim_amendable_type"], name: "index_on_amendable"
+    t.index ["decidim_user_id", "decidim_amendable_id", "decidim_amendable_type"], name: "index_on_amender_and_amendable"
+    t.index ["decidim_user_id"], name: "index_decidim_amendments_on_decidim_user_id"
+    t.index ["state"], name: "index_decidim_amendments_on_state"
   end
 
   create_table "decidim_area_types", force: :cascade do |t|
@@ -730,6 +745,8 @@ ActiveRecord::Schema.define(version: 2018_11_21_152330) do
     t.jsonb "welcome_notification_subject"
     t.jsonb "welcome_notification_body"
     t.integer "users_registration_mode", default: 0, null: false
+    t.string "id_documents_methods", default: ["online"], array: true
+    t.jsonb "id_documents_explanation_text", default: {}
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
