@@ -1,1 +1,0 @@
-bundle update decidim decidim-dev decidim-conferences decidim-consultations decidim-initiatives && rake decidim:upgrade && rake db:migrate
