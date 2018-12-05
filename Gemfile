@@ -4,9 +4,11 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-gem "decidim", git: "https://github.com/decidim/decidim", branch: "master"
-gem "decidim-dev", git: "https://github.com/decidim/decidim", branch: "master"
-gem "decidim-initiatives", git: "https://github.com/decidim/decidim", branch: "master"
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "remove-current-feature" }
+
+gem "decidim", DECIDIM_VERSION
+gem "decidim-dev", DECIDIM_VERSION
+gem "decidim-initiatives", DECIDIM_VERSION
 gem "ransack", git: 'https://github.com/activerecord-hackery/ransack', branch: '8daa87a0389d380f7c9fd7ea9cb5bda634d5dc7d'
 
 gem "uglifier", ">= 1.3.0"

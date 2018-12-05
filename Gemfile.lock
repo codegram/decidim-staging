@@ -11,8 +11,8 @@ GIT
 
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 4f26ff7d581d102a192d4cb881417207d1d5e4d0
-  branch: master
+  revision: a738999a3f684e31d5b34079deaed6d56f4aab94
+  branch: remove-current-feature
   specs:
     decidim (0.16.0.dev)
       decidim-accountability (= 0.16.0.dev)
