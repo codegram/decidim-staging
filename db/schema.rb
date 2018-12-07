@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_05_110164) do
+ActiveRecord::Schema.define(version: 2018_12_07_113832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -270,7 +270,7 @@ ActiveRecord::Schema.define(version: 2018_12_05_110164) do
   create_table "decidim_budgets_projects", id: :serial, force: :cascade do |t|
     t.jsonb "title"
     t.jsonb "description"
-    t.integer "budget", null: false
+    t.bigint "budget", null: false
     t.integer "decidim_component_id"
     t.integer "decidim_scope_id"
     t.datetime "created_at", null: false
