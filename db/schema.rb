@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_11_120831) do
+ActiveRecord::Schema.define(version: 2018_12_17_133961) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -74,6 +74,8 @@ ActiveRecord::Schema.define(version: 2018_12_11_120831) do
     t.datetime "updated_at", null: false
     t.integer "version_id"
     t.string "visibility", default: "admin-only"
+    t.integer "decidim_scope_id"
+    t.integer "decidim_area_id"
     t.index ["created_at"], name: "index_decidim_action_logs_on_created_at"
     t.index ["decidim_component_id"], name: "index_action_logs_on_component_id"
     t.index ["decidim_organization_id"], name: "index_action_logs_on_organization_id"
@@ -675,6 +677,7 @@ ActiveRecord::Schema.define(version: 2018_12_11_120831) do
     t.datetime "second_progress_notification_at"
     t.integer "offline_votes"
     t.string "decidim_author_type", null: false
+    t.string "reference"
     t.index "md5((description)::text)", name: "decidim_initiatives_description_search"
     t.index ["answered_at"], name: "index_decidim_initiatives_on_answered_at"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_initiatives_on_decidim_author"
@@ -1429,6 +1432,7 @@ ActiveRecord::Schema.define(version: 2018_12_11_120831) do
     t.jsonb "extended_data", default: {}
     t.integer "following_count", default: 0, null: false
     t.integer "followers_count", default: 0, null: false
+    t.string "notification_types", default: "all", null: false
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["email", "decidim_organization_id"], name: "index_decidim_users_on_email_and_decidim_organization_id", unique: true, where: "((deleted_at IS NULL) AND (managed = false) AND ((type)::text = 'Decidim::User'::text))"
