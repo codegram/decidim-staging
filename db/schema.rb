@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_17_133961) do
+ActiveRecord::Schema.define(version: 2019_01_28_104628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -714,6 +714,8 @@ ActiveRecord::Schema.define(version: 2018_12_17_133961) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "banner_image"
+    t.boolean "online_signature_enabled", default: true, null: false
+    t.integer "minimum_committee_members"
     t.index ["decidim_organization_id"], name: "index_decidim_initiative_types_on_decidim_organization_id"
   end
 
@@ -959,6 +961,7 @@ ActiveRecord::Schema.define(version: 2018_12_17_133961) do
     t.integer "users_registration_mode", default: 0, null: false
     t.string "id_documents_methods", default: ["online"], array: true
     t.jsonb "id_documents_explanation_text", default: {}
+    t.boolean "user_groups_enabled", default: false, null: false
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
