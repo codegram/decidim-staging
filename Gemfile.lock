@@ -512,7 +512,7 @@ GEM
     mustache (1.1.0)
     mustermann (1.0.3)
     netrc (0.11.0)
-    newrelic_rpm (5.4.0.347)
+    newrelic_rpm (6.4.0.356)
     nio4r (2.3.1)
     nobspw (0.4.0)
     nokogiri (1.10.3)
