@@ -690,7 +690,7 @@ GEM
       sprockets (> 2.11)
       sprockets-rails
       tilt
-    scout_apm (2.4.20)
+    scout_apm (2.4.24)
     searchlight (4.1.0)
     selenium-webdriver (3.142.3)
       childprocess (>= 0.5, < 2.0)
