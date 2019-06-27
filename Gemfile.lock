@@ -518,7 +518,7 @@ GEM
     multipart-post (2.1.1)
     mustache (1.1.0)
     netrc (0.11.0)
-    newrelic_rpm (6.4.0.356)
+    newrelic_rpm (6.5.0.357)
     nio4r (2.3.1)
     nobspw (0.6.1)
     nokogiri (1.10.3)
