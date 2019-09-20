@@ -15,7 +15,7 @@ gem "uglifier", ">= 1.3.0"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
 
-gem "faker", "~> 1.9.6"
+gem "faker", "~> 2.4.0"
 
 gem "puma"
 
