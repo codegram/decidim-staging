@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_23_084203) do
+ActiveRecord::Schema.define(version: 2019_09_26_153539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -722,6 +722,7 @@ ActiveRecord::Schema.define(version: 2019_09_23_084203) do
     t.boolean "validate_sms_code_on_votes", default: false
     t.string "document_number_authorization_handler"
     t.boolean "undo_online_signatures_enabled", default: true, null: false
+    t.boolean "promoting_committee_enabled", default: true, null: false
     t.index ["decidim_organization_id"], name: "index_decidim_initiative_types_on_decidim_organization_id"
   end
 
