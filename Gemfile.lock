@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 13fdf4e33a970b9e3ee3f8dcd7b7beb629ab3a88
+  revision: 60c16e47ca339c645c611712590f16c5ba6c6ac1
   branch: initiatives-ux-improvements
   specs:
     decidim (0.19.0.dev)
