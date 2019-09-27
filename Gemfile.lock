@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 60c16e47ca339c645c611712590f16c5ba6c6ac1
+  revision: 6dad27cc42182151b1e729b7dc06678d78386a05
   branch: initiatives-ux-improvements
   specs:
     decidim (0.19.0.dev)
@@ -676,8 +676,8 @@ GEM
     rubocop-rails (2.0.1)
       rack (>= 1.1)
       rubocop (>= 0.70.0)
-    rubocop-rspec (1.35.0)
-      rubocop (>= 0.60.0)
+    rubocop-rspec (1.36.0)
+      rubocop (>= 0.68.1)
     ruby-ole (1.2.12.2)
     ruby-progressbar (1.10.1)
     ruby_dep (1.5.0)
