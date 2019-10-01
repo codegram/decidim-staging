@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: a0aea9e149477f26366bfc9be7af39ddb35fee81
+  revision: ad58f9683721b062a4f7ac301f348f3ff3d6cf8e
   branch: initiatives-ux-improvements
   specs:
     decidim (0.19.0.dev)
@@ -377,7 +377,7 @@ GEM
       railties (>= 3.0.0)
     faker (1.9.6)
       i18n (>= 0.7)
-    faraday (0.15.4)
+    faraday (0.16.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.25)
     file_validators (2.3.0)
@@ -520,8 +520,8 @@ GEM
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     oauth (0.5.4)
-    oauth2 (1.4.1)
-      faraday (>= 0.8, < 0.16.0)
+    oauth2 (1.4.2)
+      faraday (>= 0.8, < 2.0)
       jwt (>= 1.0, < 3.0)
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
@@ -697,9 +697,9 @@ GEM
       tilt
     scout_apm (2.5.1)
     searchlight (4.1.0)
-    selenium-webdriver (3.142.4)
+    selenium-webdriver (3.142.5)
       childprocess (>= 0.5, < 3.0)
-      rubyzip (~> 1.2, >= 1.2.2)
+      rubyzip (>= 1.2.2)
     sendgrid-ruby (6.0.0)
       ruby_http_client (~> 3.3.0)
     sentry-raven (2.9.0)
