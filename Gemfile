@@ -12,7 +12,7 @@ gem "decidim-initiatives", DECIDIM_VERSION
 gem "ransack", "~> 2.1.1"
 
 gem "uglifier", ">= 1.3.0"
-gem "sprockets", "~> 3.7.2"
+gem "sprockets", "~> 4.0.0"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
 
