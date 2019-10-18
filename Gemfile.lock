@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 126be32442cdb686c8f9a428ed103cbf3eff8223
+  revision: b781044c484253c44618ab89535024478d73692c
   branch: initiatives-ux-improvements
   specs:
     decidim (0.19.0.dev)
@@ -318,7 +318,7 @@ GEM
     connection_pool (2.2.2)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
-    crass (1.0.4)
+    crass (1.0.5)
     css_parser (1.7.0)
       addressable
     dalli (2.7.10)
@@ -783,7 +783,7 @@ GEM
       railties (>= 3.0.7)
     wicked_pdf (1.4.0)
       activesupport
-    wisper (2.0.0)
+    wisper (2.0.1)
     wisper-rspec (1.1.0)
     wkhtmltopdf-binary (0.12.4)
     xpath (3.2.0)
