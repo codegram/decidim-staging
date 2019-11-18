@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_16_162844) do
+ActiveRecord::Schema.define(version: 2019_11_18_141432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -671,18 +671,17 @@ ActiveRecord::Schema.define(version: 2019_11_16_162844) do
     t.jsonb "answer"
     t.datetime "answered_at"
     t.string "answer_url"
-    t.integer "initiative_votes_count", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "decidim_user_group_id"
     t.string "hashtag"
-    t.integer "initiative_supports_count", default: 0, null: false
     t.integer "scoped_type_id"
     t.datetime "first_progress_notification_at"
     t.datetime "second_progress_notification_at"
-    t.integer "offline_votes"
     t.string "decidim_author_type", null: false
     t.string "reference"
+    t.jsonb "online_votes", default: {}
+    t.jsonb "offline_votes", default: {}
     t.index "md5((description)::text)", name: "decidim_initiatives_description_search"
     t.index ["answered_at"], name: "index_decidim_initiatives_on_answered_at"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_initiatives_on_decidim_author"
