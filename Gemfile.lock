@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 6c9d0d63a0694d69697e28cb64334a1f83fb7615
+  revision: 3ff005a0f70aee34992ae595048371f0ab088127
   branch: initiatives-signature-gauge
   specs:
     decidim (0.20.0.dev)
