@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "initiatives-signature-gauge" }
+DECIDIM_VERSION = { git: "https://github.com/codegram/decidim", branch: "staging" }
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-dev", DECIDIM_VERSION
