@@ -282,7 +282,7 @@ GEM
     bindex (0.5.0)
     browser (2.7.1)
     builder (3.2.4)
-    byebug (11.1.0)
+    byebug (11.1.1)
     capybara (3.30.0)
       addressable
       mini_mime (>= 0.1.3)
