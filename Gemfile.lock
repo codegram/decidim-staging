@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/codegram/decidim
-  revision: 643f65c0578ccc946ecddd31e085cff36766947b
+  revision: 50ad8e9e609d00d27fc67ed62111790c15bc9a00
   branch: staging
   specs:
     decidim (0.21.0.pre.dev)
@@ -282,7 +282,7 @@ GEM
     bindex (0.5.0)
     browser (2.7.1)
     builder (3.2.4)
-    byebug (11.1.0)
+    byebug (11.1.1)
     capybara (3.30.0)
       addressable
       mini_mime (>= 0.1.3)
