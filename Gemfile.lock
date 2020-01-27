@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/codegram/decidim
-  revision: c8fb5e7f4558924bc9b4d6274ab7c5995b588cc5
+  revision: 1d672eca97120b8e1e4722b62b10486dabc730c0
   branch: staging
   specs:
     decidim (0.21.0.pre.dev)
@@ -132,7 +132,7 @@ GIT
       i18n-tasks (~> 0.9.18)
       mdl (~> 0.5.0)
       nokogiri (>= 1.10.4)
-      puma (~> 3.12)
+      puma (>= 3.12)
       rails-controller-testing (~> 1.0)
       rspec-cells (~> 0.3.4)
       rspec-html-matchers (~> 0.9.1)
@@ -572,7 +572,8 @@ GEM
       actionmailer (>= 3)
       premailer (~> 1.7, >= 1.7.9)
     public_suffix (4.0.3)
-    puma (3.12.2)
+    puma (4.3.1)
+      nio4r (~> 2.0)
     rack (2.1.1)
     rack-attack (6.2.2)
       rack (>= 1.0, < 3)
