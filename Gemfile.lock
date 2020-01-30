@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/codegram/decidim
-  revision: ff08666fe9324a438e427e1a41f10901fc58d77e
+  revision: e91c6d21bbe8de4b4cefb0d0304d5574da7ee1ea
   branch: staging
   specs:
     decidim (0.21.0.pre.dev)
@@ -142,7 +142,7 @@ GIT
       rubocop-rails (~> 2.0)
       rubocop-rspec (~> 1.21)
       selenium-webdriver (~> 3.142)
-      simplecov (~> 0.16)
+      simplecov (~> 0.17.1)
       system_test_html_screenshots (~> 0.1.1)
       webmock (~> 3.6)
       wisper-rspec (~> 1.0)
@@ -458,6 +458,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-tmpl-rails (1.1.0)
       rails (>= 3.1.0)
+    json (2.3.0)
     jwt (2.2.1)
     kaminari (1.2.0)
       activesupport (>= 4.1.0)
@@ -715,10 +716,11 @@ GEM
       rack (>= 1.5.0)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.5, < 5)
-    simplecov (0.18.0)
+    simplecov (0.17.1)
       docile (~> 1.1)
-      simplecov-html (~> 0.11.0)
-    simplecov-html (0.11.0)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.2)
     smart_properties (1.15.0)
     social-share-button (1.2.1)
       coffee-rails
