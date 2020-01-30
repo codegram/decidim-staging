@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/codegram/decidim
-  revision: 7f2300812aa3aa03334a2ab5f2e7466c991c5d25
+  revision: ff08666fe9324a438e427e1a41f10901fc58d77e
   branch: staging
   specs:
     decidim (0.21.0.pre.dev)
@@ -459,18 +459,18 @@ GEM
     jquery-tmpl-rails (1.1.0)
       rails (>= 3.1.0)
     jwt (2.2.1)
-    kaminari (1.1.1)
+    kaminari (1.2.0)
       activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.1.1)
-      kaminari-activerecord (= 1.1.1)
-      kaminari-core (= 1.1.1)
-    kaminari-actionview (1.1.1)
+      kaminari-actionview (= 1.2.0)
+      kaminari-activerecord (= 1.2.0)
+      kaminari-core (= 1.2.0)
+    kaminari-actionview (1.2.0)
       actionview
-      kaminari-core (= 1.1.1)
-    kaminari-activerecord (1.1.1)
+      kaminari-core (= 1.2.0)
+    kaminari-activerecord (1.2.0)
       activerecord
-      kaminari-core (= 1.1.1)
-    kaminari-core (1.1.1)
+      kaminari-core (= 1.2.0)
+    kaminari-core (1.2.0)
     kramdown (1.17.0)
     launchy (2.4.3)
       addressable (~> 2.3)
