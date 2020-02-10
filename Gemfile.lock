@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/codegram/decidim
-  revision: e82458eb475bd7c1d4d726917959eee21ba6200b
+  revision: dbe1a9ecc3eef890d04fdfc62fbe8fc42cac285f
   branch: staging
   specs:
     decidim (0.21.0.pre.dev)
@@ -357,7 +357,7 @@ GEM
     docile (1.3.2)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    doorkeeper (5.3.0)
+    doorkeeper (5.3.1)
       railties (>= 5)
     doorkeeper-i18n (4.0.1)
     equalizer (0.0.11)
@@ -575,7 +575,7 @@ GEM
     public_suffix (4.0.3)
     puma (4.3.1)
       nio4r (~> 2.0)
-    rack (2.1.2)
+    rack (2.2.1)
     rack-attack (6.2.2)
       rack (>= 1.0, < 3)
     rack-cors (1.1.1)
@@ -793,7 +793,7 @@ GEM
       activesupport
     wisper (2.0.1)
     wisper-rspec (1.1.0)
-    wkhtmltopdf-binary (0.12.5.1)
+    wkhtmltopdf-binary (0.12.5.4)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
