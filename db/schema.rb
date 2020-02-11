@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_10_115421) do
+ActiveRecord::Schema.define(version: 2020_02_11_150202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1204,6 +1204,9 @@ ActiveRecord::Schema.define(version: 2020_02_10_115421) do
     t.string "participatory_text_level"
     t.integer "position"
     t.boolean "created_in_meeting", default: false
+    t.decimal "cost"
+    t.jsonb "cost_report"
+    t.jsonb "execution_period"
     t.index "md5(body)", name: "decidim_proposals_proposal_body_search"
     t.index "md5(title)", name: "decidim_proposals_proposal_title_search"
     t.index ["created_at"], name: "index_decidim_proposals_proposals_on_created_at"
