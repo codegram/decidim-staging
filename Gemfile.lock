@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/codegram/decidim
-  revision: dbe1a9ecc3eef890d04fdfc62fbe8fc42cac285f
+  revision: c5e8e4a0de42b884ebbae4be5e90087b7d83fb7f
   branch: staging
   specs:
     decidim (0.21.0.pre.dev)
@@ -319,7 +319,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     colorize (0.8.1)
-    concurrent-ruby (1.1.5)
+    concurrent-ruby (1.1.6)
     connection_pool (2.2.2)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -522,7 +522,7 @@ GEM
     newrelic_rpm (6.5.0.357)
     nio4r (2.5.2)
     nobspw (0.6.1)
-    nokogiri (1.10.7)
+    nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
     oauth (0.5.4)
     oauth2 (1.4.3)
@@ -575,7 +575,7 @@ GEM
     public_suffix (4.0.3)
     puma (4.3.1)
       nio4r (~> 2.0)
-    rack (2.2.1)
+    rack (2.2.2)
     rack-attack (6.2.2)
       rack (>= 1.0, < 3)
     rack-cors (1.1.1)
@@ -683,7 +683,7 @@ GEM
     rubocop-rails (2.0.1)
       rack (>= 1.1)
       rubocop (>= 0.70.0)
-    rubocop-rspec (1.37.1)
+    rubocop-rspec (1.38.0)
       rubocop (>= 0.68.1)
     ruby-ole (1.2.12.2)
     ruby-progressbar (1.10.1)
