@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/codegram/decidim
-  revision: 9af6eb0e99c8ce7d6a4bcde169b751a7cd3c111d
+  revision: ea21472aafbfc4d502f819fa4f65fcc400f93bc3
   branch: staging
   specs:
     decidim (0.21.0.pre.dev)
@@ -525,7 +525,7 @@ GEM
     nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
     oauth (0.5.4)
-    oauth2 (1.4.3)
+    oauth2 (1.4.4)
       faraday (>= 0.8, < 2.0)
       jwt (>= 1.0, < 3.0)
       multi_json (~> 1.3)
@@ -780,7 +780,7 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webmock (3.8.1)
+    webmock (3.8.2)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
