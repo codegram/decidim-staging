@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/codegram/decidim
-  revision: b32b310179fe571469b86e6679ec4c0aa82ff89e
+  revision: d6dee77f0a74991ebd6aaef971505b775dff83bb
   branch: staging
   specs:
     decidim (0.21.0.pre.dev)
@@ -683,7 +683,7 @@ GEM
     rubocop-rails (2.0.1)
       rack (>= 1.1)
       rubocop (>= 0.70.0)
-    rubocop-rspec (1.38.0)
+    rubocop-rspec (1.38.1)
       rubocop (>= 0.68.1)
     ruby-ole (1.2.12.2)
     ruby-progressbar (1.10.1)
