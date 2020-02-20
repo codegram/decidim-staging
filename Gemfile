@@ -16,7 +16,7 @@ gem "sprockets", "~> 3.7.2"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
 
-gem "faker", "~> 1.9.6"
+gem "faker", "~> 2.10.2"
 
 gem "puma"
 
