@@ -684,7 +684,9 @@ ActiveRecord::Schema.define(version: 2020_02_20_171315) do
     t.string "decidim_author_type", null: false
     t.string "reference"
     t.jsonb "online_votes", default: {}
-    t.jsonb "offline_votes", default: {}
+    t.integer "initiative_supports_count"
+    t.integer "initiative_votes_count"
+    t.integer "offline_votes"
     t.index "md5((description)::text)", name: "decidim_initiatives_description_search"
     t.index ["answered_at"], name: "index_decidim_initiatives_on_answered_at"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_initiatives_on_decidim_author"
@@ -729,8 +731,6 @@ ActiveRecord::Schema.define(version: 2020_02_20_171315) do
     t.string "document_number_authorization_handler"
     t.boolean "undo_online_signatures_enabled", default: true, null: false
     t.boolean "promoting_committee_enabled", default: true, null: false
-    t.boolean "child_scope_threshold_enabled", default: false, null: false
-    t.boolean "only_global_scope_enabled", default: false, null: false
     t.index ["decidim_organization_id"], name: "index_decidim_initiative_types_on_decidim_organization_id"
   end
 
@@ -742,7 +742,7 @@ ActiveRecord::Schema.define(version: 2020_02_20_171315) do
     t.text "encrypted_metadata"
     t.string "timestamp"
     t.string "hash_id"
-    t.integer "decidim_scope_id"
+    t.integer "decidim_user_group_id"
     t.index ["decidim_author_id"], name: "index_decidim_initiatives_votes_on_decidim_author_id"
     t.index ["decidim_initiative_id"], name: "index_decidim_initiatives_votes_on_decidim_initiative_id"
   end
