@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/codegram/decidim
-  revision: 1997804e1e1006ad5fa54001758878ef5c8ba0da
+  revision: 6988e4e3749097f3e21d04e77c02aa5486b51d21
   branch: staging
   specs:
     decidim (0.22.0.dev)
@@ -422,7 +422,7 @@ GEM
       railties
       sprockets-rails
     graphql (1.10.3)
-    hashdiff (1.0.0)
+    hashdiff (1.0.1)
     hashie (3.6.0)
     highline (2.0.3)
     html_tokenizer (0.0.7)
@@ -573,7 +573,7 @@ GEM
       actionmailer (>= 3)
       premailer (~> 1.7, >= 1.7.9)
     public_suffix (4.0.3)
-    puma (4.3.1)
+    puma (4.3.2)
       nio4r (~> 2.0)
     rack (2.2.2)
     rack-attack (6.2.2)
