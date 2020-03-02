@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/codegram/decidim
-  revision: dd42b8b41c297a3d8f79e8137a215bfdf375e622
+  revision: 6f2aaa1916f952f109ee1d74e72d316fae83b6a0
   branch: staging
   specs:
     decidim (0.22.0.dev)
@@ -559,7 +559,7 @@ GEM
       activerecord (>= 4.2)
       request_store (~> 1.1)
     parallel (1.19.1)
-    parser (2.7.0.3)
+    parser (2.7.0.4)
       ast (~> 2.4.0)
     pg (1.1.4)
     pg_search (2.3.2)
