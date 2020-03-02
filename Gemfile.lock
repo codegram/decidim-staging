@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/codegram/decidim
-  revision: 6988e4e3749097f3e21d04e77c02aa5486b51d21
+  revision: 9fd0cfb5e5788d37485741f6d51489d68ea5ac4f
   branch: staging
   specs:
     decidim (0.22.0.dev)
@@ -522,7 +522,7 @@ GEM
     newrelic_rpm (6.5.0.357)
     nio4r (2.5.2)
     nobspw (0.6.1)
-    nokogiri (1.10.8)
+    nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     oauth (0.5.4)
     oauth2 (1.4.4)
