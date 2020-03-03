@@ -11,6 +11,3 @@ if ENV["HEROKU_APP_NAME"].present?
   ENV["SEED"] = "true"
 end
 Decidim.seed!
-Decidim::ActionLog.delete_all
-PaperTrail::Version.delete_all
-Decidim::Gamification::BadgeScore.delete_all
