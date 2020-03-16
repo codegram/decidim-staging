@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/codegram/decidim
-  revision: 4a95c6a09e40342783576f75ceffe6ebbb70bb42
+  revision: 70837f7cb6e6b02dec8b6c6914b9656c0e7655b3
   branch: staging
   specs:
     decidim (0.22.0.dev)
@@ -653,7 +653,7 @@ GEM
       rspec-rails (< 5.0)
     rspec-core (3.9.1)
       rspec-support (~> 3.9.1)
-    rspec-expectations (3.9.0)
+    rspec-expectations (3.9.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
     rspec-html-matchers (0.9.2)
