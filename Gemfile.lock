@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/codegram/decidim
-  revision: 46079a98363ddb164566f228d136fcd27d5cc267
+  revision: cccc4fce6f0da04cc907d81f797e895ca2ec1305
   branch: staging
   specs:
     decidim (0.22.0.dev)
@@ -148,6 +148,7 @@ GIT
       rspec-cells (~> 0.3.4)
       rspec-html-matchers (~> 0.9.1)
       rspec-rails (~> 3.7)
+      rspec-retry (~> 0.6.2)
       rspec_junit_formatter (~> 0.3.0)
       rubocop (~> 0.71.0)
       rubocop-rails (~> 2.0)
@@ -680,6 +681,8 @@ GEM
       rspec-expectations (~> 3.9.0)
       rspec-mocks (~> 3.9.0)
       rspec-support (~> 3.9.0)
+    rspec-retry (0.6.2)
+      rspec-core (> 3.3)
     rspec-support (3.9.2)
     rspec_junit_formatter (0.3.0)
       rspec-core (>= 2, < 4, != 2.12.0)
