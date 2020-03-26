@@ -1,6 +1,16 @@
 GIT
+  remote: https://github.com/agustibr/decidim-verifications-dummy_census
+  revision: b6d66f02af6ccc41785d7a14b4177903fc5a76eb
+  branch: master
+  specs:
+    decidim-verifications-dummy_census (0.0.1)
+      decidim-core (>= 0.20.0)
+      decidim-verifications (>= 0.20.0)
+      virtus-multiparams
+
+GIT
   remote: https://github.com/codegram/decidim
-  revision: 13c4545a036fd96816e76d234a5ac02dbbcd5933
+  revision: 46079a98363ddb164566f228d136fcd27d5cc267
   branch: staging
   specs:
     decidim (0.22.0.dev)
@@ -102,7 +112,7 @@ GIT
       premailer-rails (~> 1.10)
       rack (>= 2.0.8)
       rack-attack (~> 6.0)
-      rails (>= 5.2, < 6.0.x)
+      rails (>= 5.2.4.2, < 6.0.x)
       rails-i18n (~> 5.0)
       rectify (~> 0.13.0)
       redis (~> 4.1)
@@ -807,6 +817,7 @@ DEPENDENCIES
   decidim!
   decidim-dev!
   decidim-initiatives!
+  decidim-verifications-dummy_census!
   faker (~> 1.9.6)
   fog-aws
   letter_opener_web (~> 1.3.0)
