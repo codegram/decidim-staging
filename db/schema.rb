@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_26_145873) do
+ActiveRecord::Schema.define(version: 2020_03_27_113436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -389,16 +389,16 @@ ActiveRecord::Schema.define(version: 2020_03_26_145873) do
   create_table "decidim_content_blocks", force: :cascade do |t|
     t.integer "decidim_organization_id", null: false
     t.string "manifest_name", null: false
-    t.string "scope", null: false
+    t.string "scope_name", null: false
     t.jsonb "settings"
     t.datetime "published_at"
     t.integer "weight"
     t.jsonb "images", default: {}
-    t.index ["decidim_organization_id", "scope", "manifest_name"], name: "idx_dcdm_content_blocks_uniq_org_id_scope_manifest_name", unique: true
+    t.integer "scope_id"
     t.index ["decidim_organization_id"], name: "index_decidim_content_blocks_on_decidim_organization_id"
     t.index ["manifest_name"], name: "index_decidim_content_blocks_on_manifest_name"
     t.index ["published_at"], name: "index_decidim_content_blocks_on_published_at"
-    t.index ["scope"], name: "index_decidim_content_blocks_on_scope"
+    t.index ["scope_name"], name: "index_decidim_content_blocks_on_scope_name"
   end
 
   create_table "decidim_contextual_help_sections", force: :cascade do |t|
@@ -810,7 +810,6 @@ ActiveRecord::Schema.define(version: 2020_03_26_145873) do
 
   create_table "decidim_newsletters", id: :serial, force: :cascade do |t|
     t.jsonb "subject"
-    t.jsonb "body"
     t.integer "organization_id"
     t.integer "author_id"
     t.integer "total_recipients"
