@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/codegram/decidim
-  revision: b61ddc984b327e5a3afe52d8aab4cca9f264d3c2
+  revision: c67a4b3c3a07f4d635d2dd35ac6c8a71727754d9
   branch: staging
   specs:
     decidim (0.22.0.dev)
@@ -71,6 +71,15 @@ GIT
       decidim-core (= 0.22.0.dev)
       jquery-rails (~> 4.3)
       redcarpet (~> 3.4)
+    decidim-conferences (0.22.0.dev)
+      decidim-core (= 0.22.0.dev)
+      decidim-meetings (= 0.22.0.dev)
+      wicked_pdf (~> 1.4)
+      wkhtmltopdf-binary (~> 0.12)
+    decidim-consultations (0.22.0.dev)
+      decidim-admin (= 0.22.0.dev)
+      decidim-comments (= 0.22.0.dev)
+      decidim-core (= 0.22.0.dev)
     decidim-core (0.22.0.dev)
       active_link_to (~> 1.0)
       anchored (>= 1.1.0)
@@ -296,7 +305,7 @@ GEM
     browser (2.7.1)
     builder (3.2.4)
     byebug (11.1.1)
-    capybara (3.32.0)
+    capybara (3.32.1)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -433,7 +442,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.10.5)
+    graphql (1.10.6)
     hashdiff (1.0.1)
     hashie (4.1.0)
     highline (2.0.3)
@@ -570,7 +579,7 @@ GEM
       activerecord (>= 4.2)
       request_store (~> 1.1)
     parallel (1.19.1)
-    parser (2.7.0.5)
+    parser (2.7.1.0)
       ast (~> 2.4.0)
     pg (1.1.4)
     pg_search (2.3.2)
@@ -580,10 +589,10 @@ GEM
       addressable
       css_parser (>= 1.6.0)
       htmlentities (>= 4.0.0)
-    premailer-rails (1.11.0)
+    premailer-rails (1.11.1)
       actionmailer (>= 3)
       premailer (~> 1.7, >= 1.7.9)
-    public_suffix (4.0.3)
+    public_suffix (4.0.4)
     puma (4.3.3)
       nio4r (~> 2.0)
     rack (2.2.2)
@@ -768,7 +777,7 @@ GEM
     truncato (0.7.11)
       htmlentities (~> 4.3.1)
       nokogiri (>= 1.7.0, <= 2.0)
-    tzinfo (1.2.6)
+    tzinfo (1.2.7)
       thread_safe (~> 0.1)
     uber (0.1.0)
     uglifier (4.2.0)
@@ -818,6 +827,8 @@ DEPENDENCIES
   byebug
   dalli
   decidim!
+  decidim-conferences!
+  decidim-consultations!
   decidim-dev!
   decidim-initiatives!
   decidim-verifications-dummy_census!
