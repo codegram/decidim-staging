@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_27_113436) do
+ActiveRecord::Schema.define(version: 2020_04_13_165936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -383,6 +383,8 @@ ActiveRecord::Schema.define(version: 2020_03_27_113436) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "participatory_space_type", null: false
+    t.bigint "parent_id"
+    t.index ["parent_id"], name: "index_decidim_components_on_parent_id"
     t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_components_on_decidim_participatory_space"
   end
 
@@ -395,6 +397,7 @@ ActiveRecord::Schema.define(version: 2020_03_27_113436) do
     t.integer "weight"
     t.jsonb "images", default: {}
     t.integer "scope_id"
+    t.index ["decidim_organization_id", "scope_name", "scope_id", "manifest_name"], name: "idx_decidim_content_blocks_org_id_scope_scope_id_manifest"
     t.index ["decidim_organization_id"], name: "index_decidim_content_blocks_on_decidim_organization_id"
     t.index ["manifest_name"], name: "index_decidim_content_blocks_on_manifest_name"
     t.index ["published_at"], name: "index_decidim_content_blocks_on_published_at"
@@ -1384,6 +1387,7 @@ ActiveRecord::Schema.define(version: 2020_03_27_113436) do
     t.jsonb "officialized_as"
     t.datetime "admin_terms_accepted_at"
     t.string "direct_message_types", default: "all", null: false
+    t.string "session_token"
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["email", "decidim_organization_id"], name: "index_decidim_users_on_email_and_decidim_organization_id", unique: true, where: "((deleted_at IS NULL) AND (managed = false) AND ((type)::text = 'Decidim::User'::text))"
