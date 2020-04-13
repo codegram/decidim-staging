@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/codegram/decidim
-  revision: 8057f198446d71a1084925501a14192e025a44a2
+  revision: cf83eec28479b145651d6f8b3d48c1296cc16668
   branch: staging
   specs:
     decidim (0.22.0.dev)
@@ -71,6 +71,15 @@ GIT
       decidim-core (= 0.22.0.dev)
       jquery-rails (~> 4.3)
       redcarpet (~> 3.4)
+    decidim-conferences (0.22.0.dev)
+      decidim-core (= 0.22.0.dev)
+      decidim-meetings (= 0.22.0.dev)
+      wicked_pdf (~> 1.4)
+      wkhtmltopdf-binary (~> 0.12)
+    decidim-consultations (0.22.0.dev)
+      decidim-admin (= 0.22.0.dev)
+      decidim-comments (= 0.22.0.dev)
+      decidim-core (= 0.22.0.dev)
     decidim-core (0.22.0.dev)
       active_link_to (~> 1.0)
       anchored (>= 1.1.0)
@@ -818,6 +827,8 @@ DEPENDENCIES
   byebug
   dalli
   decidim!
+  decidim-conferences!
+  decidim-consultations!
   decidim-dev!
   decidim-initiatives!
   decidim-verifications-dummy_census!
