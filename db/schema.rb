@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_165936) do
+ActiveRecord::Schema.define(version: 2020_04_28_083031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -153,8 +153,6 @@ ActiveRecord::Schema.define(version: 2020_04_13_165936) do
     t.integer "children_count", default: 0
     t.jsonb "purpose_of_action"
     t.jsonb "composition"
-    t.string "assembly_type"
-    t.jsonb "assembly_type_other"
     t.date "creation_date"
     t.string "created_by"
     t.jsonb "created_by_other"
@@ -1287,7 +1285,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_165936) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "decidim_author_type", null: false
-    t.index "decidim_proposal_id, decidim_author_id, COALESCE(decidim_user_group_id, ('-1'::integer)::bigint)", name: "decidim_proposals_proposal_endorsmt_proposal_auth_ugroup_uniq", unique: true
+    t.index "decidim_proposal_id, decidim_author_id, (COALESCE(decidim_user_group_id, ('-1'::integer)::bigint))", name: "decidim_proposals_proposal_endorsmt_proposal_auth_ugroup_uniq", unique: true
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_proposals_proposal_endorsements_on_decidim_author"
     t.index ["decidim_proposal_id"], name: "decidim_proposals_proposal_endorsement_proposal"
     t.index ["decidim_user_group_id"], name: "decidim_proposals_proposal_endorsement_user_group"
