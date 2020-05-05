@@ -7,7 +7,7 @@ This is the open-source repository for decidim_staging, based on [Decidim](https
 ## Updating the app
 The app needs to be updated manually. Steps to update it:
 
-1. `bundle update decidim decidim-initiatives decidim-dev decidim-conferences decidim-consultations`
+1. `bundle update decidim decidim-initiatives decidim-dev decidim-conferences decidim-consultations decidim-elections`
 1. `bundle exec rake decidim:upgrade && bundle exec rails db:migrate`
 1. `git add --all && git commit -m "Update decidim to latest master"`
 1. `git push origin master`

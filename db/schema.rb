@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_28_083031) do
+ActiveRecord::Schema.define(version: 2020_05_05_085424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -665,6 +665,16 @@ ActiveRecord::Schema.define(version: 2020_04_28_083031) do
     t.index ["decidim_user_group_id"], name: "index_decidim_debates_debates_on_decidim_user_group_id"
   end
 
+  create_table "decidim_elections_elections", force: :cascade do |t|
+    t.jsonb "title"
+    t.jsonb "subtitle"
+    t.jsonb "description"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.bigint "decidim_component_id"
+    t.index ["decidim_component_id"], name: "index_decidim_elections_elections_on_decidim_component_id"
+  end
+
   create_table "decidim_endorsements", force: :cascade do |t|
     t.string "resource_type"
     t.bigint "resource_id"
@@ -1285,7 +1295,7 @@ ActiveRecord::Schema.define(version: 2020_04_28_083031) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "decidim_author_type", null: false
-    t.index "decidim_proposal_id, decidim_author_id, (COALESCE(decidim_user_group_id, ('-1'::integer)::bigint))", name: "decidim_proposals_proposal_endorsmt_proposal_auth_ugroup_uniq", unique: true
+    t.index "decidim_proposal_id, decidim_author_id, COALESCE(decidim_user_group_id, ('-1'::integer)::bigint)", name: "decidim_proposals_proposal_endorsmt_proposal_auth_ugroup_uniq", unique: true
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_proposals_proposal_endorsements_on_decidim_author"
     t.index ["decidim_proposal_id"], name: "decidim_proposals_proposal_endorsement_proposal"
     t.index ["decidim_user_group_id"], name: "decidim_proposals_proposal_endorsement_user_group"
