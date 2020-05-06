@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_05_085424) do
+ActiveRecord::Schema.define(version: 2020_05_06_141043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -175,6 +175,12 @@ ActiveRecord::Schema.define(version: 2020_05_05_085424) do
     t.index ["decidim_organization_id"], name: "index_decidim_assemblies_on_decidim_organization_id"
     t.index ["decidim_scope_id"], name: "index_decidim_assemblies_on_decidim_scope_id"
     t.index ["parent_id"], name: "decidim_assemblies_assemblies_on_parent_id"
+  end
+
+  create_table "decidim_assemblies_settings", force: :cascade do |t|
+    t.boolean "enable_organization_chart", default: true
+    t.bigint "decidim_organization_id"
+    t.index ["decidim_organization_id"], name: "index_decidim_assemblies_settings_on_decidim_organization_id"
   end
 
   create_table "decidim_assemblies_types", force: :cascade do |t|
@@ -1717,6 +1723,7 @@ ActiveRecord::Schema.define(version: 2020_05_05_085424) do
   add_foreign_key "decidim_areas", "decidim_area_types", column: "area_type_id"
   add_foreign_key "decidim_areas", "decidim_organizations"
   add_foreign_key "decidim_assemblies", "decidim_assemblies_types"
+  add_foreign_key "decidim_assemblies_settings", "decidim_organizations"
   add_foreign_key "decidim_attachments", "decidim_attachment_collections", column: "attachment_collection_id", name: "fk_decidim_attachments_attachment_collection_id", on_delete: :nullify
   add_foreign_key "decidim_authorizations", "decidim_users"
   add_foreign_key "decidim_categorizations", "decidim_categories"
