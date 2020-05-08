@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_06_141043) do
+ActiveRecord::Schema.define(version: 2020_05_08_182003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -712,6 +712,7 @@ ActiveRecord::Schema.define(version: 2020_05_06_141043) do
     t.integer "position"
     t.jsonb "body"
     t.text "custom_body"
+    t.integer "decidim_question_matrix_row_id"
     t.index ["decidim_answer_id"], name: "index_decidim_forms_answer_choices_answer_id"
     t.index ["decidim_answer_option_id"], name: "index_decidim_forms_answer_choices_answer_option_id"
   end
@@ -737,6 +738,14 @@ ActiveRecord::Schema.define(version: 2020_05_06_141043) do
     t.index ["decidim_user_id"], name: "index_decidim_forms_answers_on_decidim_user_id"
     t.index ["ip_hash"], name: "index_decidim_forms_answers_on_ip_hash"
     t.index ["session_token"], name: "index_decidim_forms_answers_on_session_token"
+  end
+
+  create_table "decidim_forms_question_matrix_rows", force: :cascade do |t|
+    t.bigint "decidim_question_id"
+    t.integer "position"
+    t.jsonb "body"
+    t.index ["decidim_question_id"], name: "index_decidim_forms_question_matrix_questionnaire_id"
+    t.index ["position"], name: "index_decidim_forms_question_matrix_rows_on_position"
   end
 
   create_table "decidim_forms_questionnaires", id: :serial, force: :cascade do |t|
