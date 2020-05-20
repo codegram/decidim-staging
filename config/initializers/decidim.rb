@@ -132,13 +132,4 @@ end
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
 
-module Decidim::Budgets::Groups
-  def self.workflows
-    @workflows = {
-      pam2020: DecidimStaging::BudgetsGroupsWorkflowPam2020,
-      one: Decidim::Budgets::Groups::Workflows::One,
-      random: Decidim::Budgets::Groups::Workflows::Random,
-      all: Decidim::Budgets::Groups::Workflows::All
-    }
-  end
-end
+Decidim::Budgets::Groups.workflows[:pam20202] = DecidimStaging::BudgetsGroupsWorkflowPam2020

@@ -7,7 +7,9 @@ module DecidimStaging
 
     # The budget component in the user's scope is highlighted.
     def highlighted?(component)
-      component == user_scope_component unless voted?(user_scope_component)
+      return unless user_scope_component && !voted?(user_scope_component)
+
+      component == user_scope_component
     end
 
     # Can vote in the budget component in the user's scope
@@ -15,10 +17,10 @@ module DecidimStaging
     def vote_allowed?(component, consider_progress = true)
       return true if component == user_scope_component
 
-      extra_components = voted
-      extra_components + progress if consider_progress
+      components_with_order = voted
+      components_with_order + progress if consider_progress
 
-      (extra_components.uniq - [user_scope_component, component]).empty?
+      (components_with_order - [user_scope_component, component]).empty?
     end
 
     # The user can change of mind and change the vote on these budget components
@@ -46,14 +48,6 @@ module DecidimStaging
 
       @user_scope_component ||= budgets.each do |component|
         return component if component.scope == user_authorization_scope
-      end
-    end
-
-    # the user can vote on one of these out of its scope
-    # Returns Array (of Components)
-    def user_out_scope_components
-      @user_out_scope_components ||= budgets.reject do |component|
-        component == user_scope_component
       end
     end
 
