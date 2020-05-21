@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/codegram/decidim
-  revision: 2dd69c629a9ce79b5ecffad888827cdec03d4a55
+  revision: 67269b08d1a3a71a2c7e4b685e5eafbbf8e6eff2
   branch: staging
   specs:
     decidim (0.22.0.dev)
@@ -444,7 +444,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.10.9)
+    graphql (1.10.10)
     hashdiff (1.0.1)
     hashie (4.1.0)
     highline (2.0.3)
@@ -598,7 +598,7 @@ GEM
     puma (4.3.5)
       nio4r (~> 2.0)
     rack (2.2.2)
-    rack-attack (6.3.0)
+    rack-attack (6.3.1)
       rack (>= 1.0, < 3)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
