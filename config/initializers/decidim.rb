@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require "decidim_staging/budgets_groups_workflow_pam2020"
 
 Decidim.configure do |config|
   config.application_name = "Decidim Codegram Staging"
@@ -130,3 +131,5 @@ end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
+
+Decidim::Budgets::Groups.workflows[:pam20202] = DecidimStaging::BudgetsGroupsWorkflowPam2020
