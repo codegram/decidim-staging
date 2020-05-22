@@ -18,7 +18,7 @@ module DecidimStaging
       return true if component == user_scope_component
 
       components_with_order = voted
-      components_with_order + progress if consider_progress
+      components_with_order += progress if consider_progress
 
       (components_with_order - [user_scope_component, component]).empty?
     end
