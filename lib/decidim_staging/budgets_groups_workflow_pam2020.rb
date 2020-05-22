@@ -30,6 +30,13 @@ module DecidimStaging
       (voted + progress) - [user_scope_component]
     end
 
+    # The user can vote on maximum 2 components
+    #
+    # Returns Boolean.
+    def limit_reached?
+      (voted + progress).count < 3
+    end
+
     private
 
     # Returns Object (Authorization).
