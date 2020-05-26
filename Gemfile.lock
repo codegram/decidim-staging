@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/codegram/decidim
-  revision: dc554c55ffcd0c46582fcd1be21c8d73c18d9740
+  revision: 278c1167553c87f0642cbd3494ddf9ae8e64ec3c
   branch: staging
   specs:
     decidim (0.22.0.dev)
@@ -170,6 +170,7 @@ GIT
       wisper-rspec (~> 1.0)
     decidim-elections (0.22.0.dev)
       decidim-core (= 0.22.0.dev)
+      decidim-proposals (= 0.22.0.dev)
     decidim-forms (0.22.0.dev)
       decidim-core (= 0.22.0.dev)
     decidim-generators (0.22.0.dev)
@@ -581,7 +582,7 @@ GEM
       activerecord (>= 4.2)
       request_store (~> 1.1)
     parallel (1.19.1)
-    parser (2.7.1.2)
+    parser (2.7.1.3)
       ast (~> 2.4.0)
     pg (1.1.4)
     pg_search (2.3.2)
