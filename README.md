@@ -19,3 +19,15 @@ If you need to re-seed the database:
 1. `heroku pg:reset`
 1. `heroku run rails db:migrate` (just in case)
 1. `heroku run rails db:seed`
+
+If you need to recreate the whole database (to remove or fix migrations):
+
+1. `rm db/schema.rb`
+1. `rm db/migrate/*`
+1. `rbenv exec bundle exec rake db:reset`
+1. `rbenv exec bundle exec rake decidim:upgrade`
+1. `rbenv exec bundle exec rake db:migrate`
+1. `heroku pg:reset -a decidim-staging`
+1. Push your changes to the `decidim-staging` repository
+1. Wait until the app has been successfully deployed
+1. `heroku run rails db:seed -a decidim-staging`
