@@ -2,6 +2,10 @@
 # This migration comes from decidim_proposals (originally 20181003074440)
 
 class FixUserGroupsIdsInProposalsEndorsements < ActiveRecord::Migration[5.2]
+  class ProposalEndorsement < ApplicationRecord
+    self.table_name = :decidim_proposals_proposal_endorsements
+  end
+
   # rubocop:disable Rails/SkipsModelValidations
   def change
     Decidim::UserGroup.find_each do |group|

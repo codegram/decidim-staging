@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_22_072221) do
+ActiveRecord::Schema.define(version: 2020_05_29_101735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -386,8 +386,8 @@ ActiveRecord::Schema.define(version: 2020_05_22_072221) do
     t.datetime "published_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "participatory_space_type", null: false
     t.bigint "parent_id"
+    t.string "participatory_space_type", null: false
     t.index ["parent_id"], name: "index_decidim_components_on_parent_id"
     t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_components_on_decidim_participatory_space"
   end
@@ -635,8 +635,8 @@ ActiveRecord::Schema.define(version: 2020_05_22_072221) do
     t.datetime "published_at"
     t.integer "weight"
     t.jsonb "images", default: {}
-    t.integer "scope_id"
-    t.index ["decidim_organization_id", "scope_name", "scope_id", "manifest_name"], name: "idx_decidim_content_blocks_org_id_scope_scope_id_manifest"
+    t.integer "scoped_resource_id"
+    t.index ["decidim_organization_id", "scope_name", "scoped_resource_id", "manifest_name"], name: "idx_decidim_content_blocks_org_id_scope_scope_id_manifest"
     t.index ["decidim_organization_id"], name: "index_decidim_content_blocks_on_decidim_organization_id"
     t.index ["manifest_name"], name: "index_decidim_content_blocks_on_manifest_name"
     t.index ["published_at"], name: "index_decidim_content_blocks_on_published_at"
@@ -671,6 +671,14 @@ ActiveRecord::Schema.define(version: 2020_05_22_072221) do
     t.index ["decidim_user_group_id"], name: "index_decidim_debates_debates_on_decidim_user_group_id"
   end
 
+  create_table "decidim_elections_answers", force: :cascade do |t|
+    t.bigint "decidim_elections_question_id", null: false
+    t.jsonb "title", null: false
+    t.jsonb "description"
+    t.integer "weight", default: 0, null: false
+    t.index ["decidim_elections_question_id"], name: "decidim_elections_questions_answers"
+  end
+
   create_table "decidim_elections_elections", force: :cascade do |t|
     t.jsonb "title"
     t.jsonb "subtitle"
@@ -678,7 +686,19 @@ ActiveRecord::Schema.define(version: 2020_05_22_072221) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.bigint "decidim_component_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["decidim_component_id"], name: "index_decidim_elections_elections_on_decidim_component_id"
+  end
+
+  create_table "decidim_elections_questions", force: :cascade do |t|
+    t.bigint "decidim_elections_election_id", null: false
+    t.jsonb "title", null: false
+    t.jsonb "description"
+    t.integer "max_selections", default: 1, null: false
+    t.integer "weight", default: 0, null: false
+    t.boolean "random_answers_order", default: true, null: false
+    t.index ["decidim_elections_election_id"], name: "decidim_elections_elections_questions"
   end
 
   create_table "decidim_endorsements", force: :cascade do |t|
@@ -887,6 +907,7 @@ ActiveRecord::Schema.define(version: 2020_05_22_072221) do
     t.boolean "promoting_committee_enabled", default: true, null: false
     t.integer "signature_type", default: 0, null: false
     t.boolean "custom_signature_end_date_enabled", default: false, null: false
+    t.boolean "attachments_enabled", default: false, null: false
     t.index ["decidim_organization_id"], name: "index_decidim_initiative_types_on_decidim_organization_id"
   end
 
@@ -1361,11 +1382,11 @@ ActiveRecord::Schema.define(version: 2020_05_22_072221) do
     t.integer "position"
     t.string "participatory_text_level"
     t.boolean "created_in_meeting", default: false
+    t.integer "endorsements_count", default: 0, null: false
     t.decimal "cost"
     t.jsonb "cost_report"
     t.jsonb "execution_period"
     t.datetime "state_published_at"
-    t.integer "endorsements_count", default: 0, null: false
     t.index "md5(body)", name: "decidim_proposals_proposal_body_search"
     t.index "md5(title)", name: "decidim_proposals_proposal_title_search"
     t.index ["created_at"], name: "index_decidim_proposals_proposals_on_created_at"
@@ -1642,11 +1663,11 @@ ActiveRecord::Schema.define(version: 2020_05_22_072221) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.string "session_token"
+    t.string "direct_message_types", default: "all", null: false
     t.datetime "officialized_at"
     t.jsonb "officialized_as"
     t.datetime "admin_terms_accepted_at"
-    t.string "direct_message_types", default: "all", null: false
-    t.string "session_token"
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["email", "decidim_organization_id"], name: "index_decidim_users_on_email_and_decidim_organization_id", unique: true, where: "((deleted_at IS NULL) AND (managed = false) AND ((type)::text = 'Decidim::User'::text))"

@@ -10,6 +10,7 @@ class CreateDecidimElectionsElections < ActiveRecord::Migration[5.2]
       t.datetime :start_time
       t.datetime :end_time
       t.references :decidim_component, index: true
+      t.timestamps
     end
   end
 end
