@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_29_101735) do
+ActiveRecord::Schema.define(version: 2020_06_05_133961) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -860,8 +860,10 @@ ActiveRecord::Schema.define(version: 2020_05_29_101735) do
     t.integer "offline_votes"
     t.string "decidim_author_type", null: false
     t.string "reference"
+    t.bigint "decidim_area_id"
     t.index "md5((description)::text)", name: "decidim_initiatives_description_search"
     t.index ["answered_at"], name: "index_decidim_initiatives_on_answered_at"
+    t.index ["decidim_area_id"], name: "index_decidim_initiatives_on_decidim_area_id"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_initiatives_on_decidim_author"
     t.index ["decidim_organization_id"], name: "index_decidim_initiatives_on_decidim_organization_id"
     t.index ["decidim_user_group_id"], name: "index_decidim_initiatives_on_decidim_user_group_id"
@@ -908,6 +910,7 @@ ActiveRecord::Schema.define(version: 2020_05_29_101735) do
     t.integer "signature_type", default: 0, null: false
     t.boolean "custom_signature_end_date_enabled", default: false, null: false
     t.boolean "attachments_enabled", default: false, null: false
+    t.boolean "area_enabled", default: false, null: false
     t.index ["decidim_organization_id"], name: "index_decidim_initiative_types_on_decidim_organization_id"
   end
 
@@ -988,13 +991,14 @@ ActiveRecord::Schema.define(version: 2020_05_29_101735) do
     t.integer "reserved_slots", default: 0, null: false
     t.boolean "private_meeting", default: false
     t.boolean "transparent", default: true
-    t.bigint "organizer_id"
     t.jsonb "services", default: []
     t.boolean "registration_form_enabled", default: false
+    t.string "decidim_author_type"
+    t.integer "decidim_user_group_id"
+    t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_meetings_meetings_on_author"
     t.index ["decidim_author_id"], name: "index_decidim_meetings_meetings_on_decidim_author_id"
     t.index ["decidim_component_id"], name: "index_decidim_meetings_meetings_on_decidim_component_id"
     t.index ["decidim_scope_id"], name: "index_decidim_meetings_meetings_on_decidim_scope_id"
-    t.index ["organizer_id"], name: "index_decidim_meetings_meetings_on_organizer_id"
   end
 
   create_table "decidim_meetings_minutes", force: :cascade do |t|
@@ -1332,7 +1336,7 @@ ActiveRecord::Schema.define(version: 2020_05_29_101735) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "decidim_author_type", null: false
-    t.index "decidim_proposal_id, decidim_author_id, COALESCE(decidim_user_group_id, ('-1'::integer)::bigint)", name: "decidim_proposals_proposal_endorsmt_proposal_auth_ugroup_uniq", unique: true
+    t.index "decidim_proposal_id, decidim_author_id, (COALESCE(decidim_user_group_id, ('-1'::integer)::bigint))", name: "decidim_proposals_proposal_endorsmt_proposal_auth_ugroup_uniq", unique: true
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_proposals_proposal_endorsements_on_decidim_author"
     t.index ["decidim_proposal_id"], name: "decidim_proposals_proposal_endorsement_proposal"
     t.index ["decidim_user_group_id"], name: "decidim_proposals_proposal_endorsement_user_group"
