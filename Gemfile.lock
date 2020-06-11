@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/codegram/decidim
-  revision: 66b47d8eaa7bd9ccf04b1ddfa541ef049c53a2eb
+  revision: 9323afd1d3626ba0c4f9c71ec298a7ec8ee63d55
   branch: staging
   specs:
     decidim (0.22.0.dev)
@@ -445,7 +445,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.10.10)
+    graphql (1.10.11)
     hashdiff (1.0.1)
     hashie (4.1.0)
     highline (2.0.3)
@@ -655,7 +655,7 @@ GEM
       virtus (~> 1.0.5)
       wisper (>= 1.6.1)
     redcarpet (3.5.0)
-    redis (4.2.0)
+    redis (4.2.1)
     regexp_parser (1.7.1)
     request_store (1.5.0)
       rack (>= 1.4)
@@ -708,7 +708,7 @@ GEM
     rubocop-rails (2.0.1)
       rack (>= 1.1)
       rubocop (>= 0.70.0)
-    rubocop-rspec (1.39.0)
+    rubocop-rspec (1.40.0)
       rubocop (>= 0.68.1)
     ruby-ole (1.2.12.2)
     ruby-progressbar (1.10.1)
