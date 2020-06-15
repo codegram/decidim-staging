@@ -131,6 +131,5 @@ end
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
 
-# Disabled temporarily
-# require "decidim_staging/budgets_groups_workflow_pam2020"
-# Decidim::Budgets::Groups.workflows[:pam20202] = DecidimStaging::BudgetsGroupsWorkflowPam2020
+require "decidim_staging/budgets_groups_workflow_pam2020"
+Decidim::Budgets::Groups.workflows[:pam20202] = DecidimStaging::BudgetsGroupsWorkflowPam2020
