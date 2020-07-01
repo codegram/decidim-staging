@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_11_095245) do
+ActiveRecord::Schema.define(version: 2020_07_01_133218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -761,6 +761,20 @@ ActiveRecord::Schema.define(version: 2020_06_11_095245) do
     t.index ["session_token"], name: "index_decidim_forms_answers_on_session_token"
   end
 
+  create_table "decidim_forms_display_conditions", force: :cascade do |t|
+    t.bigint "decidim_question_id", null: false
+    t.bigint "decidim_condition_question_id", null: false
+    t.bigint "decidim_answer_option_id"
+    t.integer "condition_type", default: 0, null: false
+    t.jsonb "condition_value"
+    t.boolean "mandatory", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_answer_option_id"], name: "decidim_forms_display_condition_answer_option"
+    t.index ["decidim_condition_question_id"], name: "decidim_forms_display_condition_condition_question"
+    t.index ["decidim_question_id"], name: "decidim_forms_display_condition_question"
+  end
+
   create_table "decidim_forms_question_matrix_rows", force: :cascade do |t|
     t.bigint "decidim_question_id"
     t.integer "position"
@@ -1330,19 +1344,6 @@ ActiveRecord::Schema.define(version: 2020_06_11_095245) do
     t.index ["decidim_component_id"], name: "idx_participatory_texts_on_decidim_component_id"
   end
 
-  create_table "decidim_proposals_proposal_endorsements", force: :cascade do |t|
-    t.bigint "decidim_proposal_id", null: false
-    t.bigint "decidim_author_id", null: false
-    t.bigint "decidim_user_group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "decidim_author_type", null: false
-    t.index "decidim_proposal_id, decidim_author_id, COALESCE(decidim_user_group_id, ('-1'::integer)::bigint)", name: "decidim_proposals_proposal_endorsmt_proposal_auth_ugroup_uniq", unique: true
-    t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_proposals_proposal_endorsements_on_decidim_author"
-    t.index ["decidim_proposal_id"], name: "decidim_proposals_proposal_endorsement_proposal"
-    t.index ["decidim_user_group_id"], name: "decidim_proposals_proposal_endorsement_user_group"
-  end
-
   create_table "decidim_proposals_proposal_notes", force: :cascade do |t|
     t.bigint "decidim_proposal_id", null: false
     t.bigint "decidim_author_id", null: false
@@ -1380,7 +1381,6 @@ ActiveRecord::Schema.define(version: 2020_06_11_095245) do
     t.text "address"
     t.float "latitude"
     t.float "longitude"
-    t.integer "proposal_endorsements_count", default: 0, null: false
     t.datetime "published_at"
     t.integer "proposal_notes_count", default: 0, null: false
     t.integer "coauthorships_count", default: 0, null: false
@@ -1397,7 +1397,6 @@ ActiveRecord::Schema.define(version: 2020_06_11_095245) do
     t.index ["created_at"], name: "index_decidim_proposals_proposals_on_created_at"
     t.index ["decidim_component_id"], name: "index_decidim_proposals_proposals_on_decidim_component_id"
     t.index ["decidim_scope_id"], name: "index_decidim_proposals_proposals_on_decidim_scope_id"
-    t.index ["proposal_endorsements_count"], name: "idx_decidim_proposals_proposals_on_proposal_endorsemnts_count"
     t.index ["proposal_votes_count"], name: "index_decidim_proposals_proposals_on_proposal_votes_count"
     t.index ["state"], name: "index_decidim_proposals_proposals_on_state"
   end

@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/codegram/decidim
-  revision: 1bcaf8e2e827cde7c57bfe57362474d334cb0b0d
+  revision: 7dbab878afcb34bba698dfe0f58dee15f1bed0d3
   branch: staging
   specs:
     decidim (0.23.0.dev)
@@ -373,7 +373,7 @@ GEM
     devise_invitable (1.7.5)
       actionmailer (>= 4.1.0)
       devise (>= 4.0.0)
-    diff-lcs (1.3)
+    diff-lcs (1.4.3)
     diffy (3.3.0)
     doc2text (0.4.2)
       nokogiri (~> 1.10.0)
@@ -544,7 +544,7 @@ GEM
     netrc (0.11.0)
     newrelic_rpm (6.5.0.357)
     nio4r (2.5.2)
-    nobspw (0.6.1)
+    nobspw (0.6.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     oauth (0.5.4)
@@ -620,10 +620,10 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.2.4.3)
       sprockets-rails (>= 2.0.0)
-    rails-controller-testing (1.0.4)
-      actionpack (>= 5.0.1.x)
-      actionview (>= 5.0.1.x)
-      activesupport (>= 5.0.1.x)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -817,7 +817,7 @@ GEM
       activesupport
     wisper (2.0.1)
     wisper-rspec (1.1.0)
-    wkhtmltopdf-binary (0.12.6)
+    wkhtmltopdf-binary (0.12.6.2)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
