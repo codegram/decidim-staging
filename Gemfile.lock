@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/codegram/decidim
-  revision: 2b93fa0bfac2d0f45a56055c38b176f6c670fce3
+  revision: 8fba7d44bf67766159d7cfd4401cdd59da57f9f9
   branch: staging
   specs:
     decidim (0.23.0.dev)
@@ -119,7 +119,7 @@ GIT
       pg (~> 1.1.4, < 2)
       pg_search (~> 2.2)
       premailer-rails (~> 1.10)
-      rack (>= 2.0.8)
+      rack (>= 2.2.3)
       rack-attack (~> 6.0)
       rails (>= 5.2.4.3, < 6.0.x)
       rails-i18n (~> 5.0)
@@ -173,6 +173,8 @@ GIT
       decidim-proposals (= 0.23.0.dev)
     decidim-forms (0.23.0.dev)
       decidim-core (= 0.23.0.dev)
+      wicked_pdf (~> 1.4)
+      wkhtmltopdf-binary (~> 0.12)
     decidim-generators (0.23.0.dev)
       decidim-core (= 0.23.0.dev)
     decidim-initiatives (0.23.0.dev)
@@ -537,7 +539,7 @@ GEM
     mixlib-cli (1.7.0)
     mixlib-config (2.2.18)
       tomlrb
-    multi_json (1.14.1)
+    multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     mustache (1.1.1)
@@ -808,7 +810,7 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
-    websocket-driver (0.7.2)
+    websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     wicked (1.3.4)

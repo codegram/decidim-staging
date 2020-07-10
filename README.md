@@ -2,14 +2,14 @@
 
 Citizen Participation and Open Government application.
 
-This is the open-source repository for decidim_staging, based on [Decidim](https://github.com/decidim/decidim). This app is used to preview the latest `master` branch of Decidim.
+This is the open-source repository for decidim_staging, based on [Decidim](https://github.com/decidim/decidim). This app is used to preview the latest `staging` branch of Codegram's Decidim [fork](https://github.com/codegram/decidim/tree/staging).
 
 ## Updating the app
 The app needs to be updated manually. Steps to update it:
 
 1. `bundle update decidim decidim-initiatives decidim-dev decidim-conferences decidim-consultations decidim-elections`
 1. `bundle exec rake decidim:upgrade && bundle exec rails db:migrate`
-1. `git add --all && git commit -m "Update decidim to latest master"`
+1. `git add --all && git commit -m "Update decidim to latest staging"`
 1. `git push origin master`
 
 If you need to re-seed the database:
