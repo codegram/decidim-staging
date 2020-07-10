@@ -2,7 +2,9 @@
 
 module DecidimStaging
   # Specific Workflow for Barcelona's 2020 PAM
-  class BudgetsGroupsWorkflowPam2020 < Decidim::Budgets::Groups::Workflows::Base
+
+  # !todo: fix to budget resources
+  class BudgetsWorkflowPam2020 < Decidim::Budgets::Workflows::Base
     PAM2020AUTHORIZATIONHANDLER = 'dummy_census_authorization_handler'
 
     # The budget component in the user's scope is highlighted.
