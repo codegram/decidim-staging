@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_10_141028) do
+ActiveRecord::Schema.define(version: 2020_07_13_113012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1207,6 +1207,7 @@ ActiveRecord::Schema.define(version: 2020_07_10_141028) do
     t.boolean "rich_text_editor_in_public_views", default: false
     t.jsonb "admin_terms_of_use_body"
     t.string "time_zone", limit: 255, default: "UTC"
+    t.integer "comments_max_length", default: 1000
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
