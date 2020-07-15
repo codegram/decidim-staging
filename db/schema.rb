@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_113012) do
+ActiveRecord::Schema.define(version: 2020_07_15_160215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -297,14 +297,11 @@ ActiveRecord::Schema.define(version: 2020_07_13_113012) do
 
   create_table "decidim_budgets_orders", id: :serial, force: :cascade do |t|
     t.integer "decidim_user_id"
-    t.integer "decidim_component_id"
     t.datetime "checked_out_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "decidim_budgets_budget_id"
     t.index ["decidim_budgets_budget_id"], name: "index_decidim_budgets_orders_on_decidim_budgets_budget_id"
-    t.index ["decidim_component_id"], name: "index_decidim_budgets_orders_on_decidim_component_id"
-    t.index ["decidim_user_id", "decidim_component_id"], name: "decidim_budgets_order_user_component_unique", unique: true
     t.index ["decidim_user_id"], name: "index_decidim_budgets_orders_on_decidim_user_id"
   end
 
@@ -312,14 +309,12 @@ ActiveRecord::Schema.define(version: 2020_07_13_113012) do
     t.jsonb "title"
     t.jsonb "description"
     t.bigint "budget_amount", null: false
-    t.integer "decidim_component_id"
     t.integer "decidim_scope_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "reference"
     t.bigint "decidim_budgets_budget_id"
     t.index ["decidim_budgets_budget_id"], name: "index_decidim_budgets_projects_on_decidim_budgets_budget_id"
-    t.index ["decidim_component_id"], name: "index_decidim_budgets_projects_on_decidim_component_id"
     t.index ["decidim_scope_id"], name: "index_decidim_budgets_projects_on_decidim_scope_id"
   end
 
