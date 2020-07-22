@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/codegram/decidim
-  revision: d7658b284b1b6d69e1dac2df2579602aee78289c
+  revision: 5e84d2fa09758b4dd1c823083c91f5b36a279fd2
   branch: staging
   specs:
     decidim (0.23.0.dev)
@@ -297,7 +297,7 @@ GEM
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
     batch-loader (1.5.0)
-    bcrypt (3.1.13)
+    bcrypt (3.1.15)
     better_html (1.0.15)
       actionview (>= 4.0)
       activesupport (>= 4.0)
@@ -459,7 +459,7 @@ GEM
     httparty (0.18.1)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
-    i18n (1.8.3)
+    i18n (1.8.4)
       concurrent-ruby (~> 1.0)
     i18n-tasks (0.9.31)
       activesupport (>= 4.0.2)

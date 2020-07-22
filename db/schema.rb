@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_15_160215) do
+ActiveRecord::Schema.define(version: 2020_07_22_150237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -284,7 +284,9 @@ ActiveRecord::Schema.define(version: 2020_07_15_160215) do
     t.integer "decidim_component_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "decidim_scope_id"
     t.index ["decidim_component_id"], name: "index_decidim_budgets_budgets_on_decidim_component_id"
+    t.index ["decidim_scope_id"], name: "index_decidim_budgets_budgets_on_decidim_scope_id"
   end
 
   create_table "decidim_budgets_line_items", id: :serial, force: :cascade do |t|
@@ -366,7 +368,6 @@ ActiveRecord::Schema.define(version: 2020_07_15_160215) do
   end
 
   create_table "decidim_comments_comments", id: :serial, force: :cascade do |t|
-    t.text "body", null: false
     t.string "decidim_commentable_type", null: false
     t.integer "decidim_commentable_id", null: false
     t.integer "decidim_author_id", null: false
@@ -378,6 +379,7 @@ ActiveRecord::Schema.define(version: 2020_07_15_160215) do
     t.string "decidim_root_commentable_type", null: false
     t.integer "decidim_root_commentable_id", null: false
     t.string "decidim_author_type", null: false
+    t.jsonb "body"
     t.index ["created_at"], name: "index_decidim_comments_comments_on_created_at"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_comments_comments_on_decidim_author"
     t.index ["decidim_author_id"], name: "decidim_comments_comment_author"
@@ -1019,7 +1021,6 @@ ActiveRecord::Schema.define(version: 2020_07_15_160215) do
     t.integer "reserved_slots", default: 0, null: false
     t.boolean "private_meeting", default: false
     t.boolean "transparent", default: true
-    t.jsonb "services", default: []
     t.boolean "registration_form_enabled", default: false
     t.string "decidim_author_type"
     t.integer "decidim_user_group_id"
@@ -1052,6 +1053,15 @@ ActiveRecord::Schema.define(version: 2020_07_15_160215) do
     t.index ["decidim_user_group_id"], name: "index_decidim_meetings_registrations_on_decidim_user_group_id"
     t.index ["decidim_user_id", "decidim_meeting_id"], name: "decidim_meetings_registrations_user_meeting_unique", unique: true
     t.index ["decidim_user_id"], name: "index_decidim_meetings_registrations_on_decidim_user_id"
+  end
+
+  create_table "decidim_meetings_services", force: :cascade do |t|
+    t.jsonb "title"
+    t.jsonb "description"
+    t.bigint "decidim_meeting_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_meeting_id"], name: "index_decidim_meetings_services_on_decidim_meeting_id"
   end
 
   create_table "decidim_messaging_conversations", force: :cascade do |t|
@@ -1729,6 +1739,7 @@ ActiveRecord::Schema.define(version: 2020_07_15_160215) do
   add_foreign_key "decidim_assemblies_settings", "decidim_organizations"
   add_foreign_key "decidim_attachments", "decidim_attachment_collections", column: "attachment_collection_id", name: "fk_decidim_attachments_attachment_collection_id", on_delete: :nullify
   add_foreign_key "decidim_authorizations", "decidim_users"
+  add_foreign_key "decidim_budgets_budgets", "decidim_scopes"
   add_foreign_key "decidim_budgets_orders", "decidim_budgets_budgets"
   add_foreign_key "decidim_budgets_projects", "decidim_budgets_budgets"
   add_foreign_key "decidim_categorizations", "decidim_categories"
