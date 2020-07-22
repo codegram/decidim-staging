@@ -34,7 +34,7 @@ en:
 
   decidim:
     components:
-      budgets_groups:
+      budgets:
         settings:
           global:
             workflow_choices:

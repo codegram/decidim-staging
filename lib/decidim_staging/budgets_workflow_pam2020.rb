@@ -3,36 +3,35 @@
 module DecidimStaging
   # Specific Workflow for Barcelona's 2020 PAM
 
-  # !todo: fix to budget resources
   class BudgetsWorkflowPam2020 < Decidim::Budgets::Workflows::Base
     PAM2020AUTHORIZATIONHANDLER = 'dummy_census_authorization_handler'
 
-    # The budget component in the user's scope is highlighted.
-    def highlighted?(component)
-      return unless user_scope_component && !voted?(user_scope_component)
+    # The budget resource in the user's scope is highlighted.
+    def highlighted?(resource)
+      return unless user_scope_resource && !voted?(user_scope_resource)
 
-      component == user_scope_component
+      resource == user_scope_resource
     end
 
-    # Can vote in the budget component in the user's scope
-    # and in an extra component out of its scope
-    def vote_allowed?(component, consider_progress = true)
-      return true if component == user_scope_component
+    # Can vote in the budget resource in the user's scope
+    # and in an extra budget resource out of its scope
+    def vote_allowed?(resource, consider_progress = true)
+      return true if resource == user_scope_resource
 
-      components_with_order = voted
-      components_with_order += progress if consider_progress
+      resources_with_order = voted
+      resources_with_order += progress if consider_progress
 
-      (components_with_order - [user_scope_component, component]).empty?
+      (resources_with_order - [user_scope_resource, resource]).empty?
     end
 
-    # The user can change of mind and change the vote on these budget components
+    # The user can change of mind and change the vote on these budget resources
     #
     # Returns Array.
     def discardable
-      (voted + progress) - [user_scope_component]
+      (voted + progress) - [user_scope_resource]
     end
 
-    # The user can vote on maximum 2 components
+    # The user can vote on maximum 2 budget resources
     #
     # Returns Boolean.
     def limit_reached?
@@ -49,14 +48,14 @@ module DecidimStaging
       )
     end
 
-    # The budget component the user can and should vote on
+    # The budget resources the user can and should vote on
     #
-    # Returns Object (Component).
-    def user_scope_component
+    # Returns Object (Decidim::Budgets:Budget).
+    def user_scope_resource
       return unless user_authorization_scope
 
-      @user_scope_component ||= budgets.each do |component|
-        return component if component.scope == user_authorization_scope
+      @user_scope_resource ||= budgets.each do |resource|
+        return resource if resource.scope == user_authorization_scope
       end
     end
 
