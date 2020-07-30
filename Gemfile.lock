@@ -507,10 +507,9 @@ GEM
       actionmailer (>= 3.2)
       letter_opener (~> 1.0)
       railties (>= 3.2)
-    listen (3.1.5)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
-      ruby_dep (~> 1.2)
+    listen (3.2.1)
+      rb-fsevent (~> 0.10, >= 0.10.3)
+      rb-inotify (~> 0.9, >= 0.9.10)
     lograge (0.11.2)
       actionpack (>= 4)
       activesupport (>= 4)
@@ -647,9 +646,9 @@ GEM
       activerecord (>= 5.0)
       activesupport (>= 5.0)
       i18n
-    rb-fsevent (0.10.3)
-    rb-inotify (0.9.10)
-      ffi (>= 0.5.0, < 2)
+    rb-fsevent (0.10.4)
+    rb-inotify (0.10.1)
+      ffi (~> 1.0)
     rectify (0.13.0)
       activemodel (>= 4.1.0)
       activerecord (>= 4.1.0)
@@ -714,7 +713,6 @@ GEM
       rubocop (>= 0.68.1)
     ruby-ole (1.2.12.2)
     ruby-progressbar (1.10.1)
-    ruby_dep (1.5.0)
     ruby_http_client (3.5.0)
     rubyzip (2.0.0)
     safe_yaml (1.0.5)
@@ -843,7 +841,7 @@ DEPENDENCIES
   faker (~> 1.9.6)
   fog-aws
   letter_opener_web (~> 1.3.0)
-  listen (~> 3.1.0)
+  listen (~> 3.2.1)
   lograge
   newrelic_rpm
   puma
