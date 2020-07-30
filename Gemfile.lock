@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/codegram/decidim
-  revision: 348b853d323d19b54eb781f015acd4c2955189a6
+  revision: 23fd5ed67d47d00d5aa32e924acecd638abc3c2d
   branch: staging
   specs:
     decidim (0.23.0.dev)
@@ -647,9 +647,9 @@ GEM
       activerecord (>= 5.0)
       activesupport (>= 5.0)
       i18n
-    rb-fsevent (0.10.3)
-    rb-inotify (0.9.10)
-      ffi (>= 0.5.0, < 2)
+    rb-fsevent (0.10.4)
+    rb-inotify (0.10.1)
+      ffi (~> 1.0)
     rectify (0.13.0)
       activemodel (>= 4.1.0)
       activerecord (>= 4.1.0)
