@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "develop" }
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "feature/budgets_selected_projects" }
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-dev", DECIDIM_VERSION

@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: c964194a0c8b79374f00bfdef1678c3457c8a523
-  branch: develop
+  revision: 7240717c36b586bbb871e7998cb46f00dc38c6f6
+  branch: feature/budgets_selected_projects
   specs:
     decidim (0.23.0.dev)
       decidim-accountability (= 0.23.0.dev)
