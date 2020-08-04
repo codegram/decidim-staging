@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_31_075656) do
+ActiveRecord::Schema.define(version: 2020_08_04_113905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -316,6 +316,7 @@ ActiveRecord::Schema.define(version: 2020_07_31_075656) do
     t.datetime "updated_at", null: false
     t.string "reference"
     t.bigint "decidim_budgets_budget_id"
+    t.date "selected_at"
     t.index ["decidim_budgets_budget_id"], name: "index_decidim_budgets_projects_on_decidim_budgets_budget_id"
     t.index ["decidim_scope_id"], name: "index_decidim_budgets_projects_on_decidim_scope_id"
   end
