@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: bd25648e3aeb7ea7a63769205cdd533211bd937d
-  branch: feature/endorse-debates
+  revision: c964194a0c8b79374f00bfdef1678c3457c8a523
+  branch: develop
   specs:
     decidim (0.23.0.dev)
       decidim-accountability (= 0.23.0.dev)
