@@ -5,7 +5,7 @@ class ETranslationsController < ApplicationController
   skip_after_action :verify_same_origin_request
 
   def callback
-    translated_text = request.raw_post
+    translated_text = request.raw_post.force_encoding("UTF-8")
     target_locale = params["target-language"].downcase
     external_reference = params["external-reference"]
 
