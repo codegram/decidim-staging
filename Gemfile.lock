@@ -1,7 +1,7 @@
 GIT
-  remote: https://github.com/decidim/decidim
-  revision: c964194a0c8b79374f00bfdef1678c3457c8a523
-  branch: develop
+  remote: https://github.com/codegram/decidim
+  revision: be81ae84ba87f3611c07102cac6f393579fd3425
+  branch: staging-complex-budget-voting
   specs:
     decidim (0.23.0.dev)
       decidim-accountability (= 0.23.0.dev)
