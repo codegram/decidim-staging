@@ -7,16 +7,16 @@ ruby RUBY_VERSION
 DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "develop" }
 
 gem "decidim", DECIDIM_VERSION
-gem "decidim-dev", DECIDIM_VERSION
-gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
+gem "decidim-dev", DECIDIM_VERSION
 gem "decidim-elections", DECIDIM_VERSION
+gem "decidim-initiatives", DECIDIM_VERSION
 
 gem "ransack", "~> 2.1.1"
 
-gem "uglifier", ">= 1.3.0"
 gem "sprockets", "~> 3.7.2"
+gem "uglifier", ">= 1.3.0"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
 
@@ -37,12 +37,12 @@ group :development do
 end
 
 group :production do
-  gem "fog-aws"
   gem "dalli"
-  gem "sendgrid-ruby"
-  gem "newrelic_rpm"
+  gem "fog-aws"
   gem "lograge"
+  gem "newrelic_rpm"
+  gem "scout_apm"
+  gem "sendgrid-ruby"
   gem "sentry-raven"
   gem "sidekiq"
-  gem "scout_apm"
 end
