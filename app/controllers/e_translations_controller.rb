@@ -4,23 +4,21 @@ class ETranslationsController < ApplicationController
   skip_before_action :verify_authenticity_token
   skip_after_action :verify_same_origin_request
 
-  # protect_from_forgery prepend: true, with: :exception
-
   def callback
     translated_text = request.raw_post
-    target_locale = params["target-language"]
+    target_locale = params["target-language"].downcase
     external_reference = params["external-reference"]
 
-    sgid, field_name = external_reference.split("__")
+    global_id, field_name = external_reference.split("__")
 
-    resource = GlobalID::Locator.locate(sgid)
+    resource = GlobalID::Locator.locate(global_id)
 
-    Rails.logger.log "=================================="
-    Rails.logger.log "Translated value: ", translated_value
-    Rails.logger.log "Target locale: ", target_locale
-    Rails.logger.log "Field name: ", field_name
-    Rails.logger.log "Resource: ", resource.class.name, resource&.id
-    Rails.logger.log "=================================="
+    Rails.logger.info "=================================="
+    Rails.logger.info "Translated text: #{translated_text}"
+    Rails.logger.info "Target locale: #{target_locale}"
+    Rails.logger.info "Field name: #{field_name}"
+    Rails.logger.info "Resource: #{resource.class.name} #{resource&.id}"
+    Rails.logger.info "=================================="
 
     if resource.present?
       Decidim::MachineTranslationSaveJob.perform_later(

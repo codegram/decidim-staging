@@ -16,7 +16,7 @@ module Decidim
       @text = text
       @source_locale = source_locale
       @target_locale = target_locale
-      @custom_id = "#{resource.to_sgid}__#{field_name}"
+      @custom_id = "#{resource.to_global_id}__#{field_name}"
     end
 
     def build_translation_request
@@ -54,6 +54,8 @@ module Decidim
     end
 
     def translate
+      return unless service_configured?
+
       body = build_translation_request
       client = Savon.client do wsdl "https://webgate.ec.europa.eu/etranslation/si/WSEndpointHandlerService?WSDL" end
       result = client.call(:translate, :xml=> body)
@@ -64,6 +66,12 @@ module Decidim
       if requestId.to_i > 0
         "bazzinga"
       end
+    end
+
+    def service_configured?
+      Rails.application.secrets.etranslation_callback.present? &&
+        Rails.application.secrets.etranslation_app.present? &&
+        Rails.application.secrets.etranslation_url.present?
     end
   end
 end
