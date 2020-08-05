@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: c964194a0c8b79374f00bfdef1678c3457c8a523
-  branch: develop
+  revision: ae39a7b3d09d3047d5df9436b9b6d8c6624039eb
+  branch: feature/scopable_components
   specs:
     decidim (0.23.0.dev)
       decidim-accountability (= 0.23.0.dev)
