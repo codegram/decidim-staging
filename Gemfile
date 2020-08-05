@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "develop" }
+DECIDIM_VERSION = { git: "https://github.com/codegram/decidim", branch: "add_machine_translation_service" }
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
@@ -23,6 +23,8 @@ gem "wkhtmltopdf-binary"
 gem "faker", "~> 1.9.6"
 
 gem "puma"
+
+gem "savon"
 
 group :development, :test do
   gem "byebug", platform: :mri
