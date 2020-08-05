@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/agustibr/decidim-verifications-dummy_census
+  revision: d322f7227d2ab81994e2131e6053cf11db5a39c6
+  branch: master
+  specs:
+    decidim-verifications-dummy_census (0.0.1)
+      decidim-core (>= 0.20.0)
+      decidim-verifications (>= 0.20.0)
+      virtus-multiparams
+
+GIT
   remote: https://github.com/codegram/decidim
   revision: be81ae84ba87f3611c07102cac6f393579fd3425
   branch: staging-complex-budget-voting
@@ -830,6 +840,7 @@ DEPENDENCIES
   decidim-dev!
   decidim-elections!
   decidim-initiatives!
+  decidim-verifications-dummy_census!
   faker (~> 1.9.6)
   fog-aws
   letter_opener_web (~> 1.4.0)

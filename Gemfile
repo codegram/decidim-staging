@@ -13,6 +13,8 @@ gem "decidim-dev", DECIDIM_VERSION
 gem "decidim-elections", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 
+gem "decidim-verifications-dummy_census", git: "https://github.com/agustibr/decidim-verifications-dummy_census", branch: "master"
+
 gem "ransack", "~> 2.1.1"
 
 gem "sprockets", "~> 3.7.2"
