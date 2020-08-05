@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/codegram/decidim", branch: "add_machine_translation_service" }
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "feat/machine-translation" }
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION

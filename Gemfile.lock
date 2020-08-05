@@ -1,7 +1,7 @@
 GIT
-  remote: https://github.com/codegram/decidim
-  revision: bd3fa46efcff50adb3ab4654b85bee7d591de397
-  branch: add_machine_translation_service
+  remote: https://github.com/decidim/decidim
+  revision: 9ed6d69f067bbeda7f9af3d828c05cfffc0d2c4d
+  branch: feat/machine-translation
   specs:
     decidim (0.23.0.dev)
       decidim-accountability (= 0.23.0.dev)
