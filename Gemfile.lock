@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: c964194a0c8b79374f00bfdef1678c3457c8a523
-  branch: develop
+  revision: 4bc356b776eb56a3dabb67ea87a2f588c3e98699
+  branch: feature/add-elections-list-filter
   specs:
     decidim (0.23.0.dev)
       decidim-accountability (= 0.23.0.dev)
