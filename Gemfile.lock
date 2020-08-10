@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 9d298139d4f549dee074545d75161bb894da6bc7
-  branch: feature/add-elections-list-filter
+  revision: 417c1661612b071f8aa7a900e54d7aaeb2ae441a
+  branch: refactor/elections-metadata
   specs:
     decidim (0.23.0.dev)
       decidim-accountability (= 0.23.0.dev)
@@ -335,7 +335,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     colorize (0.8.1)
-    concurrent-ruby (1.1.6)
+    concurrent-ruby (1.1.7)
     connection_pool (2.2.2)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -366,7 +366,7 @@ GEM
       actionmailer (>= 4.1.0)
       devise (>= 4.0.0)
     diff-lcs (1.4.4)
-    diffy (3.3.0)
+    diffy (3.4.0)
     doc2text (0.4.2)
       nokogiri (~> 1.10.0)
       rubyzip (~> 2.0.0)

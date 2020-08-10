@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "feature/add-elections-list-filter" }
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "refactor/elections-metadata" }
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION

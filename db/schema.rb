@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_04_100010) do
+ActiveRecord::Schema.define(version: 2020_08_10_172902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -681,7 +681,6 @@ ActiveRecord::Schema.define(version: 2020_08_04_100010) do
 
   create_table "decidim_elections_elections", force: :cascade do |t|
     t.jsonb "title"
-    t.jsonb "subtitle"
     t.jsonb "description"
     t.datetime "start_time"
     t.datetime "end_time"
