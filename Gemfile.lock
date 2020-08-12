@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 990e421a968860ad73aa2267988ef3639d9c6798
+  revision: 377a8e4933f56e3fc31e56bb4291932c8826e018
   branch: feature/confirm_election_vote_exit
   specs:
     decidim (0.23.0.dev)
