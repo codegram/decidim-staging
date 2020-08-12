@@ -21,7 +21,7 @@ This application uses Heroku Review Apps to check new features individually and 
 ## Updating the app
 The app needs to be updated manually. Steps to update it:
 
-1. Move to your own branch: `git branch -b my-branch-name`
+1. Move to your own branch: `git checkout -b my-branch-name`
 1. `bundle update decidim decidim-initiatives decidim-dev decidim-conferences decidim-consultations decidim-elections`
 1. `bundle exec rake decidim:upgrade db:migrate`
 1. `git add --all && git commit -m "Update decidim"`
