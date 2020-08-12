@@ -10,7 +10,7 @@ This application uses Heroku Review Apps to check new features individually and 
 
 1. `git checkout master`
 1. `git pull origin master`
-1. Move to your own branch: `git branch -b my-branch-name`
+1. Move to your own branch: `git checkout -b my-branch-name`
 1. Edit the `Gemfile` so that the `decidim` dependencies point to the branch you want to test out
 1. `bundle update decidim decidim-initiatives decidim-dev decidim-conferences decidim-consultations decidim-elections`
 1. `bundle exec rake decidim:upgrade db:migrate`
