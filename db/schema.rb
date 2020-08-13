@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_10_172902) do
+ActiveRecord::Schema.define(version: 2020_08_12_161454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -666,6 +666,9 @@ ActiveRecord::Schema.define(version: 2020_08_10_172902) do
     t.string "reference"
     t.integer "decidim_user_group_id"
     t.string "decidim_author_type", null: false
+    t.datetime "closed_at"
+    t.jsonb "conclusions"
+    t.index ["closed_at"], name: "index_decidim_debates_debates_on_closed_at"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_debates_debates_on_decidim_author"
     t.index ["decidim_component_id"], name: "index_decidim_debates_debates_on_decidim_component_id"
     t.index ["decidim_user_group_id"], name: "index_decidim_debates_debates_on_decidim_user_group_id"
