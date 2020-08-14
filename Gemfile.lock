@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 1a99e2e796574ace062f2c55a1b3f95709cccc10
+  revision: d85860964331b6949fe3d21ec321afd083944a0a
   branch: refactor/elections-metadata
   specs:
     decidim (0.23.0.dev)
@@ -437,7 +437,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.11.2)
+    graphql (1.11.3)
     hashdiff (1.0.1)
     hashie (4.1.0)
     highline (2.0.3)
