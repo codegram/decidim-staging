@@ -1,4 +1,6 @@
+# frozen_string_literal: true
 # This migration comes from decidim_elections (originally 20200518084144)
+
 class CreateDecidimElectionsAnswers < ActiveRecord::Migration[5.2]
   def change
     create_table :decidim_elections_answers do |t|

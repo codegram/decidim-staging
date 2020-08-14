@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_14_131136) do
+ActiveRecord::Schema.define(version: 2020_08_14_134768) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -386,9 +386,7 @@ ActiveRecord::Schema.define(version: 2020_08_14_131136) do
     t.datetime "published_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "parent_id"
     t.string "participatory_space_type", null: false
-    t.index ["parent_id"], name: "index_decidim_components_on_parent_id"
     t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_components_on_decidim_participatory_space"
   end
 
@@ -1393,8 +1391,8 @@ ActiveRecord::Schema.define(version: 2020_08_14_131136) do
     t.datetime "published_at"
     t.integer "proposal_notes_count", default: 0, null: false
     t.integer "coauthorships_count", default: 0, null: false
-    t.integer "position"
     t.string "participatory_text_level"
+    t.integer "position"
     t.boolean "created_in_meeting", default: false
     t.integer "endorsements_count", default: 0, null: false
     t.decimal "cost"
