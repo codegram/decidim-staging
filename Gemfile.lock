@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 5283cc91dbf770b5c5b7e981bf1207abed6176b3
+  revision: 8443533d4ee502689b70c07556c826b2a0cf4cee
   branch: feature/add-hashtags-to-debate
   specs:
     decidim (0.23.0.dev)
