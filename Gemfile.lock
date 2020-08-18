@@ -721,7 +721,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    scout_apm (2.6.8)
+    scout_apm (2.6.9)
       parser
     searchlight (4.1.0)
     selenium-webdriver (3.142.7)
