@@ -10,6 +10,7 @@ on:
 env:
   RUBY_VERSION: 2.6.6
   NODE_VERSION: 12.9.1
+  DEFAULT_BRANCH: develop
 
 jobs:
   main:
@@ -31,9 +32,7 @@ jobs:
       - uses: actions/checkout@v2.0.0
 
       - name: Change Decidim branch in Gemfile
-        run: sed -i -r 's|(DECIDIM_VERSION.*=.*\bbranch:.*)staging(.*)|\1'$DECIDIM_BRANCH'\2|' Gemfile
-        env:
-          DECIDIM_BRANCH: "${{ github.event.inputs.decidimBranch }}"
+        run: "sed -i -r 's|(DECIDIM_VERSION.*=.*\bbranch:.*)${{ env.DEFAULT_BRANCH }}(.*)|\\1${{ github.event.inputs.decidimBranch }}\\2|' Gemfile"
 
       - uses: ruby/setup-ruby@master
         with:
