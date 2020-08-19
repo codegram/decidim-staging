@@ -1,0 +1,52 @@
+name: "Staging review apps creator"
+on:
+  workflow_dispatch:
+    inputs:
+      decidimBranch:
+        description: 'Decidim branch name'
+        required: true
+        default: ''
+
+env:
+  RUBY_VERSION: 2.6.6
+  NODE_VERSION: 12.9.1
+
+jobs:
+  main:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Check if user has write access"
+        uses: "lannonbr/repo-permission-check-action@2.0.0"
+        with:
+          permission: "write"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "Check if decidim branch exists"
+        run: git ls-remote --exit-code --heads git@github.com:decidim/decidim.git $DECIDIM_BRANCH
+        env:
+          DECIDIM_BRANCH: ${{ github.event.inputs.decidimBranch }}
+
+      - uses: actions/checkout@v2.0.0
+
+      - name: Change Decidim branch in Gemfile
+        run: sed -i -r 's|(DECIDIM_VERSION.*=.*\bbranch:.*)staging(.*)|\1'$DECIDIM_BRANCH'\2|' Gemfile
+        env:
+          DECIDIM_BRANCH: "${{ github.event.inputs.decidimBranch }}"
+
+      - uses: ruby/setup-ruby@master
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+
+      - name: Install Ruby dependencies
+        run: bundle install --path vendor/bundle --jobs 4
+
+      - name: Update database schema
+        run: bundle exec rake decidim:upgrade db:migrate
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          title: "Review app for ${{ github.event.inputs.decidimBranch }}"
+          branch: "review_app/${{ github.event.inputs.decidimBranch }}"
