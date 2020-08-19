@@ -24,7 +24,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: "Check if decidim branch exists"
-        run: "git ls-remote --exit-code --heads git@github.com:decidim/decidim.git ${{ github.event.inputs.decidimBranch }}"
+        run: "git ls-remote --exit-code --heads https://github.com/decidim/decidim.git ${{ github.event.inputs.decidimBranch }}"
 
       - uses: actions/checkout@v2.0.0
 
