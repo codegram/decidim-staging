@@ -54,7 +54,7 @@ jobs:
         run: bundle install --path vendor/bundle --jobs 4
 
       - name: Update database schema
-        run: bundle exec rake decidim:upgrade db:migrate
+        run: bundle exec rake db:create db:schema:load decidim:upgrade db:migrate
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
