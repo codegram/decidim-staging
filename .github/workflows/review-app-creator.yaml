@@ -1,4 +1,4 @@
-name: "Staging review apps creator"
+name: "Review app creator"
 on:
   workflow_dispatch:
     inputs:
