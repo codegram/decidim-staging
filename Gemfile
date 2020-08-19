@@ -22,6 +22,7 @@ gem "wkhtmltopdf-binary"
 
 gem "faker", "~> 1.9.6"
 
+
 gem "puma"
 
 group :development, :test do
