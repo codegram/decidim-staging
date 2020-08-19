@@ -5,10 +5,7 @@
   "addons": [
     "heroku-postgresql:hobby-basic",
     "heroku-redis:hobby-dev",
-    "logentries:le_tryit",
-    "memcachedcloud:30",
-    "newrelic:wayne",
-    "sendgrid:starter"
+    "logentries:le_tryit"
   ],
   "scripts": {
     "postdeploy":"rake db:seed"
