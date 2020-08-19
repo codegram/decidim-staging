@@ -6,16 +6,42 @@ on:
         description: 'Decidim branch name'
         required: true
         default: ''
+      decidimIssue:
+        description: 'Decidim issue/PR number'
+        required: false
+        default: ''
 
 env:
   RUBY_VERSION: 2.6.6
   DEFAULT_BRANCH: develop
+  DATABASE_USERNAME: postgres
+  DATABASE_PASSWORD: postgres
+  DATABASE_HOST: localhost
+  PR_BODY: ""
 
 jobs:
   main:
     name: Tests
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:11
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        env:
+          POSTGRES_PASSWORD: postgres
     steps:
+      - name: Add branch link to PR body
+        run: "echo '::set-env name=PR_BODY::Review app used to test Decidim branch [${{ github.event.inputs.decidimBranch }}](/decidim/decidim/tree/${{ github.event.inputs.decidimBranch }})'"
+
+      - name: Add issue number to PR body
+        if: ${{ github.event.inputs.decidimIssue != '' }}
+        run: "echo '::set-env name=PR_BODY::${{ env.PR_BODY }} for decidim/decidim#${{ github.event.inputs.decidimIssue }}'"
+
       - name: "Check if user has write access"
         uses: "lannonbr/repo-permission-check-action@2.0.0"
         with:
@@ -24,12 +50,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: "Check if decidim branch exists"
-        run: "git ls-remote --exit-code --heads git@github.com:decidim/decidim.git ${{ github.event.inputs.decidimBranch }}"
+        run: "git ls-remote --exit-code --heads https://github.com/decidim/decidim.git ${{ github.event.inputs.decidimBranch }}"
 
       - uses: actions/checkout@v2.0.0
 
       - name: Change Decidim branch in Gemfile
-        run: "sed -i -r 's|(DECIDIM_VERSION.*=.*\bbranch:.*)${{ env.DEFAULT_BRANCH }}(.*)|\\1${{ github.event.inputs.decidimBranch }}\\2|' Gemfile"
+        run: "sed -i -r 's|(DECIDIM_VERSION.*=.*\\bbranch:.*)${{ env.DEFAULT_BRANCH }}(.*)|\\1${{ github.event.inputs.decidimBranch }}\\2|' Gemfile"
 
       - uses: ruby/setup-ruby@master
         with:
@@ -39,10 +65,12 @@ jobs:
         run: bundle install --path vendor/bundle --jobs 4
 
       - name: Update database schema
-        run: bundle exec rake decidim:upgrade db:migrate
+        run: bundle exec rake db:create db:schema:load decidim:upgrade db:migrate
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
           title: "Review app for ${{ github.event.inputs.decidimBranch }}"
+          body: "${{ env.PR_BODY }}"
           branch: "review_app/${{ github.event.inputs.decidimBranch }}"
+          commit-message: "Update decidim to ${{ github.event.inputs.decidimBranch }} branch"

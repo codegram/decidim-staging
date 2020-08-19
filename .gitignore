@@ -20,3 +20,6 @@
 
 # Ignore public uploads
 public/uploads
+
+# Ignore bundle files
+vendor/bundle
