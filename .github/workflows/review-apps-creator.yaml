@@ -6,10 +6,18 @@ on:
         description: 'Decidim branch name'
         required: true
         default: ''
+      decidimIssue:
+        description: 'Decidim issue/PR number'
+        required: false
+        default: ''
 
 env:
   RUBY_VERSION: 2.6.6
   DEFAULT_BRANCH: develop
+  DATABASE_USERNAME: postgres
+  DATABASE_PASSWORD: postgres
+  DATABASE_HOST: localhost
+  PR_BODY: ""
 
 jobs:
   main:
@@ -26,11 +34,14 @@ jobs:
           --health-retries 5
         env:
           POSTGRES_PASSWORD: postgres
-    env:
-      DATABASE_USERNAME: postgres
-      DATABASE_PASSWORD: postgres
-      DATABASE_HOST: localhost
     steps:
+      - name: Add branch link to PR body
+        run: "echo '::set-env name=PR_BODY::Review app used to test Decidim branch [${{ github.event.inputs.decidimBranch }}](/decidim/decidim/tree/${{ github.event.inputs.decidimBranch }})'"
+
+      - name: Add issue number to PR body
+        if: ${{ github.event.inputs.decidimIssue != '' }}
+        run: "echo '::set-env name=PR_BODY::${{ env.PR_BODY }} for decidim/decidim#${{ github.event.inputs.decidimIssue }}'"
+
       - name: "Check if user has write access"
         uses: "lannonbr/repo-permission-check-action@2.0.0"
         with:
@@ -60,4 +71,6 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           title: "Review app for ${{ github.event.inputs.decidimBranch }}"
+          body: "${{ env.PR_BODY }}"
           branch: "review_app/${{ github.event.inputs.decidimBranch }}"
+          commit-message: "Update decidim to ${{ github.event.inputs.decidimBranch }} branch"
