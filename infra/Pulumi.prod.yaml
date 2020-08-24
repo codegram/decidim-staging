@@ -1,0 +1,47 @@
+config:
+  decidim-staging:awsAccessKeyId:
+    secure: AAABANx5E2MuWPj9ib20A+M1wlTYMuDlDn+KOQg2T/oN60kh9+tLkOgnU/QYTLa2yj2M7A==
+  decidim-staging:awsBucketName:
+    secure: AAABAKcjztY3wNoFq+XLDL+gnhDsXj+B4ze9UwERcZKLUpNj6AOgLGJGM7s+0iw=
+  decidim-staging:awsSecretAccessKey:
+    secure: AAABAO4Ms1Lj/9V947qDB/pTcgJSy45VNjBtvj/3nvfw7LoQjiq7HPvFbZCXC7/3CjsUXvBZq/O2cej2BNSnEMfzJU3kr0xZ
+  decidim-staging:clusterStackRef: codegram/genesis-cluster/prod
+  decidim-staging:email:
+    secure: AAABAJkyihsLVwI2EsEFGVUWBBtrxKH4D/lYBfkXJSt3syPyuXltL4UNG4tG07Z78h762SPdZZKk
+  decidim-staging:etherpadApiKey:
+    secure: AAABAN9J4rMUNL8ks9L7qR8PwzkAPWD68Ak8PBnFyWnJTlsOuLIN5K2dF+a3dRFeI0fSd+BtPEXiKOm9lmxc1QAbr5DKfNtFIVlNbm0YxvRc8v6JLbGw5aepu+X1pFdQ
+  decidim-staging:etherpadServer:
+    secure: AAABAGhOxSMNyi2/KCv7B0gnIBt3VHv6ossNqkJeeP/OF/vIAeblKzIMpY59B7xhZ/1D7DfJJFLG3F9fBTiTzb2BR7rTZg==
+  decidim-staging:gcpProjectId: labs-260007
+  decidim-staging:geocoderLookupAppCode:
+    secure: AAABAE3WCupF4V+leBg9Ts4kbpaKRZo7IAcOklDoYp+FWdw+ZkoRIjSSEV5w+Gx8XyruElj0
+  decidim-staging:geocoderLookupAppId:
+    secure: AAABAOPOvLb1t1Up8zr7jtWpbfRM9SD+jay2NGIXu579runzK9BOutaWC5eyOABreylUfQ==
+  decidim-staging:hereApiKey:
+    secure: AAABAAGxF/6F5GOtaodbzHHqDEXJmqYPVEyCm/o92Hxt+Uhv44qMZhN7BqQk29WRknjN2jON2bwMKSjEBOamDyCF51omwwDE6lLV
+  decidim-staging:hereAppCode:
+    secure: AAABAMA0wTnya1rvgQUt0Q4yALBHkO9D5kNhWMZmYXvLedBGykFrYNIG7y8I3gppEk140Ttn
+  decidim-staging:hereAppId:
+    secure: AAABACNVsOn6hYvRRsObR7OsymeQEA1Dzn5sUXI4BMb1Sh3NgIRtedhT9VKifIjSPJgYiw==
+  decidim-staging:lang: en_US.UTF-8
+  decidim-staging:mallocArenaMax: "2"
+  decidim-staging:minThreads: "1"
+  decidim-staging:rackEnv: production
+  decidim-staging:railsEnv: production
+  decidim-staging:railsLogToStdout: enabled
+  decidim-staging:railsMaxThreads: "1"
+  decidim-staging:railsServeStaticFiles: enabled
+  decidim-staging:secretKeyBase:
+    secure: AAABAKausANrHYVs4Sy63O6PvfqMym9iZqAa811tN900NQvMs2gJDcV++rQb41Jmjs259k5BSD5r1uv9SLlB6cMPbVcV+EcPCwq/e7+n0ZDRYWx/0C9ZicgJv3NghyXmhJUQXaIQyXinQ5x5r2at6sqoonMnGY0jes87Lk0ADp15PlOVppGpV9EnomnSHpoHKu7nxv5eO9Q/cgrKbQGh6A==
+  decidim-staging:sendgridPassword:
+    secure: AAABABfrPH1Fw3NgUs5gU0/oiM0kLwaSMAWZUjy1pD6ehEIu3fsRoyGJ8vU=
+  decidim-staging:sendgridUsername:
+    secure: AAABAGxm4tPVakiYjjaMq1XQfauvDuyFC9K3PDi5n/sbJ8C9SHsPlD77fOybnlYd99NXqTrt
+  decidim-staging:sentryDsn:
+    secure: AAABAPNfXGsN12GkiZPQcE9muAuzcOLDdk91tyIpzQCsfDhf/RwBfn+hvpl8Dv4uQAuV4dRrKFtXupvTCIzwub1x0hIVp0EA5YDgz2J+oF8YFv2QX/wxgLbr61zFYzX48uAvbR295lQnLrQshHWTJhIUvv8EfYKq4Yea
+  decidim-staging:smtpAuthentication: login
+  decidim-staging:smtpDomain: decidim-staging.herokuapp.com
+  decidim-staging:smtpPort: "465"
+  decidim-staging:webConcurrency: "1"
+  gcp:project: labs-260007
+  gcp:zone: europe-west3-a
