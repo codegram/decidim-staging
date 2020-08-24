@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_04_100010) do
+ActiveRecord::Schema.define(version: 2020_08_24_091910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -666,6 +666,9 @@ ActiveRecord::Schema.define(version: 2020_08_04_100010) do
     t.string "reference"
     t.integer "decidim_user_group_id"
     t.string "decidim_author_type", null: false
+    t.datetime "closed_at"
+    t.jsonb "conclusions"
+    t.index ["closed_at"], name: "index_decidim_debates_debates_on_closed_at"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_debates_debates_on_decidim_author"
     t.index ["decidim_component_id"], name: "index_decidim_debates_debates_on_decidim_component_id"
     t.index ["decidim_user_group_id"], name: "index_decidim_debates_debates_on_decidim_user_group_id"
@@ -1198,6 +1201,8 @@ ActiveRecord::Schema.define(version: 2020_08_04_100010) do
     t.jsonb "admin_terms_of_use_body"
     t.string "time_zone", limit: 255, default: "UTC"
     t.integer "comments_max_length", default: 1000
+    t.boolean "enable_machine_translations", default: false
+    t.string "machine_translation_display_priority", default: "original", null: false
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
