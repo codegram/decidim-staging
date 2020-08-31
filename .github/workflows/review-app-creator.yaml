@@ -76,4 +76,4 @@ jobs:
           branch: "review_app/${{ github.event.inputs.decidimBranch }}"
           commit-message: "Update decidim to ${{ github.event.inputs.decidimBranch }} branch"
           committer: "${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>"
-          title: "Review app for ${{ github.event.inputs.decidimBranch }}"
+          title: "Review app for ${{ github.event.inputs.decidimBranch }} by ${{ github.actor }}"
