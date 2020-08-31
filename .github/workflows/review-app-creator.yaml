@@ -61,6 +61,16 @@ jobs:
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
 
+      - name: Recover Ruby dependency cache
+        uses: actions/cache@v1
+        with:
+          path: ./vendor/bundle
+          key: ${{ runner.OS }}-rubydeps-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-rubydeps-${{ env.cache-name }}-
+            ${{ runner.OS }}-rubydeps-
+            ${{ runner.OS }}-
+
       - name: Install Ruby dependencies
         run: bundle install --path vendor/bundle --jobs 4
 
