@@ -1,0 +1,9 @@
+en:
+  decidim:
+    components:
+      budgets:
+        settings:
+          global:
+            workflow_choices:
+              pam2020: "PAM 2020: allows to Vote in the participant's district and in another of free choice."
+              random: "Vote in a random budgets: allows participants to vote only in one budget, selected randomly."

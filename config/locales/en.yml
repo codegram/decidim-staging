@@ -31,11 +31,3 @@
 
 en:
   hello: "Hello world"
-
-  decidim:
-    components:
-      budgets:
-        settings:
-          global:
-            workflow_choices:
-              pam2020: PAM 2020

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_04_100010) do
+ActiveRecord::Schema.define(version: 2020_08_28_093063) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -276,6 +276,19 @@ ActiveRecord::Schema.define(version: 2020_08_04_100010) do
     t.index ["decidim_user_group_id"], name: "index_decidim_blogs_posts_on_decidim_user_group_id"
   end
 
+  create_table "decidim_budgets_budgets", id: :serial, force: :cascade do |t|
+    t.jsonb "title"
+    t.integer "weight", default: 0, null: false
+    t.jsonb "description"
+    t.integer "total_budget", default: 0
+    t.integer "decidim_component_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "decidim_scope_id"
+    t.index ["decidim_component_id"], name: "index_decidim_budgets_budgets_on_decidim_component_id"
+    t.index ["decidim_scope_id"], name: "index_decidim_budgets_budgets_on_decidim_scope_id"
+  end
+
   create_table "decidim_budgets_line_items", id: :serial, force: :cascade do |t|
     t.integer "decidim_order_id"
     t.integer "decidim_project_id"
@@ -286,25 +299,25 @@ ActiveRecord::Schema.define(version: 2020_08_04_100010) do
 
   create_table "decidim_budgets_orders", id: :serial, force: :cascade do |t|
     t.integer "decidim_user_id"
-    t.integer "decidim_component_id"
     t.datetime "checked_out_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["decidim_component_id"], name: "index_decidim_budgets_orders_on_decidim_component_id"
-    t.index ["decidim_user_id", "decidim_component_id"], name: "decidim_budgets_order_user_component_unique", unique: true
+    t.bigint "decidim_budgets_budget_id"
+    t.index ["decidim_budgets_budget_id"], name: "index_decidim_budgets_orders_on_decidim_budgets_budget_id"
     t.index ["decidim_user_id"], name: "index_decidim_budgets_orders_on_decidim_user_id"
   end
 
   create_table "decidim_budgets_projects", id: :serial, force: :cascade do |t|
     t.jsonb "title"
     t.jsonb "description"
-    t.bigint "budget", null: false
-    t.integer "decidim_component_id"
+    t.bigint "budget_amount", null: false
     t.integer "decidim_scope_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "reference"
-    t.index ["decidim_component_id"], name: "index_decidim_budgets_projects_on_decidim_component_id"
+    t.bigint "decidim_budgets_budget_id"
+    t.date "selected_at"
+    t.index ["decidim_budgets_budget_id"], name: "index_decidim_budgets_projects_on_decidim_budgets_budget_id"
     t.index ["decidim_scope_id"], name: "index_decidim_budgets_projects_on_decidim_scope_id"
   end
 
@@ -666,9 +679,14 @@ ActiveRecord::Schema.define(version: 2020_08_04_100010) do
     t.string "reference"
     t.integer "decidim_user_group_id"
     t.string "decidim_author_type", null: false
+    t.datetime "closed_at"
+    t.jsonb "conclusions"
+    t.integer "endorsements_count", default: 0, null: false
+    t.index ["closed_at"], name: "index_decidim_debates_debates_on_closed_at"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_debates_debates_on_decidim_author"
     t.index ["decidim_component_id"], name: "index_decidim_debates_debates_on_decidim_component_id"
     t.index ["decidim_user_group_id"], name: "index_decidim_debates_debates_on_decidim_user_group_id"
+    t.index ["endorsements_count"], name: "idx_decidim_debates_debates_on_endorsemnts_count"
   end
 
   create_table "decidim_elections_answers", force: :cascade do |t|
@@ -1198,6 +1216,8 @@ ActiveRecord::Schema.define(version: 2020_08_04_100010) do
     t.jsonb "admin_terms_of_use_body"
     t.string "time_zone", limit: 255, default: "UTC"
     t.integer "comments_max_length", default: 1000
+    t.boolean "enable_machine_translations", default: false
+    t.string "machine_translation_display_priority", default: "original", null: false
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
@@ -1724,6 +1744,9 @@ ActiveRecord::Schema.define(version: 2020_08_04_100010) do
   add_foreign_key "decidim_assemblies_settings", "decidim_organizations"
   add_foreign_key "decidim_attachments", "decidim_attachment_collections", column: "attachment_collection_id", name: "fk_decidim_attachments_attachment_collection_id", on_delete: :nullify
   add_foreign_key "decidim_authorizations", "decidim_users"
+  add_foreign_key "decidim_budgets_budgets", "decidim_scopes"
+  add_foreign_key "decidim_budgets_orders", "decidim_budgets_budgets"
+  add_foreign_key "decidim_budgets_projects", "decidim_budgets_budgets"
   add_foreign_key "decidim_categorizations", "decidim_categories"
   add_foreign_key "decidim_consultations_response_groups", "decidim_consultations_questions", column: "decidim_consultations_questions_id"
   add_foreign_key "decidim_consultations_responses", "decidim_consultations_questions", column: "decidim_consultations_questions_id"
