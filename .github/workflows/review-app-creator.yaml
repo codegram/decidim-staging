@@ -81,6 +81,7 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           author: "${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>"
+          assignees: "${{ github.actor }}"
           body: "${{ env.PR_BODY }}"
           branch: "review_app/${{ github.event.inputs.decidimBranch }}"
           commit-message: "Update decidim to ${{ github.event.inputs.decidimBranch }} branch"
