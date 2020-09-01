@@ -10,8 +10,8 @@ GIT
 
 GIT
   remote: https://github.com/codegram/decidim
-  revision: 9c09c70efeeb555433a12de0b947981bdcfb509f
-  branch: staging-complex-budget-voting-r1
+  revision: 4831a7b12dbd8249b3fbc71571e3451fbde00c40
+  ref: 4831a7b12
   specs:
     decidim (0.23.0.dev)
       decidim-accountability (= 0.23.0.dev)
@@ -542,7 +542,7 @@ GEM
     mini_magick (4.10.1)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.14.1)
+    minitest (5.14.2)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
       tomlrb
@@ -814,8 +814,8 @@ GEM
       equalizer (~> 0.0, >= 0.0.9)
     virtus-multiparams (0.1.1)
       virtus (~> 1.0)
-    warden (1.2.8)
-      rack (>= 2.0.6)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
