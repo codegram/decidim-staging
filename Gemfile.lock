@@ -729,7 +729,7 @@ GEM
       rubyzip (>= 1.2.2)
     sendgrid-ruby (6.3.4)
       ruby_http_client (~> 3.4)
-    sentry-raven (3.0.3)
+    sentry-raven (3.0.4)
       faraday (>= 1.0)
     seven_zip_ruby (1.2.5)
     sidekiq (5.2.7)
