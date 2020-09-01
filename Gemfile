@@ -4,8 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-# DECIDIM_VERSION = { git: "https://github.com/codegram/decidim", branch: "staging-complex-budget-voting-r1" }
-DECIDIM_VERSION = { git: "https://github.com/codegram/decidim", ref: "4831a7b12" }
+DECIDIM_VERSION = { git: "https://github.com/codegram/decidim", branch: "staging-complex-budget-voting-r1" }
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
