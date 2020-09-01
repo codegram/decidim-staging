@@ -10,8 +10,8 @@ GIT
 
 GIT
   remote: https://github.com/codegram/decidim
-  revision: 14b0fa8254631bb4639b5988a6d2dcbd668e6642
-  branch: staging-complex-budget-voting-r1
+  revision: 517dc4b566b56f553efb0a582dfe5c8f1d499b11
+  ref: 517dc4b56
   specs:
     decidim (0.23.0.dev)
       decidim-accountability (= 0.23.0.dev)
