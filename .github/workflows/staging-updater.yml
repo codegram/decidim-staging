@@ -4,27 +4,29 @@ on:
     - cron:  '*/15 * * * *'
 
 env:
-  RUBY_VERSION: 2.6.6
-  DEFAULT_BRANCH: develop
+  RUBY_VERSION: 2.6.5
   DATABASE_USERNAME: postgres
   DATABASE_PASSWORD: postgres
   DATABASE_HOST: localhost
-  PR_BODY: ""
 
 jobs:
   check:
     name: Check if develop branch has changed
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.0.0
 
       - name: Get local commit hash from Gemfile.lock
-        run: "echo '::set-env LAST_LOCAL_COMMIT=$(grep -O 'revision.*' Gemfile.lock | sed s/\ \ revision:\ //)'"
+        run: "echo '::set-env name=LAST_LOCAL_COMMIT::'$(grep 'revision.*' Gemfile.lock | sed s/\\ \\ revision:\\ //)"
 
       - name: Get remote commit hash from repository
-        run: "echo '::set-env LAST_REMOTE_COMMIT=$(git ls-remote https://github.com/decidim/decidim refs/heads/develop | cut -f1)"
+        run: "echo '::set-env name=LAST_REMOTE_COMMIT::'$(git ls-remote https://github.com/decidim/decidim refs/heads/develop | cut -f1)"
+
+      - name: Show both hashes
+        run: "echo 'Gemfile.lock:  ${{ env.LAST_LOCAL_COMMIT }}\\ndeploy branch: ${{ env.LAST_REMOTE_COMMIT }}'"
 
       - name: Fail if both values are equal
-        if: ${{ env.LAST_LOCAL_COMMIT == LAST_REMOTE_COMMIT }}
+        if: ${{ env.LAST_LOCAL_COMMIT == env.LAST_REMOTE_COMMIT }}
         run: exit 1
 
   main:
@@ -51,6 +53,9 @@ jobs:
 
       - name: Install Ruby dependencies
         run: bundle install --path vendor/bundle --jobs 4
+
+      - name: Update decidim gem
+        run: bundle update --source decidim
 
       - name: Update database schema
         run: bundle exec rake db:create db:schema:load decidim:upgrade db:migrate
