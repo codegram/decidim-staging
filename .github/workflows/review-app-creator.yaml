@@ -21,7 +21,7 @@ env:
 
 jobs:
   main:
-    name: Tests
+    name: Update decidim and create PR
     runs-on: ubuntu-latest
     services:
       postgres:
