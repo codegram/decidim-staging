@@ -1,7 +1,8 @@
 name: "Staging updater"
 on:
+  workflow_dispatch:
   schedule:
-    - cron:  '*/15 * * * *'
+    - cron:  '0 5 * * 1'
 
 env:
   RUBY_VERSION: 2.6.5
@@ -23,7 +24,7 @@ jobs:
         run: "echo '::set-env name=LAST_REMOTE_COMMIT::'$(git ls-remote https://github.com/decidim/decidim refs/heads/develop | cut -f1)"
 
       - name: Show both hashes
-        run: "echo 'Gemfile.lock:  ${{ env.LAST_LOCAL_COMMIT }}\\ndeploy branch: ${{ env.LAST_REMOTE_COMMIT }}'"
+        run: "echo 'Gemfile.lock:  ${{ env.LAST_LOCAL_COMMIT }}\ndeploy branch: ${{ env.LAST_REMOTE_COMMIT }}'"
 
       - name: Fail if both values are equal
         if: ${{ env.LAST_LOCAL_COMMIT == env.LAST_REMOTE_COMMIT }}
