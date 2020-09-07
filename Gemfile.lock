@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: fc506d1f2eb324fe806dbadda3f3b22b613dab0a
+  revision: ea0b3dccd3de52e9a7ebc3a110c2aa86014eac65
   branch: adding_dropdown_option_to_locales
   specs:
     decidim (0.23.0.dev)
