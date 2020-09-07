@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 652d5cf9f29ac6843f6bfb3b1d6fe0728fc5e0a3
+  revision: 09e8f66a3bf2c740daba859014250514895fb634
   branch: develop
   specs:
     decidim (0.23.0.dev)
@@ -288,7 +288,7 @@ GEM
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
     batch-loader (1.5.0)
-    bcrypt (3.1.15)
+    bcrypt (3.1.16)
     better_html (1.0.15)
       actionview (>= 4.0)
       activesupport (>= 4.0)
