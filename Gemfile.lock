@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 09e8f66a3bf2c740daba859014250514895fb634
-  branch: develop
+  revision: 689b00eac183a16fba1e78c3cb735cdeb4a494bb
+  branch: feature/validate-max-answer-selection
   specs:
     decidim (0.23.0.dev)
       decidim-accountability (= 0.23.0.dev)
@@ -544,7 +544,7 @@ GEM
     mustache (1.1.1)
     netrc (0.11.0)
     newrelic_rpm (6.12.0.367)
-    nio4r (2.5.2)
+    nio4r (2.5.3)
     nobspw (0.6.2)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
@@ -596,7 +596,7 @@ GEM
     premailer-rails (1.11.1)
       actionmailer (>= 3)
       premailer (~> 1.7, >= 1.7.9)
-    public_suffix (4.0.5)
+    public_suffix (4.0.6)
     puma (4.3.6)
       nio4r (~> 2.0)
     rack (2.2.3)
@@ -656,7 +656,7 @@ GEM
       virtus (~> 1.0.5)
       wisper (>= 1.6.1)
     redcarpet (3.5.0)
-    redis (4.2.1)
+    redis (4.2.2)
     regexp_parser (1.7.1)
     request_store (1.5.0)
       rack (>= 1.4)
@@ -861,7 +861,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-   ruby 2.6.5p114
+   ruby 2.6.6p146
 
 BUNDLED WITH
    1.17.3
