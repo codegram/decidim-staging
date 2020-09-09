@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 09e8f66a3bf2c740daba859014250514895fb634
-  branch: develop
+  revision: 689b00eac183a16fba1e78c3cb735cdeb4a494bb
+  branch: feature/validate-max-answer-selection
   specs:
     decidim (0.23.0.dev)
       decidim-accountability (= 0.23.0.dev)
@@ -861,7 +861,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-   ruby 2.6.5p114
+   ruby 2.6.6p146
 
 BUNDLED WITH
    1.17.3
