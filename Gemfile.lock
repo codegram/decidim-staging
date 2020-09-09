@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 09e8f66a3bf2c740daba859014250514895fb634
-  branch: develop
+  revision: bfcc59fd901ddd87cf7c421c1a46a27abc81ee25
+  branch: feature/debates-filtering
   specs:
     decidim (0.23.0.dev)
       decidim-accountability (= 0.23.0.dev)
@@ -858,7 +858,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-   ruby 2.6.5p114
+   ruby 2.6.6p146
 
 BUNDLED WITH
    1.17.3
