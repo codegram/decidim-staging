@@ -8,26 +8,15 @@ This is the open-source repository for decidim_staging, based on [Decidim](https
 
 This application uses Heroku Review Apps to check new features individually and in isolation. In order to create a Review App:
 
-1. `git checkout master`
-1. `git pull origin master`
-1. Move to your own branch: `git checkout -b my-branch-name`
-1. Edit the `Gemfile` so that the `decidim` dependencies point to the branch you want to test out
-1. `bundle update decidim decidim-initiatives decidim-dev decidim-conferences decidim-consultations decidim-elections`
-1. `bundle exec rake decidim:upgrade db:migrate`
-1. `git add --all && git commit -m "Update decidim"`
-1. `git push origin my-branch-name`
-1. Open a PR from `my-branch` to `master`. This will trigger a deploy of a new Review App. You can check it in the Heroku dashboard. Also, when the deployment is finished, it will appear in the PR in this repo.
+1. Go to the [Actions](https://github.com/codegram/decidim-staging/actions) tab
+2. Select **Review app creator** and click on **Run workflow** button
+3. Fill in the **Decidim branch name** with the name of your feature branch
+4. Optional: add the Decidim issue number
+5. Click **Run workflow** (This will trigger a deploy of a new Review App. You can check it in the Heroku dashboard. Also, when the deployment is finished, it will appear in the PR in this repo.)
+6. When the feature is reviewed close the PR (DO NOT MERGE IT!)
 
 ## Updating the app
-The app needs to be updated manually. Steps to update it:
-
-1. Move to your own branch: `git checkout -b my-branch-name`
-1. `bundle update decidim decidim-initiatives decidim-dev decidim-conferences decidim-consultations decidim-elections`
-1. `bundle exec rake decidim:upgrade db:migrate`
-1. `git add --all && git commit -m "Update decidim"`
-1. `git push origin my-branch-name`
-
-Remember to create a PR for your branch so that a Review App is created automatically.
+You can update the app in the same way as you create it. Just fill in the form again with the necessary data.
 
 ## Reseeding the DB
 
