@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 749cba3c58c9563ccb413c881aa666d36035e32d
-  branch: develop
+  revision: 3533b36f299d9a7f7d2c1861e8a268a217948ef3
+  branch: feature/configure-bulletin-board
   specs:
     decidim (0.23.0.dev)
       decidim-accountability (= 0.23.0.dev)
@@ -858,7 +858,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-   ruby 2.6.5p114
+   ruby 2.6.6p146
 
 BUNDLED WITH
    1.17.3
