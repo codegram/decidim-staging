@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 09e8f66a3bf2c740daba859014250514895fb634
-  branch: develop
+  revision: 3ce53560b3d7becfd79729befe8aea3cdc83e01f
+  branch: feature/debates-filtering
   specs:
     decidim (0.23.0.dev)
       decidim-accountability (= 0.23.0.dev)
@@ -536,7 +536,7 @@ GEM
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
       tomlrb
-    mixlib-shellout (3.1.4)
+    mixlib-shellout (3.1.6)
       chef-utils
     multi_json (1.15.0)
     multi_xml (0.6.0)
@@ -858,7 +858,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-   ruby 2.6.5p114
+   ruby 2.6.6p146
 
 BUNDLED WITH
    1.17.3
