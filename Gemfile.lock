@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 09e8f66a3bf2c740daba859014250514895fb634
+  revision: 749cba3c58c9563ccb413c881aa666d36035e32d
   branch: develop
   specs:
     decidim (0.23.0.dev)
@@ -111,7 +111,7 @@ GIT
       premailer-rails (~> 1.10)
       rack (>= 2.2.3)
       rack-attack (~> 6.0)
-      rails (>= 5.2.4.3, < 6.0.x)
+      rails (>= 5.2.4.4, < 6.0.x)
       rails-i18n (~> 5.0)
       rectify (~> 0.13.0)
       redis (~> 4.1)
@@ -119,7 +119,7 @@ GIT
       rubyzip (~> 2.0)
       sassc (~> 2.3.0)
       sassc-rails (~> 2.1.2)
-      seven_zip_ruby (~> 1.2, >= 1.2.2)
+      seven_zip_ruby (~> 1.3)
       social-share-button (~> 1.2, >= 1.2.1)
       spreadsheet (~> 1.2)
       sprockets (~> 3.7, < 4)
@@ -536,7 +536,7 @@ GEM
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
       tomlrb
-    mixlib-shellout (3.1.4)
+    mixlib-shellout (3.1.6)
       chef-utils
     multi_json (1.15.0)
     multi_xml (0.6.0)
