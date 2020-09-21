@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_10_174354) do
+ActiveRecord::Schema.define(version: 2020_09_21_051521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -284,7 +284,9 @@ ActiveRecord::Schema.define(version: 2020_09_10_174354) do
     t.integer "decidim_component_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "decidim_scope_id"
     t.index ["decidim_component_id"], name: "index_decidim_budgets_budgets_on_decidim_component_id"
+    t.index ["decidim_scope_id"], name: "index_decidim_budgets_budgets_on_decidim_scope_id"
   end
 
   create_table "decidim_budgets_line_items", id: :serial, force: :cascade do |t|
@@ -1756,6 +1758,7 @@ ActiveRecord::Schema.define(version: 2020_09_10_174354) do
   add_foreign_key "decidim_assemblies_settings", "decidim_organizations"
   add_foreign_key "decidim_attachments", "decidim_attachment_collections", column: "attachment_collection_id", name: "fk_decidim_attachments_attachment_collection_id", on_delete: :nullify
   add_foreign_key "decidim_authorizations", "decidim_users"
+  add_foreign_key "decidim_budgets_budgets", "decidim_scopes"
   add_foreign_key "decidim_budgets_orders", "decidim_budgets_budgets"
   add_foreign_key "decidim_budgets_projects", "decidim_budgets_budgets"
   add_foreign_key "decidim_categorizations", "decidim_categories"
