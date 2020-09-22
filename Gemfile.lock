@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 06b427671d5ae4501e7cf1518d405692eedd9299
-  branch: develop
+  revision: 33f7ac2a3047df1e6ecd309fd620339184e15c13
+  branch: feature/add-scope-to-proposal-import
   specs:
     decidim (0.23.0.dev)
       decidim-accountability (= 0.23.0.dev)
@@ -588,7 +588,7 @@ GEM
     pg_search (2.3.3)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
-    premailer (1.14.1)
+    premailer (1.14.2)
       addressable
       css_parser (>= 1.6.0)
       htmlentities (>= 4.0.0)
@@ -856,7 +856,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-   ruby 2.6.5p114
+   ruby 2.6.6p146
 
 BUNDLED WITH
    1.17.3
