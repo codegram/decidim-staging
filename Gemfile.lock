@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: b490f2647e436fc7d7c65f2a12f82cc137b60ae1
+  revision: f61b6c952bf8baa710e6f76d28aa2758ef7273d6
   branch: develop
   specs:
     decidim (0.23.0.dev)
@@ -325,7 +325,7 @@ GEM
       actionpack (>= 3.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.7)
-    chef-utils (16.5.64)
+    chef-utils (16.5.77)
     childprocess (3.0.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -654,7 +654,7 @@ GEM
       wisper (>= 1.6.1)
     redcarpet (3.5.0)
     redis (4.2.2)
-    regexp_parser (1.8.0)
+    regexp_parser (1.8.1)
     request_store (1.5.0)
       rack (>= 1.4)
     responders (3.0.1)
