@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: a179b49ed88662c1dcb0229eae61611e86ceb9a0
-  branch: develop
+  revision: f3f79b4a6bcff82e2cb4140e494936fa3f4e22bb
+  branch: feature/election-feedback
   specs:
     decidim (0.23.0.dev)
       decidim-accountability (= 0.23.0.dev)
@@ -162,6 +162,7 @@ GIT
       wisper-rspec (~> 1.0)
     decidim-elections (0.23.0.dev)
       decidim-core (= 0.23.0.dev)
+      decidim-forms (= 0.23.0.dev)
       decidim-proposals (= 0.23.0.dev)
     decidim-forms (0.23.0.dev)
       decidim-core (= 0.23.0.dev)
@@ -861,7 +862,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-   ruby 2.6.5p114
+   ruby 2.6.6p146
 
 BUNDLED WITH
    1.17.3
