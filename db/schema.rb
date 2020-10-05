@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_28_051539) do
+ActiveRecord::Schema.define(version: 2020_10_05_051458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -890,20 +890,19 @@ ActiveRecord::Schema.define(version: 2020_09_28_051539) do
     t.jsonb "answer"
     t.datetime "answered_at"
     t.string "answer_url"
-    t.integer "initiative_votes_count", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "decidim_user_group_id"
     t.string "hashtag"
-    t.integer "initiative_supports_count", default: 0, null: false
     t.integer "scoped_type_id"
     t.datetime "first_progress_notification_at"
     t.datetime "second_progress_notification_at"
-    t.integer "offline_votes"
     t.string "decidim_author_type", null: false
     t.string "reference"
     t.bigint "decidim_area_id"
     t.integer "comments_count", default: 0, null: false
+    t.jsonb "online_votes", default: {}
+    t.jsonb "offline_votes", default: {}
     t.index "md5((description)::text)", name: "decidim_initiatives_description_search"
     t.index ["answered_at"], name: "index_decidim_initiatives_on_answered_at"
     t.index ["decidim_area_id"], name: "index_decidim_initiatives_on_decidim_area_id"
@@ -954,6 +953,8 @@ ActiveRecord::Schema.define(version: 2020_09_28_051539) do
     t.boolean "custom_signature_end_date_enabled", default: false, null: false
     t.boolean "attachments_enabled", default: false, null: false
     t.boolean "area_enabled", default: false, null: false
+    t.boolean "child_scope_threshold_enabled", default: false, null: false
+    t.boolean "only_global_scope_enabled", default: false, null: false
     t.index ["decidim_organization_id"], name: "index_decidim_initiative_types_on_decidim_organization_id"
   end
 
@@ -962,14 +963,12 @@ ActiveRecord::Schema.define(version: 2020_09_28_051539) do
     t.bigint "decidim_author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "decidim_user_group_id"
     t.text "encrypted_metadata"
     t.string "timestamp"
     t.string "hash_id"
+    t.integer "decidim_scope_id"
     t.index ["decidim_author_id"], name: "index_decidim_initiatives_votes_on_decidim_author_id"
-    t.index ["decidim_initiative_id", "decidim_author_id", "decidim_user_group_id"], name: "decidim_initiatives_voutes_author_uniqueness_index", unique: true
     t.index ["decidim_initiative_id"], name: "index_decidim_initiatives_votes_on_decidim_initiative_id"
-    t.index ["decidim_user_group_id"], name: "index_decidim_initiatives_votes_on_decidim_user_group_id"
     t.index ["hash_id"], name: "index_decidim_initiatives_votes_on_hash_id"
   end
 
