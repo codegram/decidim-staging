@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: a179b49ed88662c1dcb0229eae61611e86ceb9a0
-  branch: develop
+  revision: f3f79b4a6bcff82e2cb4140e494936fa3f4e22bb
+  branch: feature/election-feedback
   specs:
     decidim (0.23.0.dev)
       decidim-accountability (= 0.23.0.dev)
@@ -162,6 +162,7 @@ GIT
       wisper-rspec (~> 1.0)
     decidim-elections (0.23.0.dev)
       decidim-core (= 0.23.0.dev)
+      decidim-forms (= 0.23.0.dev)
       decidim-proposals (= 0.23.0.dev)
     decidim-forms (0.23.0.dev)
       decidim-core (= 0.23.0.dev)
@@ -437,7 +438,7 @@ GEM
       activesupport (>= 4.1, < 6.0)
       railties (>= 4.1, < 6.0)
       tzinfo (~> 1.2, >= 1.2.2)
-    geocoder (1.6.3)
+    geocoder (1.6.4)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     graphiql-rails (1.4.11)
@@ -683,7 +684,7 @@ GEM
     rspec-expectations (3.9.2)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
-    rspec-html-matchers (0.9.3)
+    rspec-html-matchers (0.9.4)
       nokogiri (~> 1)
       rspec (>= 3.0.0.a, < 4)
     rspec-mocks (3.9.1)
