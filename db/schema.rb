@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_09_120147) do
+ActiveRecord::Schema.define(version: 2020_10_09_122750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -403,9 +403,7 @@ ActiveRecord::Schema.define(version: 2020_10_09_120147) do
     t.datetime "published_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "parent_id"
     t.string "participatory_space_type", null: false
-    t.index ["parent_id"], name: "index_decidim_components_on_parent_id"
     t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_components_on_decidim_participatory_space"
   end
 
@@ -899,10 +897,10 @@ ActiveRecord::Schema.define(version: 2020_10_09_120147) do
     t.datetime "second_progress_notification_at"
     t.string "decidim_author_type", null: false
     t.string "reference"
-    t.bigint "decidim_area_id"
-    t.integer "comments_count", default: 0, null: false
     t.jsonb "online_votes", default: {}
     t.jsonb "offline_votes", default: {}
+    t.bigint "decidim_area_id"
+    t.integer "comments_count", default: 0, null: false
     t.index "md5((description)::text)", name: "decidim_initiatives_description_search"
     t.index ["answered_at"], name: "index_decidim_initiatives_on_answered_at"
     t.index ["decidim_area_id"], name: "index_decidim_initiatives_on_decidim_area_id"
@@ -950,11 +948,11 @@ ActiveRecord::Schema.define(version: 2020_10_09_120147) do
     t.boolean "undo_online_signatures_enabled", default: true, null: false
     t.boolean "promoting_committee_enabled", default: true, null: false
     t.integer "signature_type", default: 0, null: false
+    t.boolean "child_scope_threshold_enabled", default: false, null: false
+    t.boolean "only_global_scope_enabled", default: false, null: false
     t.boolean "custom_signature_end_date_enabled", default: false, null: false
     t.boolean "attachments_enabled", default: false, null: false
     t.boolean "area_enabled", default: false, null: false
-    t.boolean "child_scope_threshold_enabled", default: false, null: false
-    t.boolean "only_global_scope_enabled", default: false, null: false
     t.index ["decidim_organization_id"], name: "index_decidim_initiative_types_on_decidim_organization_id"
   end
 
@@ -1225,10 +1223,10 @@ ActiveRecord::Schema.define(version: 2020_10_09_120147) do
     t.boolean "rich_text_editor_in_public_views", default: false
     t.jsonb "admin_terms_of_use_body"
     t.string "time_zone", limit: 255, default: "UTC"
-    t.integer "comments_max_length", default: 1000
     t.boolean "enable_machine_translations", default: false
-    t.string "machine_translation_display_priority", default: "original", null: false
+    t.integer "comments_max_length", default: 1000
     t.jsonb "file_upload_settings"
+    t.string "machine_translation_display_priority", default: "original", null: false
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
