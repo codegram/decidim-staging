@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 44112f6db1a424c4041966da9441851bd0df3693
-  branch: develop
+  revision: c2881d0fe2eb1b181fc35b7167b3da088b93efba
+  branch: feature/add-trustee-role
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
@@ -590,7 +590,7 @@ GEM
     parser (2.7.1.4)
       ast (~> 2.4.1)
     pg (1.1.4)
-    pg_search (2.3.3)
+    pg_search (2.3.4)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
     premailer (1.14.2)
@@ -659,7 +659,7 @@ GEM
       wisper (>= 1.6.1)
     redcarpet (3.5.0)
     redis (4.2.2)
-    regexp_parser (1.8.1)
+    regexp_parser (1.8.2)
     request_store (1.5.0)
       rack (>= 1.4)
     responders (3.0.1)
