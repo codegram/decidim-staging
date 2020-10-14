@@ -1,0 +1,89 @@
+name: "App updater"
+on:
+  workflow_dispatch:
+    inputs:
+      decidimBranch:
+        description: 'Decidim branch name (leave it empty to update master)'
+        required: false
+        default: ''
+  schedule:
+    - cron: '0 5 * * 1'
+
+env:
+  RUBY_VERSION: 2.6.6
+  DATABASE_USERNAME: postgres
+  DATABASE_PASSWORD: postgres
+  DATABASE_HOST: localhost
+  DECIDIM_BRANCH: develop
+  STAGING_BRANCH: master
+
+jobs:
+  check:
+    name: Check if decidim branch has changed
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up the branches to be used for the decidim repo and the staging repo
+        if: github.event.inputs.decidimBranch != ''
+        run: |
+          echo "DECIDIM_BRANCH=${{ github.event.inputs.decidimBranch }}" >> $GITHUB_ENV
+          echo "STAGING_BRANCH=review_app/${{ github.event.inputs.decidimBranch }}" >> $GITHUB_ENV
+
+      - uses: actions/checkout@v2.0.0
+        with:
+          ref: ${{ env.STAGING_BRANCH }}
+
+      - name: Get local commit hash from Gemfile.lock
+        run: echo "LAST_LOCAL_COMMIT=$(grep 'revision.*' Gemfile.lock | sed s/\ \ revision:\ //)" >> $GITHUB_ENV
+
+      - name: Get remote commit hash from repository
+        run: echo "LAST_REMOTE_COMMIT=$(git ls-remote https://github.com/decidim/decidim refs/heads/${{ env.DECIDIM_BRANCH }} | cut -f1)" >> $GITHUB_ENV
+
+      - name: Show both hashes
+        run: "echo 'Gemfile.lock:  ${{ env.LAST_LOCAL_COMMIT }}\ndeploy branch: ${{ env.LAST_REMOTE_COMMIT }}'"
+
+      - name: Fail if both values are equal
+        if: env.LAST_LOCAL_COMMIT == env.LAST_REMOTE_COMMIT
+        run: exit 1
+
+  main:
+    name: Update decidim gem with the last commit in the branch
+    needs: check
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:11
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        env:
+          POSTGRES_PASSWORD: postgres
+    steps:
+      - name: Set up the branches to be used for the decidim repo and the staging repo
+        if: github.event.inputs.decidimBranch != ''
+        run: |
+          echo "DECIDIM_BRANCH=${{ github.event.inputs.decidimBranch }}" >> $GITHUB_ENV
+          echo "STAGING_BRANCH=review_app/${{ github.event.inputs.decidimBranch }}" >> $GITHUB_ENV
+
+      - uses: actions/checkout@v2.0.0
+        with:
+          ref: ${{ env.STAGING_BRANCH }}
+
+      - uses: ruby/setup-ruby@master
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+
+      - name: Install Ruby dependencies
+        run: bundle install --path vendor/bundle --jobs 4
+
+      - name: Update decidim gem
+        run: bundle update --source decidim
+
+      - name: Update database schema
+        run: bundle exec rake db:create db:schema:load decidim:upgrade db:migrate
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Update to the last version of decidim ${{ env.DECIDIM_BRANCH}} branch"
