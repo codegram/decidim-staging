@@ -16,7 +16,14 @@ This application uses Heroku Review Apps to check new features individually and 
 6. When the feature is reviewed close the PR (DO NOT MERGE IT!)
 
 ## Updating the app
-Using the Review App creator can give some problems with migrations. There's an alternative: use `bin/decidim_upgrade` (check `master` branch if your branch doesn't have it). The downside is that it currently needs to be executed manually (clone the repo, checkout to your branch, run the command and commit&push the changes) but it won't give any problems with migrations.
+Using the "Review App creator" can give some problems with migrations. You can use the "App updater" workflow to update and existing Review App with the last changes from the Decidim branch. In order to do it:
+
+1. Go to the [Actions](https://github.com/codegram/decidim-staging/actions) tab
+2. Select **App updater** and click on **Run workflow** button
+3. Fill in the **Decidim branch name** with the name of your feature branch
+4. Click **Run workflow**
+
+Also, there's an alternative: use `bin/decidim_upgrade` (check `master` branch if your branch doesn't have it). The downside is that it currently needs to be executed manually (clone the repo, checkout to your branch, run the command and commit&push the changes) but it won't give any problems with migrations.
 
 ## Reseeding the DB
 
