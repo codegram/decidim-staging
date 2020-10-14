@@ -1,7 +1,7 @@
 GIT
-  remote: https://github.com/decidim/decidim
-  revision: 44112f6db1a424c4041966da9441851bd0df3693
-  branch: develop
+  remote: https://github.com/tremend-cofe/decidim
+  revision: c183f994d1076d7f620fabc24cc955157d66ec91
+  branch: feat/moderation-panel-improvements
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
@@ -587,10 +587,10 @@ GEM
       activerecord (>= 4.2)
       request_store (~> 1.1)
     parallel (1.19.2)
-    parser (2.7.1.4)
+    parser (2.7.2.0)
       ast (~> 2.4.1)
     pg (1.1.4)
-    pg_search (2.3.3)
+    pg_search (2.3.4)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
     premailer (1.14.2)
@@ -601,7 +601,7 @@ GEM
       actionmailer (>= 3)
       premailer (~> 1.7, >= 1.7.9)
     public_suffix (4.0.6)
-    puma (5.0.0)
+    puma (5.0.2)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-attack (6.3.1)
@@ -659,7 +659,7 @@ GEM
       wisper (>= 1.6.1)
     redcarpet (3.5.0)
     redis (4.2.2)
-    regexp_parser (1.8.1)
+    regexp_parser (1.8.2)
     request_store (1.5.0)
       rack (>= 1.4)
     responders (3.0.1)
@@ -811,7 +811,7 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webmock (3.9.1)
+    webmock (3.9.2)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -824,7 +824,7 @@ GEM
       activesupport
     wisper (2.0.1)
     wisper-rspec (1.1.0)
-    wkhtmltopdf-binary (0.12.6.3)
+    wkhtmltopdf-binary (0.12.6.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
