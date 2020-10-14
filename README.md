@@ -16,7 +16,7 @@ This application uses Heroku Review Apps to check new features individually and 
 6. When the feature is reviewed close the PR (DO NOT MERGE IT!)
 
 ## Updating the app
-You can update the app in the same way as you create it. Just fill in the form again with the necessary data.
+Using the Review App creator can give some problems with migrations. There's an alternative: use `bin/decidim_upgrade` (check `master` branch if your branch doesn't have it). The downside is that it currently needs to be executed manually (clone the repo, checkout to your branch, run the command and commit&push the changes) but it won't give any problems with migrations.
 
 ## Reseeding the DB
 
