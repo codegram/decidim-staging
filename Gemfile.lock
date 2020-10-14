@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 438d3795ab3c1e5876d374337aa21c17f6927269
+  revision: 0c0462b44a013c65e8f71b96c6f9d5a6d6a6e522
   branch: enhance_meetings_form
   specs:
     decidim (0.24.0.dev)
