@@ -36,11 +36,11 @@ jobs:
           POSTGRES_PASSWORD: postgres
     steps:
       - name: Add branch link to PR body
-        run: "echo '::set-env name=PR_BODY::Review app used to test Decidim branch [${{ github.event.inputs.decidimBranch }}](/decidim/decidim/tree/${{ github.event.inputs.decidimBranch }})'"
+        run: echo "PR_BODY=Review app used to test Decidim branch [${{ github.event.inputs.decidimBranch }}](/decidim/decidim/tree/${{ github.event.inputs.decidimBranch }})" >> $GITHUB_ENV
 
       - name: Add issue number to PR body
         if: ${{ github.event.inputs.decidimIssue != '' }}
-        run: "echo '::set-env name=PR_BODY::${{ env.PR_BODY }} for decidim/decidim#${{ github.event.inputs.decidimIssue }}'"
+        run: echo "PR_BODY=${{ env.PR_BODY }} for decidim/decidim#${{ github.event.inputs.decidimIssue }}" >> $GITHUB_ENV
 
       - name: "Check if user has write access"
         uses: "lannonbr/repo-permission-check-action@2.0.0"
