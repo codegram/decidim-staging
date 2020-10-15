@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 0febba16b7c1b7aea30ec387610684c26e59ff61
-  branch: develop
+  revision: 3c5cae6ff598dceab4c4f44d27ec3b0b787519cc
+  branch: fix/draft-filter
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
@@ -330,7 +330,7 @@ GEM
       actionpack (>= 3.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.7)
-    chef-utils (16.5.77)
+    chef-utils (16.6.14)
     childprocess (3.0.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
