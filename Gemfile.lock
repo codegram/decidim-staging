@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: a076fc35dd1491a6acc4b2a9be62043a7496c1af
-  branch: develop
+  revision: 7c2b3864250be3dcfc6efd0600c2398b8062c215
+  branch: feature/edit-initiative-as-propomoter
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
