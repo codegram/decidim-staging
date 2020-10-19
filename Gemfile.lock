@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: a076fc35dd1491a6acc4b2a9be62043a7496c1af
-  branch: develop
+  revision: 1b455718eac427b1d28d9c8eca05dd005f20d7a9
+  branch: feat/print-form-application
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
