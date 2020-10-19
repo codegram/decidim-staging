@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: a076fc35dd1491a6acc4b2a9be62043a7496c1af
-  branch: develop
+  revision: cacfb3bddf712cf380a6896a20a4b7f45f7fe8a2
+  branch: feat/accept-promotor-committee
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
