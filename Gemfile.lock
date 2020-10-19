@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: a076fc35dd1491a6acc4b2a9be62043a7496c1af
-  branch: develop
+  revision: addb4f7f1b38e870222ac7246d7ef021fe87909a
+  branch: feature/trustee-zone
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
