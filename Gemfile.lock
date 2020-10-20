@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 41bf61dede04ef092681d459affb3c8a001a059b
+  revision: c629114de641835737e133ea4d8a9cf44d6002b0
   branch: add_registration_system
   specs:
     decidim (0.24.0.dev)
