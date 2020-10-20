@@ -5,7 +5,8 @@
   "addons": [
     "heroku-postgresql:hobby-basic",
     "heroku-redis:hobby-dev",
-    "logentries:le_tryit"
+    "logentries:le_tryit",
+    "sendgrid:starter"
   ],
   "scripts": {
     "postdeploy":"rake db:seed"
