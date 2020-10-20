@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/tremend-cofe/decidim
-  revision: 462d2f000c86433b3dd33cffd3681a3476b42bea
+  revision: e46e50a20b8aa1533386f9e667b3116e365091c1
   branch: feat/close-meeting-in-public-pages
   specs:
     decidim (0.24.0.dev)
