@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_19_051937) do
+ActiveRecord::Schema.define(version: 2020_10_20_173803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -716,6 +716,13 @@ ActiveRecord::Schema.define(version: 2020_10_19_051937) do
     t.index ["decidim_component_id"], name: "index_decidim_elections_elections_on_decidim_component_id"
   end
 
+  create_table "decidim_elections_elections_trustees", force: :cascade do |t|
+    t.bigint "decidim_elections_election_id", null: false
+    t.bigint "decidim_elections_trustee_id", null: false
+    t.index ["decidim_elections_election_id"], name: "index_elections_trustees_on_decidim_elections_election_id"
+    t.index ["decidim_elections_trustee_id"], name: "index_elections_trustees_on_decidim_elections_trustee_id"
+  end
+
   create_table "decidim_elections_questions", force: :cascade do |t|
     t.bigint "decidim_elections_election_id", null: false
     t.jsonb "title", null: false
@@ -725,6 +732,25 @@ ActiveRecord::Schema.define(version: 2020_10_19_051937) do
     t.boolean "random_answers_order", default: true, null: false
     t.integer "min_selections", default: 1, null: false
     t.index ["decidim_elections_election_id"], name: "decidim_elections_elections_questions"
+  end
+
+  create_table "decidim_elections_trustees", force: :cascade do |t|
+    t.bigint "decidim_user_id", null: false
+    t.string "public_key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_user_id"], name: "index_decidim_elections_trustees_on_decidim_user_id"
+  end
+
+  create_table "decidim_elections_trustees_participatory_spaces", force: :cascade do |t|
+    t.string "participatory_space_type"
+    t.bigint "participatory_space_id"
+    t.bigint "decidim_elections_trustee_id", null: false
+    t.boolean "considered", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_elections_trustee_id"], name: "index_elections_trustees_spaces_on_elections_trustee_id"
+    t.index ["participatory_space_type", "participatory_space_id"], name: "index_elections_trustees_spaces_on_space_type_and_id"
   end
 
   create_table "decidim_endorsements", force: :cascade do |t|
