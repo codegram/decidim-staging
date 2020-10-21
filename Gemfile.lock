@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: ae8d369527507ccefffe41a32059c1c85bf23843
+  revision: c41b115573c0931f0ccd25b04e9d21ed92ab73ca
   branch: feature/add-bulletin-board-client
   specs:
     decidim (0.24.0.dev)
