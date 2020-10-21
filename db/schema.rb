@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_16_130054) do
+ActiveRecord::Schema.define(version: 2020_10_21_081545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1229,6 +1229,7 @@ ActiveRecord::Schema.define(version: 2020_10_16_130054) do
     t.integer "comments_max_length", default: 1000
     t.jsonb "file_upload_settings"
     t.string "machine_translation_display_priority", default: "original", null: false
+    t.boolean "demographics_data_collection", default: false
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
@@ -1460,6 +1461,7 @@ ActiveRecord::Schema.define(version: 2020_10_16_130054) do
     t.text "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "locale"
     t.index ["decidim_moderation_id", "decidim_user_id"], name: "decidim_reports_moderation_user_unique", unique: true
     t.index ["decidim_moderation_id"], name: "decidim_reports_moderation"
     t.index ["decidim_user_id"], name: "decidim_reports_user"
@@ -1642,6 +1644,32 @@ ActiveRecord::Schema.define(version: 2020_10_16_130054) do
     t.index ["role", "decidim_user_group_id"], name: "decidim_group_membership_one_creator_per_group", unique: true, where: "((role)::text = 'creator'::text)"
   end
 
+  create_table "decidim_user_moderations", force: :cascade do |t|
+    t.bigint "decidim_user_id"
+    t.integer "report_count", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_user_id"], name: "index_decidim_user_moderations_on_decidim_user_id"
+  end
+
+  create_table "decidim_user_reports", force: :cascade do |t|
+    t.integer "user_moderation_id"
+    t.integer "user_id", null: false
+    t.string "reason"
+    t.text "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "decidim_user_suspensions", force: :cascade do |t|
+    t.bigint "decidim_user_id"
+    t.integer "suspending_user_id"
+    t.text "justification"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_user_id"], name: "index_decidim_user_suspensions_on_decidim_user_id"
+  end
+
   create_table "decidim_users", id: :serial, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -1696,6 +1724,9 @@ ActiveRecord::Schema.define(version: 2020_10_16_130054) do
     t.datetime "officialized_at"
     t.jsonb "officialized_as"
     t.datetime "admin_terms_accepted_at"
+    t.boolean "suspended", default: false, null: false
+    t.datetime "suspended_at"
+    t.integer "suspension_id"
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["email", "decidim_organization_id"], name: "index_decidim_users_on_email_and_decidim_organization_id", unique: true, where: "((deleted_at IS NULL) AND (managed = false) AND ((type)::text = 'Decidim::User'::text))"
@@ -1803,6 +1834,11 @@ ActiveRecord::Schema.define(version: 2020_10_16_130054) do
   add_foreign_key "decidim_scopes", "decidim_scope_types", column: "scope_type_id"
   add_foreign_key "decidim_scopes", "decidim_scopes", column: "parent_id"
   add_foreign_key "decidim_static_pages", "decidim_organizations"
+  add_foreign_key "decidim_user_moderations", "decidim_users"
+  add_foreign_key "decidim_user_reports", "decidim_user_moderations", column: "user_moderation_id"
+  add_foreign_key "decidim_user_reports", "decidim_users", column: "user_id"
+  add_foreign_key "decidim_user_suspensions", "decidim_users"
+  add_foreign_key "decidim_user_suspensions", "decidim_users", column: "suspending_user_id"
   add_foreign_key "decidim_users", "decidim_organizations"
   add_foreign_key "decidim_verifications_csv_data", "decidim_organizations"
   add_foreign_key "oauth_access_grants", "decidim_users", column: "resource_owner_id"
