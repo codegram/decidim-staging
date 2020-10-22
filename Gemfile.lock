@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 15e5dfd29ba57b7e25bf65bb00a03b9c792a85b3
-  branch: develop
+  revision: 615cced386ff95ca4ed2d8bff7a3ace0c070d56b
+  branch: feature/complete-edit-initiatives
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
