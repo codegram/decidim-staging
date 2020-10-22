@@ -587,7 +587,7 @@ GEM
       activerecord (>= 4.2)
       request_store (~> 1.1)
     parallel (1.19.2)
-    parser (2.7.1.4)
+    parser (2.7.2.0)
       ast (~> 2.4.1)
     pg (1.1.4)
     pg_search (2.3.4)
@@ -732,7 +732,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    scout_apm (2.6.8)
+    scout_apm (2.6.10)
       parser
     searchlight (4.1.0)
     selenium-webdriver (3.142.7)
