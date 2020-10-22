@@ -10,7 +10,7 @@ on:
     - cron: '0 5 * * 1'
 
 env:
-  RUBY_VERSION: 2.6.6
+  RUBY_VERSION: 2.7.1
   DATABASE_USERNAME: postgres
   DATABASE_PASSWORD: postgres
   DATABASE_HOST: localhost
