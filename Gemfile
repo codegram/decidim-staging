@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/tremend-cofe/decidim", branch: "feat/show-reported-content-details" }
+DECIDIM_VERSION = { git: "https://github.com/tremend-cofe/decidim", branch: "feat/moderation-panel-improvements" }
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
@@ -21,7 +21,7 @@ gem "uglifier", ">= 1.3.0"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
 
-gem "faker", "~> 1.9"
+gem "faker", "~> 2.14"
 
 gem "puma"
 
