@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: a076fc35dd1491a6acc4b2a9be62043a7496c1af
+  revision: 15e5dfd29ba57b7e25bf65bb00a03b9c792a85b3
   branch: develop
   specs:
     decidim (0.24.0.dev)
@@ -35,8 +35,8 @@ GIT
       devise (~> 4.7)
       devise-i18n (~> 1.2)
       devise_invitable (~> 1.7)
-      jquery-rails (~> 4.3)
-      sassc (~> 2.3.0)
+      jquery-rails (~> 4.4)
+      sassc (~> 2.4.0)
       sassc-rails (~> 2.1.2)
     decidim-api (0.24.0.dev)
       graphiql-rails (~> 1.4, < 1.5)
@@ -60,7 +60,7 @@ GIT
       searchlight (~> 4.1)
     decidim-comments (0.24.0.dev)
       decidim-core (= 0.24.0.dev)
-      jquery-rails (~> 4.3)
+      jquery-rails (~> 4.4)
       redcarpet (~> 3.4)
     decidim-conferences (0.24.0.dev)
       decidim-core (= 0.24.0.dev)
@@ -95,7 +95,7 @@ GIT
       geocoder (>= 1.5)
       hashdiff (>= 0.4.0, < 2.0.0)
       invisible_captcha (~> 0.12)
-      jquery-rails (~> 4.3)
+      jquery-rails (~> 4.4)
       kaminari (~> 1.2, >= 1.2.1)
       loofah (~> 2.3.1)
       mini_magick (~> 4.9)
@@ -118,7 +118,7 @@ GIT
       redis (~> 4.1)
       request_store (~> 1.5.0)
       rubyzip (~> 2.0)
-      sassc (~> 2.3.0)
+      sassc (~> 2.4.0)
       sassc-rails (~> 2.1.2)
       seven_zip_ruby (~> 1.3)
       social-share-button (~> 1.2, >= 1.2.1)
@@ -151,7 +151,7 @@ GIT
       rspec-rails (~> 3.7)
       rspec-retry (~> 0.6.2)
       rspec_junit_formatter (~> 0.3.0)
-      rubocop (~> 0.71.0)
+      rubocop (~> 0.92.0)
       rubocop-rails (~> 2.0)
       rubocop-rspec (~> 1.21)
       selenium-webdriver (~> 3.142)
@@ -219,8 +219,8 @@ GIT
       devise (~> 4.7)
       devise-i18n (~> 1.2)
       devise_invitable (~> 1.7)
-      jquery-rails (~> 4.3)
-      sassc (~> 2.3.0)
+      jquery-rails (~> 4.4)
+      sassc (~> 2.4.0)
       sassc-rails (~> 2.1.2)
     decidim-templates (0.24.0.dev)
       decidim-core (= 0.24.0.dev)
@@ -383,12 +383,13 @@ GEM
       railties (>= 5)
     doorkeeper-i18n (4.0.1)
     equalizer (0.0.11)
-    erb_lint (0.0.30)
+    erb_lint (0.0.35)
       activesupport
       better_html (~> 1.0.7)
       html_tokenizer
+      parser (>= 2.7.1.4)
       rainbow
-      rubocop (~> 0.51)
+      rubocop (~> 0.79)
       smart_properties
     erbse (0.1.4)
       temple
@@ -404,8 +405,9 @@ GEM
       railties (>= 3.0.0)
     faker (1.9.6)
       i18n (>= 0.7)
-    faraday (1.0.1)
+    faraday (1.1.0)
       multipart-post (>= 1.2, < 3)
+      ruby2_keywords
     ffi (1.13.1)
     file_validators (2.3.0)
       activemodel (>= 3.2)
@@ -474,7 +476,6 @@ GEM
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
     ipaddress (0.8.3)
-    jaro_winkler (1.5.4)
     jquery-rails (4.4.0)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -601,7 +602,7 @@ GEM
       actionmailer (>= 3)
       premailer (~> 1.7, >= 1.7.9)
     public_suffix (4.0.6)
-    puma (5.0.0)
+    puma (5.0.2)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-attack (6.3.1)
@@ -702,20 +703,27 @@ GEM
     rspec-support (3.9.3)
     rspec_junit_formatter (0.3.0)
       rspec-core (>= 2, < 4, != 2.12.0)
-    rubocop (0.71.0)
-      jaro_winkler (~> 1.5.1)
+    rubocop (0.92.0)
       parallel (~> 1.10)
-      parser (>= 2.6)
+      parser (>= 2.7.1.5)
       rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.7)
+      rexml
+      rubocop-ast (>= 0.5.0)
       ruby-progressbar (~> 1.7)
-      unicode-display_width (>= 1.4.0, < 1.7)
-    rubocop-rails (2.0.1)
+      unicode-display_width (>= 1.4.0, < 2.0)
+    rubocop-ast (1.0.0)
+      parser (>= 2.7.1.5)
+    rubocop-rails (2.8.1)
+      activesupport (>= 4.2.0)
       rack (>= 1.1)
-      rubocop (>= 0.70.0)
-    rubocop-rspec (1.41.0)
-      rubocop (>= 0.68.1)
+      rubocop (>= 0.87.0)
+    rubocop-rspec (1.44.1)
+      rubocop (~> 0.87)
+      rubocop-ast (>= 0.7.1)
     ruby-ole (1.2.12.2)
     ruby-progressbar (1.10.1)
+    ruby2_keywords (0.0.2)
     ruby_dep (1.5.0)
     ruby_http_client (3.5.1)
     rubyzip (2.0.0)
@@ -724,7 +732,7 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    sassc (2.3.0)
+    sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
       railties (>= 4.0.0)
@@ -793,7 +801,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
-    unicode-display_width (1.6.1)
+    unicode-display_width (1.7.0)
     valid_email2 (2.3.1)
       activemodel (>= 3.2)
       mail (~> 2.5)
@@ -824,7 +832,7 @@ GEM
       activesupport
     wisper (2.0.1)
     wisper-rspec (1.1.0)
-    wkhtmltopdf-binary (0.12.6.3)
+    wkhtmltopdf-binary (0.12.6.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -862,7 +870,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-   ruby 2.6.6p146
+   ruby 2.7.1p83
 
 BUNDLED WITH
    1.17.3
