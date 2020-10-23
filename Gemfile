@@ -45,5 +45,4 @@ group :production do
   gem "scout_apm"
   gem "sendgrid-ruby"
   gem "sentry-raven"
-  gem "sidekiq"
 end
