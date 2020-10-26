@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/tremend-cofe/decidim
-  revision: ac782b883d0b5bd9bee2b4e5ceeb96ad15565343
-  branch: feat/notify-authors-of-reported-content
+  revision: f79023097ed704e2dee53204873cea47cc770861
+  branch: feat/send-notification-to-reported-content-authors
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
@@ -601,7 +601,7 @@ GEM
       actionmailer (>= 3)
       premailer (~> 1.7, >= 1.7.9)
     public_suffix (4.0.6)
-    puma (5.0.2)
+    puma (5.0.3)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-attack (6.3.1)

@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/tremend-cofe/decidim", branch: "feat/notify-authors-of-reported-content" }
+DECIDIM_VERSION = { git: "https://github.com/tremend-cofe/decidim", branch: "feat/send-notification-to-reported-content-authors" }
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
