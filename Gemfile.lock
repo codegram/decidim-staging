@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 8e237fb075418a840b94275f5dafba7b374dc828
-  branch: develop
+  revision: cbe5cb9ab42fb9ec9b67402e29332528ae3189bd
+  branch: fix/missing-i18n-closed-debates
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
