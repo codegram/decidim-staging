@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 8e237fb075418a840b94275f5dafba7b374dc828
-  branch: develop
+  revision: b2be827355dac7e0e97b0b35c93b37623dac552c
+  branch: feature/add-election-information
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
@@ -711,7 +711,7 @@ GEM
       rubocop-ast (>= 0.5.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
-    rubocop-ast (1.0.1)
+    rubocop-ast (1.1.0)
       parser (>= 2.7.1.5)
     rubocop-rails (2.8.1)
       activesupport (>= 4.2.0)
