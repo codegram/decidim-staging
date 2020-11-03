@@ -1,7 +1,7 @@
 GIT
-  remote: https://github.com/decidim/decidim
-  revision: 88a0d6e21083952da20f98c5fb681d9f9684973d
-  branch: develop
+  remote: https://github.com/tremend-cofe/decidim
+  revision: 0b71e7afe0c54dbbd311ea5a0f5f951f2da2540c
+  branch: feat/add-info-to-report-email-ffor-moderators
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
@@ -602,7 +602,7 @@ GEM
       actionmailer (>= 3)
       premailer (~> 1.7, >= 1.7.9)
     public_suffix (4.0.6)
-    puma (5.0.2)
+    puma (5.0.4)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-attack (6.3.1)
