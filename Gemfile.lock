@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 88a0d6e21083952da20f98c5fb681d9f9684973d
-  branch: develop
+  revision: 263aca7a919758e46fa7a23597d52e7def76c2fa
+  branch: fix/proposals-related-to-meetings
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
