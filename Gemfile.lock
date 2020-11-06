@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 88a0d6e21083952da20f98c5fb681d9f9684973d
+  revision: fa384bfb43bb284d670f33f7b87a3a01a8e8d4df
   branch: develop
   specs:
     decidim (0.24.0.dev)
@@ -712,7 +712,7 @@ GEM
       rubocop-ast (>= 0.5.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
-    rubocop-ast (1.1.0)
+    rubocop-ast (1.1.1)
       parser (>= 2.7.1.5)
     rubocop-rails (2.8.1)
       activesupport (>= 4.2.0)
@@ -815,7 +815,7 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webmock (3.9.3)
+    webmock (3.9.4)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
