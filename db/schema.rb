@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_02_051533) do
+ActiveRecord::Schema.define(version: 2020_11_10_073527) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -713,6 +713,8 @@ ActiveRecord::Schema.define(version: 2020_11_02_051533) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "published_at"
+    t.datetime "blocked_at"
+    t.string "bb_status"
     t.index ["decidim_component_id"], name: "index_decidim_elections_elections_on_decidim_component_id"
   end
 
