@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: c8eb9b3b1d3442f06b9f90d766b82ff13c88223a
-  branch: develop
+  revision: 43d0e4ddac13a18708ad58f38e2bd164974c028e
+  branch: feature/edit-initiative-as-promoter
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
@@ -815,7 +815,7 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webmock (3.9.4)
+    webmock (3.9.5)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
