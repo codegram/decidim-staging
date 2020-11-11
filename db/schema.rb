@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_02_051533) do
+ActiveRecord::Schema.define(version: 2020_11_11_122848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -701,6 +701,8 @@ ActiveRecord::Schema.define(version: 2020_11_02_051533) do
     t.jsonb "title", null: false
     t.jsonb "description"
     t.integer "weight", default: 0, null: false
+    t.integer "votes", default: 0, null: false
+    t.boolean "selected", default: false, null: false
     t.index ["decidim_elections_question_id"], name: "decidim_elections_questions_answers"
   end
 
