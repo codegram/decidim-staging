@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 95f9a97a97dd50c5c8c19976acaa7bf07d61de38
+  revision: 9f6885308d459cde9ce75f5fc89f6f162754971e
   branch: feature/export-elections
   specs:
     decidim (0.24.0.dev)
