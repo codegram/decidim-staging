@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_02_051533) do
+ActiveRecord::Schema.define(version: 2020_11_16_051533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1063,6 +1063,8 @@ ActiveRecord::Schema.define(version: 2020_11_02_051533) do
     t.integer "comments_count", default: 0, null: false
     t.string "online_meeting_url"
     t.string "type_of_meeting", default: "in_person"
+    t.string "registration_type", default: "registration_disabled", null: false
+    t.string "registration_url"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_meetings_meetings_on_author"
     t.index ["decidim_author_id"], name: "index_decidim_meetings_meetings_on_decidim_author_id"
     t.index ["decidim_component_id"], name: "index_decidim_meetings_meetings_on_decidim_component_id"
@@ -1669,6 +1671,23 @@ ActiveRecord::Schema.define(version: 2020_11_02_051533) do
     t.index ["role", "decidim_user_group_id"], name: "decidim_group_membership_one_creator_per_group", unique: true, where: "((role)::text = 'creator'::text)"
   end
 
+  create_table "decidim_user_moderations", force: :cascade do |t|
+    t.bigint "decidim_user_id"
+    t.integer "report_count", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_user_id"], name: "index_decidim_user_moderations_on_decidim_user_id"
+  end
+
+  create_table "decidim_user_reports", force: :cascade do |t|
+    t.integer "user_moderation_id"
+    t.integer "user_id", null: false
+    t.string "reason"
+    t.text "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "decidim_users", id: :serial, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -1830,6 +1849,9 @@ ActiveRecord::Schema.define(version: 2020_11_02_051533) do
   add_foreign_key "decidim_scopes", "decidim_scope_types", column: "scope_type_id"
   add_foreign_key "decidim_scopes", "decidim_scopes", column: "parent_id"
   add_foreign_key "decidim_static_pages", "decidim_organizations"
+  add_foreign_key "decidim_user_moderations", "decidim_users"
+  add_foreign_key "decidim_user_reports", "decidim_user_moderations", column: "user_moderation_id"
+  add_foreign_key "decidim_user_reports", "decidim_users", column: "user_id"
   add_foreign_key "decidim_users", "decidim_organizations"
   add_foreign_key "decidim_verifications_csv_data", "decidim_organizations"
   add_foreign_key "oauth_access_grants", "decidim_users", column: "resource_owner_id"

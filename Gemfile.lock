@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: c8eb9b3b1d3442f06b9f90d766b82ff13c88223a
+  revision: ce75b42adc19cf99d4efd85048ab76b02c623fb2
   branch: develop
   specs:
     decidim (0.24.0.dev)
@@ -541,7 +541,7 @@ GEM
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
       tomlrb
-    mixlib-shellout (3.1.7)
+    mixlib-shellout (3.2.0)
       chef-utils
     multi_json (1.15.0)
     multi_xml (0.6.0)
@@ -815,7 +815,7 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webmock (3.9.4)
+    webmock (3.10.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
