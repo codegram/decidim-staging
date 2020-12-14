@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_07_051958) do
+ActiveRecord::Schema.define(version: 2020_12_14_051813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -689,6 +689,8 @@ ActiveRecord::Schema.define(version: 2020_12_07_051958) do
     t.datetime "last_comment_at"
     t.integer "last_comment_by_id"
     t.string "last_comment_by_type"
+    t.datetime "archived_at"
+    t.index ["archived_at"], name: "index_decidim_debates_debates_on_archived_at"
     t.index ["closed_at"], name: "index_decidim_debates_debates_on_closed_at"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_debates_debates_on_decidim_author"
     t.index ["decidim_component_id"], name: "index_decidim_debates_debates_on_decidim_component_id"
@@ -1290,6 +1292,7 @@ ActiveRecord::Schema.define(version: 2020_12_07_051958) do
     t.jsonb "target"
     t.jsonb "participatory_scope"
     t.jsonb "participatory_structure"
+    t.boolean "promoted", default: false
     t.index ["decidim_organization_id"], name: "decidim_participatory_process_group_organization"
   end
 
