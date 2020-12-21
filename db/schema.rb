@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_14_051813) do
+ActiveRecord::Schema.define(version: 2020_12_21_052345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1637,6 +1637,7 @@ ActiveRecord::Schema.define(version: 2020_12_14_051813) do
     t.integer "weight"
     t.boolean "show_in_footer", default: false, null: false
     t.bigint "topic_id"
+    t.boolean "allow_public_access", default: false, null: false
     t.index ["decidim_organization_id"], name: "index_decidim_static_pages_on_decidim_organization_id"
     t.index ["topic_id"], name: "index_decidim_static_pages_on_topic_id"
   end
