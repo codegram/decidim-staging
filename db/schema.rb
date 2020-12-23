@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_21_052345) do
+ActiveRecord::Schema.define(version: 2020_12_23_190013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -690,10 +690,12 @@ ActiveRecord::Schema.define(version: 2020_12_21_052345) do
     t.integer "last_comment_by_id"
     t.string "last_comment_by_type"
     t.datetime "archived_at"
+    t.bigint "decidim_scope_id"
     t.index ["archived_at"], name: "index_decidim_debates_debates_on_archived_at"
     t.index ["closed_at"], name: "index_decidim_debates_debates_on_closed_at"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_debates_debates_on_decidim_author"
     t.index ["decidim_component_id"], name: "index_decidim_debates_debates_on_decidim_component_id"
+    t.index ["decidim_scope_id"], name: "index_decidim_debates_debates_on_decidim_scope_id"
     t.index ["decidim_user_group_id"], name: "index_decidim_debates_debates_on_decidim_user_group_id"
     t.index ["endorsements_count"], name: "idx_decidim_debates_debates_on_endorsemnts_count"
   end
@@ -1857,6 +1859,7 @@ ActiveRecord::Schema.define(version: 2020_12_21_052345) do
   add_foreign_key "decidim_consultations_responses", "decidim_consultations_questions", column: "decidim_consultations_questions_id"
   add_foreign_key "decidim_consultations_responses", "decidim_consultations_response_groups"
   add_foreign_key "decidim_consultations_votes", "decidim_consultations_responses"
+  add_foreign_key "decidim_debates_debates", "decidim_scopes"
   add_foreign_key "decidim_identities", "decidim_organizations"
   add_foreign_key "decidim_newsletters", "decidim_users", column: "author_id"
   add_foreign_key "decidim_participatory_process_steps", "decidim_participatory_processes"
