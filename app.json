@@ -10,6 +10,7 @@
   "scripts": {
     "postdeploy":"rake db:seed"
   },
+  "stack": "heroku-20",
   "env": {
     "AWS_ACCESS_KEY_ID": {
       "required": true
