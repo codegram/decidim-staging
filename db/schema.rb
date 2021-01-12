@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_04_053406) do
+ActiveRecord::Schema.define(version: 2021_01_12_100242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1676,6 +1676,15 @@ ActiveRecord::Schema.define(version: 2021_01_04_053406) do
     t.index ["templatable_type", "templatable_id"], name: "index_decidim_templates_templatable"
   end
 
+  create_table "decidim_user_blocks", force: :cascade do |t|
+    t.bigint "decidim_user_id"
+    t.integer "blocking_user_id"
+    t.text "justification"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_user_id"], name: "index_decidim_user_blocks_on_decidim_user_id"
+  end
+
   create_table "decidim_user_group_memberships", id: :serial, force: :cascade do |t|
     t.integer "decidim_user_id", null: false
     t.integer "decidim_user_group_id", null: false
@@ -1760,6 +1769,9 @@ ActiveRecord::Schema.define(version: 2021_01_04_053406) do
     t.datetime "officialized_at"
     t.jsonb "officialized_as"
     t.datetime "admin_terms_accepted_at"
+    t.boolean "blocked", default: false, null: false
+    t.datetime "blocked_at"
+    t.integer "block_id"
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["email", "decidim_organization_id"], name: "index_decidim_users_on_email_and_decidim_organization_id", unique: true, where: "((deleted_at IS NULL) AND (managed = false) AND ((type)::text = 'Decidim::User'::text))"
@@ -1879,6 +1891,8 @@ ActiveRecord::Schema.define(version: 2021_01_04_053406) do
   add_foreign_key "decidim_scopes", "decidim_scope_types", column: "scope_type_id"
   add_foreign_key "decidim_scopes", "decidim_scopes", column: "parent_id"
   add_foreign_key "decidim_static_pages", "decidim_organizations"
+  add_foreign_key "decidim_user_blocks", "decidim_users"
+  add_foreign_key "decidim_user_blocks", "decidim_users", column: "blocking_user_id"
   add_foreign_key "decidim_user_moderations", "decidim_users"
   add_foreign_key "decidim_user_reports", "decidim_user_moderations", column: "user_moderation_id"
   add_foreign_key "decidim_user_reports", "decidim_users", column: "user_id"
