@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 1b83c029276f3632e8336c0e85bd93c38d38e347
-  branch: develop
+  revision: b0abaf2474b33e6cdca0ea604f87a60843b1658b
+  branch: feat/consultations-deprecation
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
@@ -331,7 +331,7 @@ GEM
       actionpack (>= 3.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.7)
-    chef-utils (16.9.17)
+    chef-utils (16.9.20)
     childprocess (3.0.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -391,7 +391,7 @@ GEM
       railties (>= 5)
     doorkeeper-i18n (4.0.1)
     equalizer (0.0.11)
-    erb_lint (0.0.36)
+    erb_lint (0.0.37)
       activesupport
       better_html (~> 1.0.7)
       html_tokenizer
