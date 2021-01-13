@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 987f35effa35b5020e5dd8b94f3f8c20824d89e0
+  revision: d251f91e0f0e398749f58af88203fb6b78353904
   branch: feature/verify-vote-client
   specs:
     decidim (0.24.0.dev)
