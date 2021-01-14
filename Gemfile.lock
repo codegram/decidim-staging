@@ -1,7 +1,7 @@
 GIT
-  remote: https://github.com/decidim/decidim
-  revision: 001645e01b87613b22de311257ab7e0ca39ebfeb
-  branch: develop
+  remote: https://github.com/liquidvotingio/decidim
+  revision: 3b4657b80a6bf501ffede75a78b3a4455a0600a7
+  branch: feature/add-search-capabilities-to-result-in-the-admin
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
@@ -885,7 +885,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-   ruby 2.7.2p137
+   ruby 2.7.1p83
 
 BUNDLED WITH
    2.1.4
