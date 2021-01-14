@@ -18,6 +18,7 @@ on:
 env:
   RUBY_VERSION: 2.7.1
   DEFAULT_BRANCH: develop
+  DEFAULT_REPO: decidim/decidim
   DATABASE_USERNAME: postgres
   DATABASE_PASSWORD: postgres
   DATABASE_HOST: localhost
@@ -60,6 +61,9 @@ jobs:
 
       - name: Change Decidim branch in Gemfile
         run: "sed -i -r 's|(DECIDIM_VERSION.*=.*\\bbranch:.*)${{ env.DEFAULT_BRANCH }}(.*)|\\1${{ github.event.inputs.decidimBranch }}\\2|' Gemfile"
+
+      - name: Change Decidim repository in Gemfile
+        run: "sed -i -r 's|(DECIDIM_VERSION.*=.*\\bgithub.com/)${{ env.DEFAULT_REPO }}(.*)|\\1${{ github.event.inputs.repository }}\\2|' Gemfile"
 
       - uses: ruby/setup-ruby@master
         with:
