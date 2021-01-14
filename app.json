@@ -11,6 +11,14 @@
     "postdeploy":"rake db:seed"
   },
   "stack": "heroku-20",
+  "buildpacks": [
+    {
+      "url": "https://github.com/gaffneyc/heroku-buildpack-jemalloc"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ]
   "env": {
     "AWS_ACCESS_KEY_ID": {
       "required": true
