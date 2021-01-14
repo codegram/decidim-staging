@@ -45,7 +45,7 @@ jobs:
 
       - name: Add issue number to PR body
         if: ${{ github.event.inputs.decidimIssue != '' }}
-        run: echo "PR_BODY=${{ env.PR_BODY }} for ${{ github.event.inputs.repository }}#${{ github.event.inputs.decidimIssue }}" >> $GITHUB_ENV
+        run: echo "PR_BODY=${{ env.PR_BODY }} for decidim/decidim#${{ github.event.inputs.decidimIssue }}" >> $GITHUB_ENV
 
       - name: "Check if user has write access"
         uses: "lannonbr/repo-permission-check-action@2.0.0"
