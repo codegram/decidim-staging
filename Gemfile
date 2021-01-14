@@ -9,20 +9,16 @@ DECIDIM_VERSION = { git: "https://github.com/liquidvotingio/decidim", branch: "f
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
-gem "decidim-dev", DECIDIM_VERSION
 gem "decidim-elections", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
 gem "ransack", "~> 2.1.1"
-
 gem "sprockets", "~> 3.7.2"
 gem "uglifier", ">= 1.3.0"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
-
 gem "faker", "~> 2.14"
-
 gem "puma"
 
 group :development, :test do
@@ -30,6 +26,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "decidim-dev", DECIDIM_VERSION
   gem "letter_opener_web", "~> 1.4.0"
   gem "listen", "~> 3.1.0"
   gem "spring"
@@ -41,8 +38,5 @@ group :production do
   gem "dalli"
   gem "fog-aws"
   gem "lograge"
-  gem "newrelic_rpm"
-  gem "scout_apm"
   gem "sendgrid-ruby"
-  gem "sentry-raven"
 end
