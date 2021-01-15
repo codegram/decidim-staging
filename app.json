@@ -18,7 +18,7 @@
     {
       "url": "heroku/ruby"
     }
-  ]
+  ],
   "env": {
     "AWS_ACCESS_KEY_ID": {
       "required": true
