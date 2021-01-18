@@ -7,12 +7,11 @@ ruby RUBY_VERSION
 DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "develop" }
 
 gem "decidim", DECIDIM_VERSION
-gem "decidim-conferences", DECIDIM_VERSION
-gem "decidim-consultations", DECIDIM_VERSION
-gem "decidim-dev", DECIDIM_VERSION
-gem "decidim-elections", DECIDIM_VERSION
-gem "decidim-initiatives", DECIDIM_VERSION
-gem "decidim-templates", DECIDIM_VERSION
+#gem "decidim-conferences", DECIDIM_VERSION
+#gem "decidim-consultations", DECIDIM_VERSION
+#gem "decidim-elections", DECIDIM_VERSION
+#gem "decidim-initiatives", DECIDIM_VERSION
+#gem "decidim-templates", DECIDIM_VERSION
 
 gem "ransack", "~> 2.1.1"
 
@@ -30,6 +29,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "decidim-dev", DECIDIM_VERSION
   gem "letter_opener_web", "~> 1.4.0"
   gem "listen", "~> 3.1.0"
   gem "spring"
@@ -38,11 +38,8 @@ group :development do
 end
 
 group :production do
-  gem "dalli"
   gem "fog-aws"
   gem "lograge"
-  gem "newrelic_rpm"
-  gem "scout_apm"
   gem "sendgrid-ruby"
   gem "sentry-raven"
 end
