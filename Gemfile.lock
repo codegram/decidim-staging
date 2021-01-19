@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 6d91e79f0b5f0287e47290154488ebbba459b436
-  branch: develop
+  revision: 89d5680f95017fad05163ec1f2a7d20c6961f8cd
+  branch: feat/add-votings-help-section
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
@@ -421,7 +421,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.11.6)
+    graphql (1.11.7)
     hashdiff (1.0.1)
     hashie (4.1.0)
     highline (2.0.3)
