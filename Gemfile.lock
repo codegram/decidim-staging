@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: ed5d12983e2c536373fe74df7e8a943443ff3a32
-  branch: develop
+  revision: f36679086d5aeb98cda824eeaedd93da6e24aabf
+  branch: feat/add-votings-help-section
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
