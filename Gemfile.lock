@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 58ba646eaf34ad8e78bcab049044e3ca6959b461
+  revision: 1941f74454a42853d8c5defdd85328429b669444
   branch: feat/manage-votings
   specs:
     decidim (0.24.0.dev)
