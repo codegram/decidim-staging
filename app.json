@@ -23,6 +23,15 @@
     "AWS_ACCESS_KEY_ID": {
       "required": true
     },
+    "AWS_BUCKET_NAME": {
+      "required": true
+    },
+    "AWS_HOST": {
+      "required": true
+    },
+    "AWS_REGION": {
+      "required": true
+    },
     "AWS_SECRET_ACCESS_KEY": {
       "required": true
     },
@@ -51,6 +60,24 @@
     "SECRET_KEY_BASE": {
       "description": "A secret used by Rails to identify sessions",
       "generator": "secret"
+    },
+    "SMTP_ADDRESS": {
+      "required": true
+    },
+    "SMTP_FROM_EMAIL": {
+      "required": true
+    },
+    "SMTP_FROM_LABEL": {
+      "required": true
+    },
+    "SMTP_PASSWORD": {
+      "required": true
+    },
+    "SMTP_PORT": {
+      "required": true
+    },
+    "SMTP_USERNAME": {
+      "required": true
     }
   }
 }
