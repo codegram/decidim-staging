@@ -76,6 +76,9 @@ jobs:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
 
+      - name: Unset deployment for bundler
+        run: bundle config unset deployment
+
       - name: Install Ruby dependencies
         run: bundle install --path vendor/bundle --jobs 4
 
