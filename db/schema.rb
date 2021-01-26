@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_14_112422) do
+ActiveRecord::Schema.define(version: 2021_01_26_103020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -688,9 +688,7 @@ ActiveRecord::Schema.define(version: 2021_01_14_112422) do
     t.datetime "last_comment_at"
     t.integer "last_comment_by_id"
     t.string "last_comment_by_type"
-    t.datetime "archived_at"
     t.bigint "decidim_scope_id"
-    t.index ["archived_at"], name: "index_decidim_debates_debates_on_archived_at"
     t.index ["closed_at"], name: "index_decidim_debates_debates_on_closed_at"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_debates_debates_on_decidim_author"
     t.index ["decidim_component_id"], name: "index_decidim_debates_debates_on_decidim_component_id"
@@ -746,6 +744,7 @@ ActiveRecord::Schema.define(version: 2021_01_14_112422) do
     t.string "public_key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["decidim_user_id"], name: "index_decidim_elections_trustees_on_decidim_user_id"
   end
 
@@ -758,6 +757,16 @@ ActiveRecord::Schema.define(version: 2021_01_14_112422) do
     t.datetime "updated_at", null: false
     t.index ["decidim_elections_trustee_id"], name: "index_elections_trustees_spaces_on_elections_trustee_id"
     t.index ["participatory_space_type", "participatory_space_id"], name: "index_elections_trustees_spaces_on_space_type_and_id"
+  end
+
+  create_table "decidim_elections_votes", force: :cascade do |t|
+    t.bigint "decidim_elections_election_id", null: false
+    t.string "voter_id", null: false
+    t.string "encrypted_vote_hash", null: false
+    t.string "status", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_elections_election_id"], name: "index_elections_votes_on_decidim_elections_election_id"
   end
 
   create_table "decidim_endorsements", force: :cascade do |t|
@@ -1806,6 +1815,24 @@ ActiveRecord::Schema.define(version: 2021_01_14_112422) do
     t.index ["decidim_organization_id"], name: "index_verifications_csv_census_to_organization"
   end
 
+  create_table "decidim_votings_votings", force: :cascade do |t|
+    t.string "slug", null: false
+    t.jsonb "title", null: false
+    t.jsonb "description", null: false
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "banner_image"
+    t.string "introductory_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "decidim_scope_id"
+    t.bigint "decidim_organization_id"
+    t.datetime "published_at"
+    t.index ["decidim_organization_id"], name: "index_decidim_votings_votings_on_decidim_organization_id"
+    t.index ["decidim_scope_id"], name: "index_decidim_votings_votings_on_decidim_scope_id"
+    t.index ["slug"], name: "index_decidim_votings_votings_on_slug"
+  end
+
   create_table "oauth_access_grants", force: :cascade do |t|
     t.integer "resource_owner_id", null: false
     t.bigint "application_id", null: false
@@ -1901,6 +1928,7 @@ ActiveRecord::Schema.define(version: 2021_01_14_112422) do
   add_foreign_key "decidim_verifications_conflicts", "decidim_users", column: "current_user_id"
   add_foreign_key "decidim_verifications_conflicts", "decidim_users", column: "managed_user_id"
   add_foreign_key "decidim_verifications_csv_data", "decidim_organizations"
+  add_foreign_key "decidim_votings_votings", "decidim_organizations"
   add_foreign_key "oauth_access_grants", "decidim_users", column: "resource_owner_id"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "decidim_users", column: "resource_owner_id"
