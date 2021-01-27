@@ -4,6 +4,8 @@ Citizen Participation and Open Government application.
 
 This is the open-source repository for decidim_staging, based on [Decidim](https://github.com/decidim/decidim). This app is used to preview the latest `staging` branch of Codegram's Decidim [fork](https://github.com/codegram/decidim/tree/staging).
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 ## Review Apps
 
 This application uses Heroku Review Apps to check new features individually and in isolation. In order to create a Review App:
