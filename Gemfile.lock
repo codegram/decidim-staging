@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 7577624410d4c8cb84c03846cd158c086b2844ca
+  revision: 4056499309a21e4a8009c8428e75fb48681963f3
   branch: feat/define-vonting-type
   specs:
     decidim (0.24.0.dev)
@@ -869,7 +869,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-   ruby 2.7.2p137
+   ruby 2.7.1p83
 
 BUNDLED WITH
    2.1.4
