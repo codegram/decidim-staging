@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "develop" }
+DECIDIM_VERSION = { git: "https://github.com/mainio/decidim", branch: "feature/count_of_users_with_finished_and_pending_votes" }
 
 gem "decidim", DECIDIM_VERSION
 #gem "decidim-conferences", DECIDIM_VERSION
