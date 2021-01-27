@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 4056499309a21e4a8009c8428e75fb48681963f3
+  revision: f7c67d2ddc998c048415ddd1415467eb4c61c5b0
   branch: feat/define-vonting-type
   specs:
     decidim (0.24.0.dev)
