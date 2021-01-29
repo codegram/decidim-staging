@@ -7,6 +7,7 @@ ruby RUBY_VERSION
 DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "develop" }
 
 gem "decidim", DECIDIM_VERSION
+gem 'decidim-verify_wo_registration', git: "https://github.com/CodiTramuntana/decidim-verify_wo_registration.git"
 #gem "decidim-conferences", DECIDIM_VERSION
 #gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-elections", DECIDIM_VERSION

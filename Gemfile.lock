@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/CodiTramuntana/decidim-verify_wo_registration.git
+  revision: beae4031b1e05ff600ed1c5a3ceb88235538c439
+  specs:
+    decidim-verify_wo_registration (0.0.1)
+      decidim-budgets (>= 0.20)
+      decidim-core (>= 0.20)
+      decidim-proposals (>= 0.20)
+
+GIT
   remote: https://github.com/decidim/decidim
   revision: ed5d12983e2c536373fe74df7e8a943443ff3a32
   branch: develop
@@ -829,6 +838,7 @@ DEPENDENCIES
   decidim!
   decidim-dev!
   decidim-elections!
+  decidim-verify_wo_registration!
   faker (~> 2.14)
   fog-aws
   letter_opener_web (~> 1.4.0)
