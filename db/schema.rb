@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_25_105614) do
+ActiveRecord::Schema.define(version: 2021_02_01_052530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -689,9 +689,7 @@ ActiveRecord::Schema.define(version: 2021_01_25_105614) do
     t.datetime "last_comment_at"
     t.integer "last_comment_by_id"
     t.string "last_comment_by_type"
-    t.datetime "archived_at"
     t.bigint "decidim_scope_id"
-    t.index ["archived_at"], name: "index_decidim_debates_debates_on_archived_at"
     t.index ["closed_at"], name: "index_decidim_debates_debates_on_closed_at"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_debates_debates_on_decidim_author"
     t.index ["decidim_component_id"], name: "index_decidim_debates_debates_on_decidim_component_id"
@@ -747,6 +745,7 @@ ActiveRecord::Schema.define(version: 2021_01_25_105614) do
     t.string "public_key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["decidim_user_id"], name: "index_decidim_elections_trustees_on_decidim_user_id"
   end
 
@@ -759,6 +758,19 @@ ActiveRecord::Schema.define(version: 2021_01_25_105614) do
     t.datetime "updated_at", null: false
     t.index ["decidim_elections_trustee_id"], name: "index_elections_trustees_spaces_on_elections_trustee_id"
     t.index ["participatory_space_type", "participatory_space_id"], name: "index_elections_trustees_spaces_on_space_type_and_id"
+  end
+
+  create_table "decidim_elections_votes", force: :cascade do |t|
+    t.bigint "decidim_elections_election_id", null: false
+    t.string "voter_id", null: false
+    t.string "encrypted_vote_hash", null: false
+    t.string "status", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "message_id", null: false
+    t.bigint "decidim_user_id", null: false
+    t.index ["decidim_elections_election_id"], name: "index_elections_votes_on_decidim_elections_election_id"
+    t.index ["decidim_user_id"], name: "index_decidim_elections_votes_on_decidim_user_id"
   end
 
   create_table "decidim_endorsements", force: :cascade do |t|
@@ -1821,6 +1833,7 @@ ActiveRecord::Schema.define(version: 2021_01_25_105614) do
     t.bigint "decidim_scope_id"
     t.bigint "decidim_organization_id"
     t.datetime "published_at"
+    t.boolean "promoted", default: false
     t.index ["decidim_organization_id"], name: "index_decidim_votings_votings_on_decidim_organization_id"
     t.index ["decidim_scope_id"], name: "index_decidim_votings_votings_on_decidim_scope_id"
     t.index ["slug"], name: "index_decidim_votings_votings_on_slug"
