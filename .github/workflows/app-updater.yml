@@ -15,7 +15,7 @@ env:
   DATABASE_PASSWORD: postgres
   DATABASE_HOST: localhost
   DECIDIM_BRANCH: develop
-  STAGING_BRANCH: master
+  STAGING_BRANCH: main
 
 jobs:
   check:
