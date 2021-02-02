@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 0b32893ac63a7ca122b6548814ea894ab5ebbd63
-  branch: develop
+  revision: c5a4d6d551a70fab0f525905630f30ca509cc642
+  branch: feature/election-statistics
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
@@ -880,7 +880,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-   ruby 2.7.1p83
+   ruby 2.7.2p137
 
 BUNDLED WITH
    2.1.4
