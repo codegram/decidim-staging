@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 0b32893ac63a7ca122b6548814ea894ab5ebbd63
-  branch: develop
+  revision: d84c033e03fbec2e65fb8bf350b6cf8ea0eb5a76
+  branch: feat/let-user-change-vote-in-election
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
@@ -154,7 +154,7 @@ GIT
       webmock (~> 3.6)
       wisper-rspec (~> 1.0)
     decidim-elections (0.24.0.dev)
-      decidim-bulletin_board (= 0.8.2)
+      decidim-bulletin_board (= 0.9.2)
       decidim-core (= 0.24.0.dev)
       decidim-forms (= 0.24.0.dev)
       decidim-proposals (= 0.24.0.dev)
@@ -340,7 +340,7 @@ GEM
     db-query-matchers (0.9.0)
       activesupport (>= 4.0, <= 6.0)
       rspec (~> 3.0)
-    decidim-bulletin_board (0.8.2)
+    decidim-bulletin_board (0.9.2)
       byebug (~> 11.0)
       graphlient (~> 0.4.0)
       jwt (~> 2.2.2)
@@ -880,7 +880,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-   ruby 2.7.1p83
+   ruby 2.7.2p137
 
 BUNDLED WITH
    2.1.4

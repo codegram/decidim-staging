@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_01_102441) do
+ActiveRecord::Schema.define(version: 2021_02_03_084547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -695,6 +695,16 @@ ActiveRecord::Schema.define(version: 2021_02_01_102441) do
     t.index ["decidim_scope_id"], name: "index_decidim_debates_debates_on_decidim_scope_id"
     t.index ["decidim_user_group_id"], name: "index_decidim_debates_debates_on_decidim_user_group_id"
     t.index ["endorsements_count"], name: "idx_decidim_debates_debates_on_endorsemnts_count"
+  end
+
+  create_table "decidim_elections_actions", force: :cascade do |t|
+    t.bigint "decidim_elections_election_id", null: false
+    t.integer "action", null: false
+    t.string "message_id", null: false
+    t.integer "status", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_elections_election_id"], name: "index_elections_actions_on_decidim_elections_election_id"
   end
 
   create_table "decidim_elections_answers", force: :cascade do |t|
@@ -1832,6 +1842,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_102441) do
     t.bigint "decidim_organization_id"
     t.datetime "published_at"
     t.boolean "promoted", default: false
+    t.string "voting_type", default: "online"
     t.index ["decidim_organization_id"], name: "index_decidim_votings_votings_on_decidim_organization_id"
     t.index ["decidim_scope_id"], name: "index_decidim_votings_votings_on_decidim_scope_id"
     t.index ["slug"], name: "index_decidim_votings_votings_on_slug"
