@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: d84c033e03fbec2e65fb8bf350b6cf8ea0eb5a76
+  revision: f6a4ee4948714dcbfec189f9b3af684b5028a968
   branch: feat/let-user-change-vote-in-election
   specs:
     decidim (0.24.0.dev)
@@ -880,7 +880,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-   ruby 2.7.2p137
+   ruby 2.7.1p83
 
 BUNDLED WITH
    2.1.4
