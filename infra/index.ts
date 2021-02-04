@@ -327,3 +327,37 @@ const ingress = new k.networking.v1beta1.Ingress(
   },
   { provider: kubernetesProvider }
 );
+
+const workerLabels = { app: "decidim-staging-worker" };
+
+const workerDeployment = new k.apps.v1.Deployment(
+  `decidim-staging-worker-deployment`,
+  {
+    spec: {
+      selector: { matchLabels: workerLabels },
+      replicas: 1,
+      strategy: {
+        type: "RollingUpdate",
+        rollingUpdate: {
+          maxSurge: 1,
+          maxUnavailable: 0,
+        },
+      },
+      template: {
+        metadata: { labels: workerLabels },
+        spec: {
+          containers: [
+            {
+              name: "decidim-staging-worker",
+              image: dockerImage.imageName,
+              imagePullPolicy: "IfNotPresent",
+              command: ["bundle", "exec", "sidekiq", "-e", "production", "-C", "config/sidekiq.yml"],
+              env,
+            },
+          ],
+        },
+      },
+    },
+  },
+  { provider: kubernetesProvider }
+);
