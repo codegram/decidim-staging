@@ -239,6 +239,39 @@ const env: k.types.input.core.v1.EnvVar[] = [
   },
 ];
 
+/*
+  We define a job to run any DB migration we have.
+
+  In the deployment, we'll add an `initContainer` section that will check that
+  this job has finished before actually deploying the new release.
+*/
+const migrateJobName = "decidim-staging-migrate-job";
+const migrateJob = new k.batch.v1.Job(
+  "decidim-staging-migrate-job",
+  {
+    metadata: {
+      name: migrateJobName,
+    },
+    spec: {
+      backoffLimit: 1,
+      template: {
+        spec: {
+          containers: [
+            {
+              name: "decidim-staging-migrate",
+              image: dockerImage.imageName,
+              imagePullPolicy: "IfNotPresent",
+              command: ["bundle", "exec", "rake", "db:migrate"],
+              env,
+            }
+          ],
+          restartPolicy: "Never"
+        }
+      }
+    }
+  }
+);
+
 const labels = { app: "decidim-staging" };
 
 const deployment = new k.apps.v1.Deployment(
@@ -259,10 +292,13 @@ const deployment = new k.apps.v1.Deployment(
         spec: {
           initContainers: [
             {
-              name: "decidim-staging-migrate",
-              image: dockerImage.imageName,
+              name: "decidim-staging-init",
+              image: "groundnuty/k8s-wait-for:1.3",
               imagePullPolicy: "IfNotPresent",
-              command: ["bundle", "exec", "rake", "db:migrate"],
+              args: [
+                "job",
+                migrateJobName
+              ],
               env,
             },
           ],
@@ -330,6 +366,9 @@ const ingress = new k.networking.v1beta1.Ingress(
 
 const workerLabels = { app: "decidim-staging-worker" };
 
+/*
+  We create a 2nd deployment that will hold the Sidekiq process.
+*/
 const workerDeployment = new k.apps.v1.Deployment(
   `decidim-staging-worker-deployment`,
   {
@@ -346,6 +385,18 @@ const workerDeployment = new k.apps.v1.Deployment(
       template: {
         metadata: { labels: workerLabels },
         spec: {
+          initContainers: [
+            {
+              name: "decidim-staging-init",
+              image: "groundnuty/k8s-wait-for:1.3",
+              imagePullPolicy: "IfNotPresent",
+              args: [
+                "job",
+                migrateJobName
+              ],
+              env,
+            },
+          ],
           containers: [
             {
               name: "decidim-staging-worker",
@@ -361,3 +412,4 @@ const workerDeployment = new k.apps.v1.Deployment(
   },
   { provider: kubernetesProvider }
 );
+
