@@ -261,7 +261,7 @@ const migrateJob = new k.batch.v1.Job(
               name: "decidim-staging-migrate",
               image: dockerImage.imageName,
               imagePullPolicy: "IfNotPresent",
-              command: ["bundle", "exec", "rake", "db:migrate"],
+              command: ["bundle", "exec", "rake", "db:migrate", "db:seed"],
               env,
             }
           ],
