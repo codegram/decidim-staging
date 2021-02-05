@@ -288,7 +288,7 @@ const metricsCron = k8s.createCronjob({
 });
 
 /*
-  We create a cron job to generate the metrics. It should run every day at 4AM
+  We create a cron job to generate the open data files. It should run every day at 4AM
 */
 const openDataCron = k8s.createCronjob({
   name: "decidim-staging-open-data-cron",
@@ -331,7 +331,7 @@ const deployment = new k.apps.v1.Deployment(
           ],
           containers: [
             {
-              name: "decidim-staging",
+              name: "decidim-staging-web",
               image: dockerImage.imageName,
               imagePullPolicy: "IfNotPresent",
               ports: [{ containerPort: 3000 }],
