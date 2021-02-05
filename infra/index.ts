@@ -46,6 +46,9 @@ export const db = new gcp.sql.DatabaseInstance("decidim-staging-db-instance", {
       authorizedNetworks: [{ value: "0.0.0.0/0" }],
     },
     databaseFlags: [{ name: "max_connections", value: "1000" }],
+    backupConfiguration: {
+      enabled: true
+    }
   },
 });
 
