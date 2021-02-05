@@ -272,6 +272,30 @@ const migrateJob = new k.batch.v1.Job(
   }
 );
 
+/*
+  We create a cron job to generate the metrics. It should run every day at 2AM
+*/
+const metricsCron = k8s.createCronjob({
+  name: "decidim-staging-metrics-cron",
+  schedule: "0 2 * * *",
+  dockerImageName: dockerImage.imageName,
+  command: ["bundle", "exec", "rake", "decidim:metrics:all"],
+  env: env,
+  provider: kubernetesProvider
+});
+
+/*
+  We create a cron job to generate the metrics. It should run every day at 4AM
+*/
+const openDataCron = k8s.createCronjob({
+  name: "decidim-staging-open-data-cron",
+  schedule: "0 4 * * *",
+  dockerImageName: dockerImage.imageName,
+  command: ["bundle", "exec", "rake", "decidim:open_data:export"],
+  env: env,
+  provider: kubernetesProvider
+});
+
 const labels = { app: "decidim-staging" };
 
 const deployment = new k.apps.v1.Deployment(
