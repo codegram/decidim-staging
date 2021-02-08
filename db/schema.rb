@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_01_102441) do
+ActiveRecord::Schema.define(version: 2021_02_08_051752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1832,6 +1832,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_102441) do
     t.bigint "decidim_organization_id"
     t.datetime "published_at"
     t.boolean "promoted", default: false
+    t.string "voting_type", default: "online"
     t.index ["decidim_organization_id"], name: "index_decidim_votings_votings_on_decidim_organization_id"
     t.index ["decidim_scope_id"], name: "index_decidim_votings_votings_on_decidim_scope_id"
     t.index ["slug"], name: "index_decidim_votings_votings_on_slug"
