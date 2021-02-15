@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       decidimBranch:
-        description: 'Decidim branch name (leave it empty to update master)'
+        description: 'Decidim branch name (leave it empty to update main)'
         required: false
         default: ''
   schedule:
