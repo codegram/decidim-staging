@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: ff3e693e208431769b74e2eccb29e7e1acd3cf8a
-  branch: develop
+  revision: 26cfd08dd1cb1fd0de9f98da863bcc6fcb35e817
+  branch: feat/election-open-data
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
@@ -686,7 +686,7 @@ GEM
       wisper (>= 1.6.1)
     redcarpet (3.5.1)
     redis (4.2.5)
-    regexp_parser (2.1.0)
+    regexp_parser (2.1.1)
     request_store (1.5.0)
       rack (>= 1.4)
     responders (3.0.1)
