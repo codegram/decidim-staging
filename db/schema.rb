@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_08_051752) do
+ActiveRecord::Schema.define(version: 2021_02_15_051454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -697,6 +697,16 @@ ActiveRecord::Schema.define(version: 2021_02_08_051752) do
     t.index ["endorsements_count"], name: "idx_decidim_debates_debates_on_endorsemnts_count"
   end
 
+  create_table "decidim_elections_actions", force: :cascade do |t|
+    t.bigint "decidim_elections_election_id", null: false
+    t.integer "action", null: false
+    t.string "message_id", null: false
+    t.integer "status", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_elections_election_id"], name: "index_elections_actions_on_decidim_elections_election_id"
+  end
+
   create_table "decidim_elections_answers", force: :cascade do |t|
     t.bigint "decidim_elections_question_id", null: false
     t.jsonb "title", null: false
@@ -876,6 +886,7 @@ ActiveRecord::Schema.define(version: 2021_02_08_051752) do
     t.integer "max_choices"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "max_characters", default: 0
     t.index ["decidim_questionnaire_id"], name: "index_decidim_forms_questions_on_decidim_questionnaire_id"
     t.index ["position"], name: "index_decidim_forms_questions_on_position"
   end
@@ -1784,6 +1795,7 @@ ActiveRecord::Schema.define(version: 2021_02_08_051752) do
     t.boolean "blocked", default: false, null: false
     t.datetime "blocked_at"
     t.integer "block_id"
+    t.boolean "email_on_moderations", default: true
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["email", "decidim_organization_id"], name: "index_decidim_users_on_email_and_decidim_organization_id", unique: true, where: "((deleted_at IS NULL) AND (managed = false) AND ((type)::text = 'Decidim::User'::text))"
@@ -1816,6 +1828,28 @@ ActiveRecord::Schema.define(version: 2021_02_08_051752) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["decidim_organization_id"], name: "index_verifications_csv_census_to_organization"
+  end
+
+  create_table "decidim_votings_polling_officers", force: :cascade do |t|
+    t.bigint "decidim_votings_voting_id"
+    t.bigint "decidim_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_user_id"], name: "index_decidim_votings_polling_officers_on_decidim_user_id"
+    t.index ["decidim_votings_voting_id"], name: "decidim_votings_votings_polling_officers"
+  end
+
+  create_table "decidim_votings_polling_stations", force: :cascade do |t|
+    t.jsonb "title", null: false
+    t.text "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.jsonb "location"
+    t.jsonb "location_hints"
+    t.bigint "decidim_votings_voting_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_votings_voting_id"], name: "decidim_votings_votings_polling_stations"
   end
 
   create_table "decidim_votings_votings", force: :cascade do |t|
