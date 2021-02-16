@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_15_051454) do
+ActiveRecord::Schema.define(version: 2021_02_16_174850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1835,6 +1835,8 @@ ActiveRecord::Schema.define(version: 2021_02_15_051454) do
     t.bigint "decidim_user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "managed_polling_station_id"
+    t.integer "presided_polling_station_id"
     t.index ["decidim_user_id"], name: "index_decidim_votings_polling_officers_on_decidim_user_id"
     t.index ["decidim_votings_voting_id"], name: "decidim_votings_votings_polling_officers"
   end
