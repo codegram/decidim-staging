@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 220aff376bf346f9216746f329b03ac2c214fb94
+  revision: 585986a82e98ff573e333b67d74f60dc1cfc397c
   branch: feat/assign-officers-to-polling-stations
   specs:
     decidim (0.24.0.dev)
@@ -882,7 +882,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-   ruby 2.7.2p137
+   ruby 2.7.1p83
 
 BUNDLED WITH
    2.1.4
