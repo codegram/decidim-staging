@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 585986a82e98ff573e333b67d74f60dc1cfc397c
+  revision: 9ea633529cab2b9b74a4b530f5c5520c2e7955f0
   branch: feat/assign-officers-to-polling-stations
   specs:
     decidim (0.24.0.dev)
