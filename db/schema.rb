@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_15_051454) do
+ActiveRecord::Schema.define(version: 2021_02_18_083532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -170,6 +170,7 @@ ActiveRecord::Schema.define(version: 2021_02_15_051454) do
     t.string "youtube_handler"
     t.string "github_handler"
     t.bigint "decidim_assemblies_type_id"
+    t.integer "weight", default: 1, null: false
     t.index ["decidim_area_id"], name: "index_decidim_assemblies_on_decidim_area_id"
     t.index ["decidim_assemblies_type_id"], name: "index_decidim_assemblies_on_decidim_assemblies_type_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_assembly_slug_and_organization", unique: true
@@ -1379,6 +1380,7 @@ ActiveRecord::Schema.define(version: 2021_02_15_051454) do
     t.bigint "decidim_area_id"
     t.bigint "decidim_scope_type_id"
     t.boolean "show_metrics", default: true
+    t.integer "weight", default: 1, null: false
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id"
@@ -1835,6 +1837,8 @@ ActiveRecord::Schema.define(version: 2021_02_15_051454) do
     t.bigint "decidim_user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "managed_polling_station_id"
+    t.integer "presided_polling_station_id"
     t.index ["decidim_user_id"], name: "index_decidim_votings_polling_officers_on_decidim_user_id"
     t.index ["decidim_votings_voting_id"], name: "decidim_votings_votings_polling_officers"
   end
