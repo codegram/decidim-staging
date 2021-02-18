@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 4a073724d9b64adb7ac82543a2d48a59295d64ab
+  revision: a4156c45baea258414840a7dccd12ef77b542d50
   branch: feat/voting-callout-when-ps-without-po
   specs:
     decidim (0.24.0.dev)
