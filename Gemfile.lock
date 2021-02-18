@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: db8c705d6ed6e6bafe4608003c288f184b636312
-  branch: develop
+  revision: 4a073724d9b64adb7ac82543a2d48a59295d64ab
+  branch: feat/voting-callout-when-ps-without-po
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
@@ -459,7 +459,7 @@ GEM
       faraday (>= 1.0)
       faraday_middleware
       graphql-client
-    graphql (1.12.4)
+    graphql (1.12.5)
     graphql-client (0.16.0)
       activesupport (>= 3.0)
       graphql (~> 1.8)
