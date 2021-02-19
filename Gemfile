@@ -7,6 +7,7 @@ ruby RUBY_VERSION
 DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "develop" }
 
 gem "decidim", DECIDIM_VERSION
+gem "decidim-dev", DECIDIM_VERSION
 #gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-elections", DECIDIM_VERSION
@@ -29,7 +30,6 @@ group :development, :test do
 end
 
 group :development do
-  gem "decidim-dev", DECIDIM_VERSION
   gem "letter_opener_web", "~> 1.4.0"
   gem "listen", "~> 3.1.0"
   gem "spring"
