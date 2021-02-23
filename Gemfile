@@ -23,6 +23,7 @@ gem "wkhtmltopdf-binary"
 gem "faker", "~> 2.14"
 
 gem "puma"
+gem "carrierwave", "2.1.1"
 
 group :development, :test do
   gem "byebug", platform: :mri
