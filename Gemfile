@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "develop" }
+DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "feat/custom_msg_in_meeting_confirmation_email" }
 
 gem "decidim", DECIDIM_VERSION
 #gem "decidim-conferences", DECIDIM_VERSION

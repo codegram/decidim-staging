@@ -1,7 +1,7 @@
 GIT
-  remote: https://github.com/decidim/decidim
-  revision: ff3e693e208431769b74e2eccb29e7e1acd3cf8a
-  branch: develop
+  remote: https://github.com/CodiTramuntana/decidim
+  revision: 2a64140cbd5d482fa87e913814b2ccec2a3a7c3b
+  branch: feat/custom_msg_in_meeting_confirmation_email
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
@@ -103,7 +103,7 @@ GIT
       premailer-rails (~> 1.10)
       rack (~> 2.2, >= 2.2.3)
       rack-attack (~> 6.0)
-      rails (~> 5.2.4.5)
+      rails (>= 5.2.4.4, < 6.0.x)
       rails-i18n (~> 5.0)
       rectify (~> 0.13.0)
       redis (~> 4.1)

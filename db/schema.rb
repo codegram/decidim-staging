@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_23_083531) do
+ActiveRecord::Schema.define(version: 2021_02_23_194146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1097,6 +1097,8 @@ ActiveRecord::Schema.define(version: 2021_02_23_083531) do
     t.string "registration_type", default: "registration_disabled", null: false
     t.string "registration_url"
     t.string "salt"
+    t.boolean "customize_registration_email", default: false, null: false
+    t.jsonb "registration_email_custom_content"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_meetings_meetings_on_author"
     t.index ["decidim_author_id"], name: "index_decidim_meetings_meetings_on_decidim_author_id"
     t.index ["decidim_component_id"], name: "index_decidim_meetings_meetings_on_decidim_component_id"
