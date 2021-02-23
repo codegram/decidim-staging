@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_23_083531) do
+ActiveRecord::Schema.define(version: 2021_02_23_085212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1289,6 +1289,7 @@ ActiveRecord::Schema.define(version: 2021_02_23_083531) do
     t.integer "comments_max_length", default: 1000
     t.jsonb "file_upload_settings"
     t.string "machine_translation_display_priority", default: "original", null: false
+    t.string "external_domain_whitelist", default: [], array: true
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end

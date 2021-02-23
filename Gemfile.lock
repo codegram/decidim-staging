@@ -1,7 +1,7 @@
 GIT
-  remote: https://github.com/decidim/decidim
-  revision: ff3e693e208431769b74e2eccb29e7e1acd3cf8a
-  branch: develop
+  remote: https://github.com/mainio/decidim
+  revision: e269806c68e8ff0fb15d5d309938a322dadff2b9
+  branch: feature/external_link_warning
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
@@ -103,7 +103,7 @@ GIT
       premailer-rails (~> 1.10)
       rack (~> 2.2, >= 2.2.3)
       rack-attack (~> 6.0)
-      rails (~> 5.2.4.5)
+      rails (>= 5.2.4.4, < 6.0.x)
       rails-i18n (~> 5.0)
       rectify (~> 0.13.0)
       redis (~> 4.1)
