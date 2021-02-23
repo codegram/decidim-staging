@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: ff3e693e208431769b74e2eccb29e7e1acd3cf8a
-  branch: develop
+  revision: dd8d92baab5d08a3f84aca5e822ab9a72742e7ae
+  branch: feat/polling-officer-zone
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
@@ -67,7 +67,7 @@ GIT
       autoprefixer-rails (~> 8.0)
       batch-loader (~> 1.2)
       browser (~> 2.7)
-      carrierwave (~> 2.1, >= 2.1.1)
+      carrierwave (~> 2.2.0)
       cells-erb (~> 0.1.0)
       cells-rails (~> 0.0.9)
       charlock_holmes (~> 0.7)
