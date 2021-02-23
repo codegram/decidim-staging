@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 52566a05dc74742f5f904bbefeff7a4e5f884d27
-  branch: develop
+  revision: f542384399c0682d7946b9008e4b22f19bfb5a8d
+  branch: fix/initiative-attachments
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
