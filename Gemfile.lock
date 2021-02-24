@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: a1a90dd8c889d2ade3c0d925fe6de5e988ec8191
-  branch: feat/mix_cb_voting_landing_page
+  revision: 29e1bb959fb2f8d59555d34d89d2e5f4e520f447
+  ref: 29e1bb959fb2f8d59555d34d89d2e5f4e520f447
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
