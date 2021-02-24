@@ -83,7 +83,7 @@ jobs:
         run: bundle install --path vendor/bundle --jobs 4
 
       - name: Update decidim gem
-        run: bin/decidim_update
+        run: bundle update --source decidim
 
       - name: Update database schema
         run: bundle exec rake db:create db:schema:load decidim:upgrade db:migrate
