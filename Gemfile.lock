@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: ff3e693e208431769b74e2eccb29e7e1acd3cf8a
-  branch: develop
+  revision: a1a90dd8c889d2ade3c0d925fe6de5e988ec8191
+  branch: feat/mix_cb_voting_landing_page
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
@@ -67,7 +67,7 @@ GIT
       autoprefixer-rails (~> 8.0)
       batch-loader (~> 1.2)
       browser (~> 2.7)
-      carrierwave (~> 2.1, >= 2.1.1)
+      carrierwave (~> 2.2.0)
       cells-erb (~> 0.1.0)
       cells-rails (~> 0.0.9)
       charlock_holmes (~> 0.7)
@@ -686,7 +686,7 @@ GEM
       wisper (>= 1.6.1)
     redcarpet (3.5.1)
     redis (4.2.5)
-    regexp_parser (2.1.0)
+    regexp_parser (2.1.1)
     request_store (1.5.0)
       rack (>= 1.4)
     responders (3.0.1)
