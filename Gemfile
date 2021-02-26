@@ -5,7 +5,7 @@ source "https://rubygems.org"
 ruby RUBY_VERSION
 
 # DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "feat/mix_cb_voting_landing_page" }
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", ref: "29e1bb959fb2f8d59555d34d89d2e5f4e520f447" }
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", ref: "22e1c27d90971a7375bba2f6a41f57c934c278b1" }
 
 gem "decidim", DECIDIM_VERSION
 #gem "decidim-conferences", DECIDIM_VERSION
