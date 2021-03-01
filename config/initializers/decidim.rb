@@ -9,11 +9,11 @@ Decidim.configure do |config|
   config.available_locales = [:en, :ca, :es]
 
   # Geocoder configuration
-  # config.maps = {
-  #   provider: :here,
-  #   api_key: Rails.application.secrets.maps[:api_key],
-  #   static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
-  # }
+  config.maps = {
+    provider: :here,
+    api_key: Rails.application.secrets.maps[:api_key],
+    static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
+  }
   # config.geocoder = {
   #   timeout: 5,
   #   units: :km
@@ -134,4 +134,3 @@ end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
-
