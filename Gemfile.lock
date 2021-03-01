@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: e41714404d6dec72330604590b7b4964d84fde8a
+  revision: 52566a05dc74742f5f904bbefeff7a4e5f884d27
   branch: develop
   specs:
     decidim (0.24.0.dev)
@@ -786,7 +786,7 @@ GEM
     smart_properties (1.15.0)
     social-share-button (1.2.3)
       coffee-rails
-    spreadsheet (1.2.7)
+    spreadsheet (1.2.8)
       ruby-ole
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
@@ -841,7 +841,7 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webmock (3.11.2)
+    webmock (3.12.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
