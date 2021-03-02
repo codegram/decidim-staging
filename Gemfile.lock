@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 22e1c27d90971a7375bba2f6a41f57c934c278b1
-  ref: 22e1c27d90971a7375bba2f6a41f57c934c278b1
+  revision: 2306c879cebb75d893a1299f6b83e611eb5cc575
+  branch: feat/mix_cb_voting_landing_page
   specs:
     decidim (0.24.0.dev)
       decidim-accountability (= 0.24.0.dev)
@@ -550,12 +550,12 @@ GEM
     method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2021.0212)
+    mime-types-data (3.2021.0225)
     mimemagic (0.3.5)
     mini_magick (4.11.0)
     mini_mime (1.0.2)
     mini_portile2 (2.5.0)
-    minitest (5.14.3)
+    minitest (5.14.4)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
       tomlrb
@@ -786,7 +786,7 @@ GEM
     smart_properties (1.15.0)
     social-share-button (1.2.3)
       coffee-rails
-    spreadsheet (1.2.7)
+    spreadsheet (1.2.8)
       ruby-ole
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
