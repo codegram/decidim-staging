@@ -1,4 +1,4 @@
-FROM decidim/decidim:latest
+FROM decidim/decidim:0.24.0.rc1
 
 ARG SECRET_KEY_BASE
 ENV SECRET_KEY_BASE=$SECRET_KEY_BASE
