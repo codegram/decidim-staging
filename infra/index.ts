@@ -249,31 +249,13 @@ const env: k.types.input.core.v1.EnvVar[] = [
   this job has finished before actually deploying the new release.
 */
 const migrateJobName = "decidim-staging-migrate-job";
-const migrateJob = new k.batch.v1.Job(
-  "decidim-staging-migrate-job",
-  {
-    metadata: {
-      name: migrateJobName,
-    },
-    spec: {
-      backoffLimit: 1,
-      template: {
-        spec: {
-          containers: [
-            {
-              name: "decidim-staging-migrate",
-              image: dockerImage.imageName,
-              imagePullPolicy: "IfNotPresent",
-              command: ["bundle", "exec", "rake", "db:migrate", "db:seed"],
-              env,
-            }
-          ],
-          restartPolicy: "Never"
-        }
-      }
-    }
-  }
-);
+const migrateJob = k8s.createJob({
+  name: "decidim-staging-migrate",
+  dockerImageName: dockerImage.imageName,
+  command: ["bundle", "exec", "rake", "db:migrate", "db:seed"],
+  env: env,
+  provider: kubernetesProvider
+})
 
 /*
   We create a cron job to generate the metrics. It should run every day at 2AM
