@@ -39,7 +39,7 @@ export const dbPassword = new random.RandomPassword(
 );
 
 export const db = new gcp.sql.DatabaseInstance("decidim-staging-db-instance", {
-  databaseVersion: "POSTGRES_9_6",
+  databaseVersion: "POSTGRES_13",
   settings: {
     tier: "db-f1-micro",
     ipConfiguration: {
