@@ -1,4 +1,4 @@
-FROM ghcr.io/decidim/decidim:0.24.0.rc1
+FROM ghcr.io/decidim/decidim-generator:0.24.0.rc1
 
 ARG SECRET_KEY_BASE
 ENV SECRET_KEY_BASE=$SECRET_KEY_BASE
@@ -12,7 +12,6 @@ ENV PORT=3000
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
 COPY . .
-RUN bundle install
 RUN bundle exec rake assets:precompile
 
 ENTRYPOINT []
