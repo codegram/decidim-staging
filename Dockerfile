@@ -1,4 +1,4 @@
-FROM decidim/decidim:0.24.0.rc1
+FROM ghcr.io/decidim/decidim:0.24.0.rc1
 
 ARG SECRET_KEY_BASE
 ENV SECRET_KEY_BASE=$SECRET_KEY_BASE
@@ -17,4 +17,4 @@ RUN bundle exec rake assets:precompile
 
 ENTRYPOINT []
 ENV RAILS_SERVE_STATIC_FILES=true
-CMD bundle exec rails s
+CMD bin/rails s
