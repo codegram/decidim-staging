@@ -41,5 +41,6 @@ group :production do
   gem "fog-aws"
   gem "lograge"
   gem "sendgrid-ruby"
-  gem "sentry-raven"
+  gem "sentry-ruby"
+  gem "sentry-rails"
 end
