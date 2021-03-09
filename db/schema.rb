@@ -601,6 +601,7 @@ ActiveRecord::Schema.define(version: 2021_03_08_051951) do
     t.integer "min_votes"
     t.integer "response_groups_count", default: 0, null: false
     t.jsonb "instructions"
+    t.integer "comments_count", default: 0, null: false
     t.index ["decidim_consultation_id"], name: "index_consultations_questions_on_consultation_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_question_slug_and_organization", unique: true
     t.index ["decidim_scope_id"], name: "index_decidim_consultations_questions_on_decidim_scope_id"
