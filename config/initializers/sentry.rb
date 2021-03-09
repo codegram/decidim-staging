@@ -1,4 +1,4 @@
-if Rails.application.secrets.sentry_enabled?
+if Rails.application.secrets.sentry_enabled
   Sentry.init do |config|
     config.dsn = ENV["SENTRY_DSN"]
     config.environment = if ENV["HEROKU_APP_NAME"].present?
