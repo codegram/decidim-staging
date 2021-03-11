@@ -4,7 +4,7 @@ if Rails.application.secrets.sentry_enabled
     config.environment = if ENV["HEROKU_APP_NAME"].present?
                            ENV["HEROKU_APP_NAME"]
                          else
-                           "production"
+                           "pulumi"
                          end
 
     config.breadcrumbs_logger = [:active_support_logger]
