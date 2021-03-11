@@ -252,7 +252,7 @@ const migrateJobName = "decidim-staging-migrate-job";
 const migrateJob = k8s.createJob({
   name: "decidim-staging-migrate",
   dockerImageName: dockerImage.imageName,
-  command: ["bundle", "exec", "rake", "db:migrate", "db:seed"],
+  command: ["bin/rails db:migrate && bin/rails db:seed"],
   env,
   provider: kubernetesProvider
 })

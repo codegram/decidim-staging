@@ -4,6 +4,7 @@ if ENV["HEROKU_APP_NAME"].present?
 end
 
 if Decidim::Organization.count == 0
+  ENV["SEED"] = "true"
   require "decidim/faker/localized"
 
   Decidim.seed!
