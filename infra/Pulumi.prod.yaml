@@ -6,6 +6,10 @@ config:
   decidim-staging:awsSecretAccessKey:
     secure: AAABAO4Ms1Lj/9V947qDB/pTcgJSy45VNjBtvj/3nvfw7LoQjiq7HPvFbZCXC7/3CjsUXvBZq/O2cej2BNSnEMfzJU3kr0xZ
   decidim-staging:clusterStackRef: codegram/genesis-cluster/prod
+  decidim-staging:dbPassword:
+    secure: AAABAFSvHxTZLr6DCbA1aflnlK3la05dWlshM7fm/X2YbNOabmxnpwWPeUKRNYt3triV6sc3ZMro8KtV9WifUeOyUkHdcBF7kA==
+  decidim-staging:dbUserName:
+    secure: AAABAEpA4vWCs6AO0NSY/FEVLyVkcM66uoSdaiCE8xJ4O2OfvMZId0e3leeFISOszAo=
   decidim-staging:email:
     secure: AAABAJkyihsLVwI2EsEFGVUWBBtrxKH4D/lYBfkXJSt3syPyuXltL4UNG4tG07Z78h762SPdZZKk
   decidim-staging:etherpadApiKey:

@@ -30,27 +30,34 @@ const kubernetesProvider = k8s.buildProvider({
 
 // DATABASE
 
-export const dbPassword = new random.RandomPassword(
-  "decidim-staging-db-password",
-  {
-    length: 16,
-    special: false,
-  }
+export const dbPassword = pulumi.getSecretFromConfig(
+  "dbPassword",
+  "decidim-staging"
 );
 
-export const db = new gcp.sql.DatabaseInstance("decidim-staging-db-instance", {
-  databaseVersion: "POSTGRES_13",
-  settings: {
-    tier: "db-f1-micro",
-    ipConfiguration: {
-      authorizedNetworks: [{ value: "0.0.0.0/0" }],
+export const dbUserName = pulumi.getSecretFromConfig(
+  "dbUserName",
+  "decidim-staging"
+);
+
+export const db = new gcp.sql.DatabaseInstance("decidim-staging-db-instance",
+  {
+    databaseVersion: "POSTGRES_13",
+    settings: {
+      tier: "db-f1-micro",
+      ipConfiguration: {
+        authorizedNetworks: [{ value: "0.0.0.0/0" }],
+      },
+      databaseFlags: [{ name: "max_connections", value: "1000" }],
+      backupConfiguration: {
+        enabled: true
+      }
     },
-    databaseFlags: [{ name: "max_connections", value: "1000" }],
-    backupConfiguration: {
-      enabled: true
-    }
   },
-});
+  {
+    additionalSecretOutputs: ["firstIpAddress"]
+  }
+);
 
 const decidimStagingDatabase = new gcp.sql.Database("decidim-staging-db", {
   instance: db.name,
@@ -59,8 +66,8 @@ const decidimStagingDatabase = new gcp.sql.Database("decidim-staging-db", {
 
 const dbUser = new gcp.sql.User("decidim-staging-db-instance-user", {
   instance: db.name,
-  name: "decidim-staging",
-  password: dbPassword.result,
+  name: dbUserName,
+  password: dbPassword,
 });
 
 /**
@@ -74,7 +81,7 @@ const dbUser = new gcp.sql.User("decidim-staging-db-instance-user", {
  * The reason for that is we are pushing the docker images to Google cloud right now.
  */
 //    value: pulumi.getSecretFromConfig("secretKeyBase", "decidim-staging"),
-export const dbUrl = pulumi.interpolate`postgres://decidim-staging:${dbPassword.result}@${db.firstIpAddress}:5432/decidim-staging`;
+export const dbUrl = pulumi.interpolate`postgres://decidim-staging:${dbPassword}@${db.firstIpAddress}:5432/decidim-staging`;
 
 const dockerImage = docker.buildImage({
   name: "decidim-staging",
