@@ -249,14 +249,28 @@ const env: k.types.input.core.v1.EnvVar[] = [
   this job has finished before actually deploying the new release.
 */
 const migrateJobName = "decidim-staging-migrate-job";
-const migrateJob = k8s.createJob({
-  name: "decidim-staging-migrate",
-  dockerImageName: dockerImage.imageName,
-  command: ["/bin/sh", "-c"],
-  containerArgs: ["bin/rails db:migrate"], // https://stackoverflow.com/a/33888424/2110884
-  env,
-  provider: kubernetesProvider
-});
+const migrateJob = new k.batch.v1.Job(
+  migrateJobName,
+  {
+    spec: {
+      template: {
+        spec: {
+          containers: [
+            {
+              name: migrateJobName,
+              image: dockerImage.imageName,
+              command: ["/bin/sh", "-c"],
+              args: ["bin/rails db:migrate"], // https://stackoverflow.com/a/33888424/2110884
+              env,
+            },
+          ],
+          restartPolicy: "Never",
+        },
+      },
+    },
+  },
+  { provider: kubernetesProvider }
+);
 
 /*
   We define a job to seed the DB.
@@ -278,14 +292,14 @@ const seedJob = new k.batch.v1.Job(
               imagePullPolicy: "IfNotPresent",
               args: [
                 "job",
-                migrateJob.id
+                migrateJob.id,
               ],
               env,
             },
           ],
           containers: [
             {
-              seedJobName,
+              name: seedJobName,
               image: dockerImage.imageName,
               command: ["/bin/sh", "-c"],
               args: ["bin/rails db:seed"], // https://stackoverflow.com/a/33888424/2110884
