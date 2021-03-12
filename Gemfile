@@ -43,4 +43,5 @@ group :production do
   gem "sendgrid-ruby"
   gem "sentry-ruby"
   gem "sentry-rails"
+  gem "sidekiq"
 end
