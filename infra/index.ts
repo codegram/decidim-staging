@@ -278,14 +278,14 @@ const seedJob = new k.batch.v1.Job(
               imagePullPolicy: "IfNotPresent",
               args: [
                 "job",
-                migrateJobName
+                migrateJob.id
               ],
               env,
             },
           ],
           containers: [
             {
-              name: seedJobName,
+              seedJobName,
               image: dockerImage.imageName,
               command: ["/bin/sh", "-c"],
               args: ["bin/rails db:seed"], // https://stackoverflow.com/a/33888424/2110884
@@ -349,7 +349,7 @@ const deployment = new k.apps.v1.Deployment(
               imagePullPolicy: "IfNotPresent",
               args: [
                 "job",
-                migrateJobName
+                migrateJob.id
               ],
               env,
             },
@@ -444,7 +444,7 @@ const workerDeployment = new k.apps.v1.Deployment(
               imagePullPolicy: "IfNotPresent",
               args: [
                 "job",
-                migrateJobName
+                migrateJob.id
               ],
               env,
             },
