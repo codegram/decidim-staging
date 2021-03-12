@@ -285,18 +285,6 @@ const seedJob = new k.batch.v1.Job(
     spec: {
       template: {
         spec: {
-          initContainers: [
-            {
-              name: "decidim-staging-init",
-              image: "groundnuty/k8s-wait-for:1.3",
-              imagePullPolicy: "IfNotPresent",
-              args: [
-                "job",
-                migrateJob.id,
-              ],
-              env,
-            },
-          ],
           containers: [
             {
               name: seedJobName,
@@ -311,7 +299,10 @@ const seedJob = new k.batch.v1.Job(
       },
     },
   },
-  { provider: kubernetesProvider }
+  {
+    provider: kubernetesProvider,
+    dependsOn: [migrateJob]
+  }
 );
 
 /*
@@ -356,18 +347,6 @@ const deployment = new k.apps.v1.Deployment(
       template: {
         metadata: { labels },
         spec: {
-          initContainers: [
-            {
-              name: "decidim-staging-init",
-              image: "groundnuty/k8s-wait-for:1.3",
-              imagePullPolicy: "IfNotPresent",
-              args: [
-                "job",
-                migrateJob.id
-              ],
-              env,
-            },
-          ],
           containers: [
             {
               name: "decidim-staging-web",
@@ -382,7 +361,10 @@ const deployment = new k.apps.v1.Deployment(
       },
     },
   },
-  { provider: kubernetesProvider }
+  {
+    provider: kubernetesProvider,
+    dependsOn: [migrateJob]
+  }
 );
 
 const service = new k.core.v1.Service(
@@ -451,18 +433,6 @@ const workerDeployment = new k.apps.v1.Deployment(
       template: {
         metadata: { labels: workerLabels },
         spec: {
-          initContainers: [
-            {
-              name: "decidim-staging-init",
-              image: "groundnuty/k8s-wait-for:1.3",
-              imagePullPolicy: "IfNotPresent",
-              args: [
-                "job",
-                migrateJob.id
-              ],
-              env,
-            },
-          ],
           containers: [
             {
               name: "decidim-staging-worker",
@@ -476,6 +446,9 @@ const workerDeployment = new k.apps.v1.Deployment(
       },
     },
   },
-  { provider: kubernetesProvider }
+  {
+    provider: kubernetesProvider,
+    dependsOn: [migrateJob]
+  }
 );
 
