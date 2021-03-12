@@ -245,8 +245,9 @@ const env: k.types.input.core.v1.EnvVar[] = [
 /*
   We define a job to run any DB migration we have.
 
-  In the deployment, we'll add an `initContainer` section that will check that
-  this job has finished before actually deploying the new release.
+  In the deployments, we'll add this job as a dependency. This way the system
+  will check that this job has finished before actually deploying the new
+  release.
 */
 const migrateJobName = "decidim-staging-migrate-job";
 const migrateJob = new k.batch.v1.Job(
