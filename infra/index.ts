@@ -255,6 +255,12 @@ const env: k.types.input.core.v1.EnvVar[] = [
   In the deployments, we'll add this job as a dependency. This way the system
   will check that this job has finished before actually deploying the new
   release.
+
+  If we had a single deployment, we could move this to a `initContainer` step
+  instead of being a separate job. This would simplify the build flow. But in
+  this case we need a couple of deployments (srver & background job processing),
+  so we want to make sure the DB is in the correct state before being able to
+  start the deployments.
 */
 const migrateJobName = "decidim-staging-migrate-job";
 const migrateJob = new k.batch.v1.Job(
