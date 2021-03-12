@@ -81,7 +81,7 @@ const dbUser = new gcp.sql.User("decidim-staging-db-instance-user", {
  * The reason for that is we are pushing the docker images to Google cloud right now.
  */
 //    value: pulumi.getSecretFromConfig("secretKeyBase", "decidim-staging"),
-export const dbUrl = pulumi.interpolate`postgres://decidim-staging:${dbPassword}@${db.firstIpAddress}:5432/decidim-staging`;
+export const dbUrl = pulumi.interpolate`postgres://${dbUserName}:${dbPassword}@${db.firstIpAddress}:5432/decidim-staging`;
 
 const dockerImage = docker.buildImage({
   name: "decidim-staging",
