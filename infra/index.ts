@@ -253,10 +253,52 @@ const migrateJob = k8s.createJob({
   name: "decidim-staging-migrate",
   dockerImageName: dockerImage.imageName,
   command: ["/bin/sh", "-c"],
-  containerArgs: ["bin/rails db:migrate && bin/rails db:seed"], // https://stackoverflow.com/a/33888424/2110884
+  containerArgs: ["bin/rails db:migrate"], // https://stackoverflow.com/a/33888424/2110884
   env,
   provider: kubernetesProvider
-})
+});
+
+/*
+  We define a job to seed the DB.
+
+  We're going to wait for the migrate job to finish before starting this one,
+  but the deployment can start in parallel without any problem.
+*/
+const seedJobName = "decidim-staging-seed-job";
+const seedJob = new k.batch.v1.Job(
+  seedJobName,
+  {
+    spec: {
+      template: {
+        spec: {
+          initContainers: [
+            {
+              name: "decidim-staging-init",
+              image: "groundnuty/k8s-wait-for:1.3",
+              imagePullPolicy: "IfNotPresent",
+              args: [
+                "job",
+                migrateJobName
+              ],
+              env,
+            },
+          ],
+          containers: [
+            {
+              name: seedJobName,
+              image: dockerImage.imageName,
+              command: ["/bin/sh", "-c"],
+              args: ["bin/rails db:seed"], // https://stackoverflow.com/a/33888424/2110884
+              env,
+            },
+          ],
+          restartPolicy: "Never",
+        },
+      },
+    },
+  },
+  { provider: kubernetesProvider }
+);
 
 /*
   We create a cron job to generate the metrics. It should run every day at 2AM
