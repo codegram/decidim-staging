@@ -55,7 +55,16 @@ export const db = new gcp.sql.DatabaseInstance("decidim-staging-db-instance",
     },
   },
   {
-    additionalSecretOutputs: ["firstIpAddress"]
+    additionalSecretOutputs: [
+      "firstIpAddress",
+      "publicIpAddress",
+      "ipAddresses",
+      "settings",
+      "serverCaCert",
+      "region",
+      "serviceAccountEmailAddress",
+      "connectionName"
+    ]
   }
 );
 
