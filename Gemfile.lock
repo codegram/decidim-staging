@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: b813f867991aff3623c91c5d485bbfd957360ca1
+  revision: 1c50d1f1338fe5b62286f12a0a4c918d285d31cc
   branch: develop
   specs:
     decidim (0.25.0.dev)
@@ -362,7 +362,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.9.2)
+    devise-i18n (1.9.3)
       devise (>= 4.7.1)
     devise_invitable (1.7.5)
       actionmailer (>= 4.1.0)
@@ -463,7 +463,7 @@ GEM
       faraday (>= 1.0)
       faraday_middleware
       graphql-client
-    graphql (1.12.5)
+    graphql (1.12.6)
     graphql-client (0.16.0)
       activesupport (>= 3.0)
       graphql (~> 1.8)
@@ -488,7 +488,7 @@ GEM
       rails-i18n
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
-    icalendar (2.7.0)
+    icalendar (2.7.1)
       ice_cube (~> 0.16)
     ice_cube (0.16.3)
     ice_nine (0.11.2)
@@ -587,10 +587,10 @@ GEM
       rack (>= 1.6.2, < 3)
     omniauth-facebook (5.0.0)
       omniauth-oauth2 (~> 1.2)
-    omniauth-google-oauth2 (0.8.1)
+    omniauth-google-oauth2 (0.8.2)
       jwt (>= 2.0)
       oauth2 (~> 1.1)
-      omniauth (>= 1.1.1)
+      omniauth (~> 1.1)
       omniauth-oauth2 (>= 1.6)
     omniauth-oauth (1.2.0)
       oauth
