@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 1c50d1f1338fe5b62286f12a0a4c918d285d31cc
-  branch: develop
+  revision: 93cc795406ae086b1a5f28c69c056c6f0d6d53f3
+  branch: chore/home-stats-cell
   specs:
     decidim (0.25.0.dev)
       decidim-accountability (= 0.25.0.dev)
