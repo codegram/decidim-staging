@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 1c50d1f1338fe5b62286f12a0a4c918d285d31cc
-  branch: develop
+  revision: a23cc5ed7a9b7bd5195235e6c22dd836bac96522
+  branch: feat/see-remaining-time-for-voting
   specs:
     decidim (0.25.0.dev)
       decidim-accountability (= 0.25.0.dev)
