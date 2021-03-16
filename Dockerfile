@@ -1,4 +1,4 @@
-FROM ghcr.io/decidim/decidim-generator:0.24.0.rc1
+FROM ghcr.io/decidim/decidim-generator:0.24.0.rc2
 
 ARG SECRET_KEY_BASE
 ENV SECRET_KEY_BASE=$SECRET_KEY_BASE
