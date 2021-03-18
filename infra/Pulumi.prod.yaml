@@ -3,6 +3,10 @@ config:
     secure: AAABANx5E2MuWPj9ib20A+M1wlTYMuDlDn+KOQg2T/oN60kh9+tLkOgnU/QYTLa2yj2M7A==
   decidim-staging:awsBucketName:
     secure: AAABAKcjztY3wNoFq+XLDL+gnhDsXj+B4ze9UwERcZKLUpNj6AOgLGJGM7s+0iw=
+  decidim-staging:awsHost:
+    secure: AAABAJpKE4uTr5S9AXicoeoUzlUKOELJIiV0j8UOR3wx3Ut5Jomwme+ESU3ZZUckOTHtLEBOlwwHbHC/tw==
+  decidim-staging:awsRegion:
+    secure: AAABAKYpQhmsCcfM/FPOVg7srwLFtH58/clR1KNCCcakgoSfRGqMykVc+Eg=
   decidim-staging:awsSecretAccessKey:
     secure: AAABAO4Ms1Lj/9V947qDB/pTcgJSy45VNjBtvj/3nvfw7LoQjiq7HPvFbZCXC7/3CjsUXvBZq/O2cej2BNSnEMfzJU3kr0xZ
   decidim-staging:clusterStackRef: codegram/genesis-cluster/prod

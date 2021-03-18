@@ -150,6 +150,14 @@ const env: k.types.input.core.v1.EnvVar[] = [
     value: pulumi.interpolate`redis://default:${redisPassword.result}@decidim-staging-redis-master:6379`,
   },
   {
+    name: "AWS_HOST",
+    value: pulumi.getSecretFromConfig("awsHost", "decidim-staging"),
+  },
+  {
+    name: "AWS_REGION",
+    value: pulumi.getSecretFromConfig("awsRegion", "decidim-staging"),
+  },
+  {
     name: "AWS_BUCKET_NAME",
     value: pulumi.getSecretFromConfig("awsBucketName", "decidim-staging"),
   },
