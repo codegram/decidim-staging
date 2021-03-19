@@ -1845,20 +1845,24 @@ ActiveRecord::Schema.define(version: 2021_03_22_053362) do
   end
 
   create_table "decidim_votings_census_data", force: :cascade do |t|
-    t.string "document_number"
-    t.string "document_type"
-    t.string "birthdate"
+    t.string "hashed_id_data"
+    t.string "hashed_in_person_data"
+    t.string "hashed_check_data"
     t.string "full_name"
     t.string "full_address"
     t.string "postal_code"
     t.string "mobile_phone_number"
     t.string "email"
+    t.string "access_code"
     t.bigint "decidim_votings_census_dataset_id", null: false
     t.bigint "decidim_votings_voting_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["decidim_votings_census_dataset_id"], name: "decidim_votings_census_dataset_census_datum"
     t.index ["decidim_votings_voting_id"], name: "decidim_votings_voting_census_datum"
+    t.index ["hashed_check_data"], name: "index_decidim_votings_census_data_on_hashed_check_data"
+    t.index ["hashed_id_data"], name: "index_decidim_votings_census_data_on_hashed_id_data"
+    t.index ["hashed_in_person_data"], name: "index_decidim_votings_census_data_on_hashed_in_person_data"
   end
 
   create_table "decidim_votings_census_datasets", force: :cascade do |t|
