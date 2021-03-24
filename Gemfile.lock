@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 780dc120c828d4b064fa03536667c862a030e094
+  revision: 61a2861bc239e0c5d8e78c061b5e3b36999b4cf4
   branch: feat/admin_voting_census
   specs:
     decidim (0.25.0.dev)
