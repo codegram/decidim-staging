@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: d52ef91610436f8faed622c0022558ecf884a1de
-  branch: develop
+  revision: 42519fae7257377042fffffa304575b80e332bc1
+  branch: feat/export_access_codes
   specs:
     decidim (0.25.0.dev)
       decidim-accountability (= 0.25.0.dev)

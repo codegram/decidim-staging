@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_053362) do
+ActiveRecord::Schema.define(version: 2021_03_29_105118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1842,6 +1842,37 @@ ActiveRecord::Schema.define(version: 2021_03_22_053362) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["decidim_organization_id"], name: "index_verifications_csv_census_to_organization"
+  end
+
+  create_table "decidim_votings_census_data", force: :cascade do |t|
+    t.string "hashed_in_person_data"
+    t.string "hashed_online_data"
+    t.string "hashed_check_data"
+    t.string "full_name"
+    t.string "full_address"
+    t.string "postal_code"
+    t.string "mobile_phone_number"
+    t.string "email"
+    t.string "access_code"
+    t.bigint "decidim_votings_census_dataset_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_votings_census_dataset_id"], name: "decidim_votings_census_dataset_census_datum"
+    t.index ["hashed_check_data"], name: "index_decidim_votings_census_data_on_hashed_check_data"
+    t.index ["hashed_in_person_data"], name: "index_decidim_votings_census_data_on_hashed_in_person_data"
+    t.index ["hashed_online_data"], name: "index_decidim_votings_census_data_on_hashed_online_data"
+  end
+
+  create_table "decidim_votings_census_datasets", force: :cascade do |t|
+    t.string "file"
+    t.integer "status", null: false
+    t.integer "data_count"
+    t.integer "csv_row_raw_count", null: false
+    t.integer "csv_row_processed_count", default: 0
+    t.bigint "decidim_votings_voting_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_votings_voting_id"], name: "decidim_votings_voting_census_dataset"
   end
 
   create_table "decidim_votings_monitoring_committee_members", force: :cascade do |t|
