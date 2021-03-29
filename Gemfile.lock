@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 42519fae7257377042fffffa304575b80e332bc1
+  revision: e2dc6eafafd9c8c81f190a31a8113f0abdfef6de
   branch: feat/export_access_codes
   specs:
     decidim (0.25.0.dev)
