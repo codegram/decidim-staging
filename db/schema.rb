@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_24_092105) do
+ActiveRecord::Schema.define(version: 2021_03_29_145655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -604,7 +604,6 @@ ActiveRecord::Schema.define(version: 2021_03_24_092105) do
     t.integer "min_votes"
     t.integer "response_groups_count", default: 0, null: false
     t.jsonb "instructions"
-    t.integer "follows_count", default: 0, null: false
     t.index ["decidim_consultation_id"], name: "index_consultations_questions_on_consultation_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_question_slug_and_organization", unique: true
     t.index ["decidim_scope_id"], name: "index_decidim_consultations_questions_on_decidim_scope_id"
@@ -1855,11 +1854,9 @@ ActiveRecord::Schema.define(version: 2021_03_24_092105) do
     t.string "email"
     t.string "access_code"
     t.bigint "decidim_votings_census_dataset_id", null: false
-    t.bigint "decidim_votings_voting_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["decidim_votings_census_dataset_id"], name: "decidim_votings_census_dataset_census_datum"
-    t.index ["decidim_votings_voting_id"], name: "decidim_votings_voting_census_datum"
     t.index ["hashed_check_data"], name: "index_decidim_votings_census_data_on_hashed_check_data"
     t.index ["hashed_in_person_data"], name: "index_decidim_votings_census_data_on_hashed_in_person_data"
     t.index ["hashed_online_data"], name: "index_decidim_votings_census_data_on_hashed_online_data"
@@ -1871,11 +1868,9 @@ ActiveRecord::Schema.define(version: 2021_03_24_092105) do
     t.integer "data_count"
     t.integer "csv_row_raw_count", null: false
     t.integer "csv_row_processed_count", default: 0
-    t.bigint "decidim_organization_id", null: false
     t.bigint "decidim_votings_voting_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["decidim_organization_id"], name: "decidim_organization_voting_census_dataset"
     t.index ["decidim_votings_voting_id"], name: "decidim_votings_voting_census_dataset"
   end
 
