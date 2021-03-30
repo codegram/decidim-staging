@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: d52ef91610436f8faed622c0022558ecf884a1de
-  branch: develop
+  revision: f2f12b8b2666a1b9b49107bd3471d207e38ed823
+  branch: feat/admin_voting_census
   specs:
     decidim (0.25.0.dev)
       decidim-accountability (= 0.25.0.dev)
