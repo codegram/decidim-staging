@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 5e8a6b65df4ef71bcc6cc8d22d9b7cdd59d38052
+  revision: 22d91490496875ca4fd12b7c58c88149fdc81ac7
   branch: fix/elections-new-vote-assets
   specs:
     decidim (0.25.0.dev)
