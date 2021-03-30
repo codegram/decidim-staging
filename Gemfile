@@ -38,6 +38,7 @@ group :development do
 end
 
 group :production do
+  gem "sidekiq"
   gem "fog-aws"
   gem "lograge"
   gem "sendgrid-ruby"
