@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 8bcad5c193f9cc7945ba069245157887282f9b74
-  branch: develop
+  revision: dd99ad1b82811188681cdf83496d60766c398e2c
+  branch: feature/check_census_data
   specs:
     decidim (0.25.0.dev)
       decidim-accountability (= 0.25.0.dev)
@@ -162,6 +162,7 @@ GIT
       decidim-core (= 0.25.0.dev)
       decidim-forms (= 0.25.0.dev)
       decidim-proposals (= 0.25.0.dev)
+      rack-attack (~> 6.0)
       voting_schemes-dummy (= 0.15.2)
       voting_schemes-electionguard (= 0.15.2)
     decidim-forms (0.25.0.dev)
@@ -709,7 +710,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rexml (3.2.4)
+    rexml (3.2.5)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
@@ -806,7 +807,7 @@ GEM
       simplecov (~> 0.8)
     simplecov-html (0.12.3)
     smart_properties (1.15.0)
-    social-share-button (1.2.3)
+    social-share-button (1.2.4)
       coffee-rails
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
