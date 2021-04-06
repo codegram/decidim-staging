@@ -58,10 +58,6 @@ GIT
       decidim-core (= 0.25.0.dev)
       jquery-rails (~> 4.4)
       redcarpet (~> 3.5, >= 3.5.1)
-    decidim-consultations (0.25.0.dev)
-      decidim-admin (= 0.25.0.dev)
-      decidim-comments (= 0.25.0.dev)
-      decidim-core (= 0.25.0.dev)
     decidim-core (0.25.0.dev)
       active_link_to (~> 1.0)
       acts_as_list (~> 0.9)
@@ -897,7 +893,6 @@ PLATFORMS
 DEPENDENCIES
   byebug
   decidim!
-  decidim-consultations!
   decidim-dev!
   decidim-elections!
   faker (~> 2.14)
