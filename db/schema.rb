@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_07_061559) do
+ActiveRecord::Schema.define(version: 2021_04_07_071942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -732,6 +732,7 @@ ActiveRecord::Schema.define(version: 2021_04_07_061559) do
     t.datetime "published_at"
     t.datetime "blocked_at"
     t.string "bb_status"
+    t.string "salt", null: false
     t.index ["decidim_component_id"], name: "index_decidim_elections_elections_on_decidim_component_id"
   end
 
@@ -794,7 +795,8 @@ ActiveRecord::Schema.define(version: 2021_04_07_061559) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "message_id", null: false
-    t.bigint "decidim_user_id", null: false
+    t.bigint "decidim_user_id"
+    t.string "email"
     t.index ["decidim_elections_election_id"], name: "index_elections_votes_on_decidim_elections_election_id"
     t.index ["decidim_user_id"], name: "index_decidim_elections_votes_on_decidim_user_id"
   end
