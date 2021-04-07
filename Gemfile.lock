@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 8ce49c2dacf0bb295ff3743b01faff52003b13d0
-  branch: develop
+  revision: 58854893b829a3ebeb877d6cb76d291fd4b73d18
+  branch: feat/polling_station_answer_results
   specs:
     decidim (0.25.0.dev)
       decidim-accountability (= 0.25.0.dev)
