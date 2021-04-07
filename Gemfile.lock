@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 8ce49c2dacf0bb295ff3743b01faff52003b13d0
-  branch: develop
+  revision: 56dfb6df60706e4f8773088a3b26afbac9b1afba
+  branch: feat/polling_station_blank_results
   specs:
     decidim (0.25.0.dev)
       decidim-accountability (= 0.25.0.dev)
@@ -156,6 +156,7 @@ GIT
       decidim-core (= 0.25.0.dev)
       decidim-forms (= 0.25.0.dev)
       decidim-proposals (= 0.25.0.dev)
+      rack-attack (~> 6.0)
       voting_schemes-dummy (= 0.15.2)
       voting_schemes-electionguard (= 0.15.2)
     decidim-forms (0.25.0.dev)
@@ -461,7 +462,7 @@ GEM
       faraday (>= 1.0)
       faraday_middleware
       graphql-client
-    graphql (1.12.6)
+    graphql (1.12.7)
     graphql-client (0.16.0)
       activesupport (>= 3.0)
       graphql (~> 1.8)
@@ -606,7 +607,7 @@ GEM
       activerecord (>= 4.2)
       request_store (~> 1.1)
     parallel (1.20.1)
-    parser (3.0.0.0)
+    parser (3.0.1.0)
       ast (~> 2.4.1)
     pg (1.1.4)
     pg_search (2.3.5)
@@ -698,7 +699,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rexml (3.2.4)
+    rexml (3.2.5)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
