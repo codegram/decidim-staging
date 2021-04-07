@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_05_051004) do
+ActiveRecord::Schema.define(version: 2021_04_07_061559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -604,7 +604,6 @@ ActiveRecord::Schema.define(version: 2021_04_05_051004) do
     t.integer "min_votes"
     t.integer "response_groups_count", default: 0, null: false
     t.jsonb "instructions"
-    t.integer "follows_count", default: 0, null: false
     t.index ["decidim_consultation_id"], name: "index_consultations_questions_on_consultation_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_question_slug_and_organization", unique: true
     t.index ["decidim_scope_id"], name: "index_decidim_consultations_questions_on_decidim_scope_id"
@@ -770,7 +769,10 @@ ActiveRecord::Schema.define(version: 2021_04_05_051004) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.bigint "decidim_organization_id"
+    t.index ["decidim_organization_id"], name: "index_decidim_elections_trustees_on_decidim_organization_id"
     t.index ["decidim_user_id"], name: "index_decidim_elections_trustees_on_decidim_user_id"
+    t.index ["name", "decidim_organization_id"], name: "index_decidim_organization_id_and_name", unique: true
   end
 
   create_table "decidim_elections_trustees_participatory_spaces", force: :cascade do |t|
@@ -1853,6 +1855,21 @@ ActiveRecord::Schema.define(version: 2021_04_05_051004) do
     t.index ["decidim_organization_id"], name: "index_verifications_csv_census_to_organization"
   end
 
+  create_table "decidim_votings_ballot_style_questions", id: false, force: :cascade do |t|
+    t.bigint "decidim_votings_ballot_style_id", null: false
+    t.bigint "decidim_elections_question_id", null: false
+    t.index ["decidim_elections_question_id"], name: "decidim_votings_ballot_styles_questions_question_id"
+    t.index ["decidim_votings_ballot_style_id"], name: "decidim_votings_ballot_styles_questions_ballot_style_id"
+  end
+
+  create_table "decidim_votings_ballot_styles", force: :cascade do |t|
+    t.string "code"
+    t.bigint "decidim_votings_voting_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_votings_voting_id", "code"], name: "decidim_votings_ballot_styles_on_voting_and_code", unique: true
+  end
+
   create_table "decidim_votings_census_data", force: :cascade do |t|
     t.string "hashed_in_person_data"
     t.string "hashed_check_data"
@@ -1933,6 +1950,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_051004) do
     t.boolean "promoted", default: false
     t.string "voting_type", default: "online"
     t.integer "follows_count", default: 0, null: false
+    t.string "census_contact_information"
     t.index ["decidim_organization_id"], name: "index_decidim_votings_votings_on_decidim_organization_id"
     t.index ["decidim_scope_id"], name: "index_decidim_votings_votings_on_decidim_scope_id"
     t.index ["slug"], name: "index_decidim_votings_votings_on_slug"
@@ -2014,6 +2032,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_051004) do
   add_foreign_key "decidim_consultations_responses", "decidim_consultations_response_groups"
   add_foreign_key "decidim_consultations_votes", "decidim_consultations_responses"
   add_foreign_key "decidim_debates_debates", "decidim_scopes"
+  add_foreign_key "decidim_elections_trustees", "decidim_organizations"
   add_foreign_key "decidim_identities", "decidim_organizations"
   add_foreign_key "decidim_newsletters", "decidim_users", column: "author_id"
   add_foreign_key "decidim_participatory_process_steps", "decidim_participatory_processes"
