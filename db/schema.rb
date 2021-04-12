@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_07_061559) do
+ActiveRecord::Schema.define(version: 2021_04_12_051005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1883,6 +1883,8 @@ ActiveRecord::Schema.define(version: 2021_04_07_061559) do
     t.bigint "decidim_votings_census_dataset_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "decidim_votings_ballot_style_id"
+    t.index ["decidim_votings_ballot_style_id"], name: "decidim_votings_census_data_on_ballot_style_id"
     t.index ["decidim_votings_census_dataset_id"], name: "decidim_votings_census_dataset_census_datum"
     t.index ["hashed_check_data"], name: "index_decidim_votings_census_data_on_hashed_check_data"
     t.index ["hashed_in_person_data"], name: "index_decidim_votings_census_data_on_hashed_in_person_data"
@@ -2052,6 +2054,7 @@ ActiveRecord::Schema.define(version: 2021_04_07_061559) do
   add_foreign_key "decidim_verifications_conflicts", "decidim_users", column: "current_user_id"
   add_foreign_key "decidim_verifications_conflicts", "decidim_users", column: "managed_user_id"
   add_foreign_key "decidim_verifications_csv_data", "decidim_organizations"
+  add_foreign_key "decidim_votings_census_data", "decidim_votings_ballot_styles"
   add_foreign_key "decidim_votings_votings", "decidim_organizations"
   add_foreign_key "oauth_access_grants", "decidim_users", column: "resource_owner_id"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
