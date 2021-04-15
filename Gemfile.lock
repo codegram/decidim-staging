@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 0a05107945164d27d2c85d96aeb57cb911a23ba9
-  branch: develop
+  revision: 1fe69052132c0652438a15759ff4f8664fd3d9a4
+  branch: feat/polling_station_ballot_count
   specs:
     decidim (0.25.0.dev)
       decidim-accountability (= 0.25.0.dev)
@@ -462,7 +462,7 @@ GEM
       faraday (>= 1.0)
       faraday_middleware
       graphql-client
-    graphql (1.12.7)
+    graphql (1.12.8)
     graphql-client (0.16.0)
       activesupport (>= 3.0)
       graphql (~> 1.8)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_12_051005) do
+ActiveRecord::Schema.define(version: 2021_04_15_150820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -719,6 +719,18 @@ ActiveRecord::Schema.define(version: 2021_04_12_051005) do
     t.integer "weight", default: 0, null: false
     t.boolean "selected", default: false, null: false
     t.index ["decidim_elections_question_id"], name: "decidim_elections_questions_answers"
+  end
+
+  create_table "decidim_elections_closures", force: :cascade do |t|
+    t.string "polling_officer_notes"
+    t.bigint "decidim_elections_election_id", null: false
+    t.bigint "decidim_votings_polling_station_id"
+    t.bigint "decidim_votings_polling_officer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_elections_election_id"], name: "index_decidim_elections_closures_on_election_id"
+    t.index ["decidim_votings_polling_officer_id"], name: "index_decidim_elections_closures_on_polling_officer_id"
+    t.index ["decidim_votings_polling_station_id"], name: "index_decidim_elections_closures_on_polling_station_id"
   end
 
   create_table "decidim_elections_elections", force: :cascade do |t|
