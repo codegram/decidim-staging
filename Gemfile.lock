@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
   revision: 8f0b250c2c55869a1ad7ccee5817e8e37016daf4
-  ref: 8f0b250c2c55869a1ad7ccee5817e8e37016daf4
+  branch: feat/polling_station_ballot_count
   specs:
     decidim (0.25.0.dev)
       decidim-accountability (= 0.25.0.dev)
@@ -403,7 +403,7 @@ GEM
       rest-client (>= 1.6)
     eventmachine (1.2.7)
     eventmachine_httpserver (0.2.1)
-    excon (0.79.0)
+    excon (0.80.1)
     execjs (2.7.0)
     factory_bot (4.11.1)
       activesupport (>= 3.0.0)
@@ -570,7 +570,7 @@ GEM
     netrc (0.11.0)
     nio4r (2.5.7)
     nobspw (0.6.2)
-    nokogiri (1.11.2)
+    nokogiri (1.11.3)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     oauth (0.5.6)
