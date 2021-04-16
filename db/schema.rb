@@ -768,12 +768,14 @@ ActiveRecord::Schema.define(version: 2021_04_15_150820) do
   create_table "decidim_elections_results", force: :cascade do |t|
     t.integer "votes_count", default: 0, null: false
     t.integer "result_type"
+    t.bigint "decidim_elections_closure_id", null: false
     t.bigint "decidim_elections_answer_id"
-    t.bigint "decidim_votings_polling_station_id"
+    t.bigint "decidim_elections_question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["decidim_elections_answer_id"], name: "index_decidim_elections_results_on_decidim_elections_answer_id"
-    t.index ["decidim_votings_polling_station_id"], name: "index_decidim_elections_results_on_polling_station_id"
+    t.index ["decidim_elections_answer_id"], name: "index_decidim_elections_results_on_answer_id"
+    t.index ["decidim_elections_closure_id"], name: "index_decidim_elections_results_on_closure_id"
+    t.index ["decidim_elections_question_id"], name: "index_decidim_elections_results_on_question_id"
     t.index ["result_type"], name: "index_decidim_elections_results_on_result_type"
   end
 
