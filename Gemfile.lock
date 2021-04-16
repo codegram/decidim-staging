@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 8f0b250c2c55869a1ad7ccee5817e8e37016daf4
+  revision: a0442aedb7fe927c6d6efa71d2d4a4de21e835ae
   branch: feat/polling_station_ballot_count
   specs:
     decidim (0.25.0.dev)
