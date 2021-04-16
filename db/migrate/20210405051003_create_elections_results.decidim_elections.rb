@@ -5,6 +5,7 @@ class CreateElectionsResults < ActiveRecord::Migration[5.2]
   def change
     create_table :decidim_elections_results do |t|
       t.integer :votes_count, default: 0, null: false
+      t.integer :result_type, index: true
 
       t.belongs_to :decidim_elections_answer, index: true
       t.belongs_to :decidim_votings_polling_station,
