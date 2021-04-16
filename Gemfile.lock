@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: d7234b46cfc9eca236cdd6f268e82eb98e932b99
-  branch: develop
+  revision: 073b629140af8114a838e5af71648f321deb1d39
+  branch: feature/onboarding-workflow-after-voting
   specs:
     decidim (0.25.0.dev)
       decidim-accountability (= 0.25.0.dev)
