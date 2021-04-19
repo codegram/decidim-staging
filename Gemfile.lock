@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: d7234b46cfc9eca236cdd6f268e82eb98e932b99
+  revision: c09c6f1169932bea374003a881e03df97b5c1b6f
   branch: develop
   specs:
     decidim (0.25.0.dev)
@@ -152,13 +152,13 @@ GIT
       webmock (~> 3.6)
       wisper-rspec (~> 1.0)
     decidim-elections (0.25.0.dev)
-      decidim-bulletin_board (= 0.16.1)
+      decidim-bulletin_board (= 0.17.1)
       decidim-core (= 0.25.0.dev)
       decidim-forms (= 0.25.0.dev)
       decidim-proposals (= 0.25.0.dev)
       rack-attack (~> 6.0)
-      voting_schemes-dummy (= 0.16.1)
-      voting_schemes-electionguard (= 0.16.1)
+      voting_schemes-dummy (= 0.17.1)
+      voting_schemes-electionguard (= 0.17.1)
     decidim-forms (0.25.0.dev)
       decidim-core (= 0.25.0.dev)
       wicked_pdf (~> 2.1)
@@ -356,7 +356,7 @@ GEM
     db-query-matchers (0.10.0)
       activesupport (>= 4.0, < 7)
       rspec (~> 3.0)
-    decidim-bulletin_board (0.16.1)
+    decidim-bulletin_board (0.17.1)
       byebug (~> 11.0)
       graphlient (~> 0.4.0)
       jwt (~> 2.2.2)
@@ -464,7 +464,7 @@ GEM
       activemodel (>= 4.1, < 7.0)
       activesupport (>= 4.1, < 7.0)
       railties (>= 4.1, < 7.0)
-    geocoder (1.6.6)
+    geocoder (1.6.7)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     graphiql-rails (1.4.11)
@@ -856,9 +856,9 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
-    voting_schemes-dummy (0.16.1)
+    voting_schemes-dummy (0.17.1)
       rails (>= 5.0.0)
-    voting_schemes-electionguard (0.16.1)
+    voting_schemes-electionguard (0.17.1)
       rails (>= 5.0.0)
     w3c_rspec_validators (0.3.0)
       rails
