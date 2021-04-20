@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_15_150820) do
+ActiveRecord::Schema.define(version: 2021_04_20_063122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -722,15 +722,17 @@ ActiveRecord::Schema.define(version: 2021_04_15_150820) do
   end
 
   create_table "decidim_elections_closures", force: :cascade do |t|
+    t.integer "phase"
     t.string "polling_officer_notes"
     t.bigint "decidim_elections_election_id", null: false
     t.bigint "decidim_votings_polling_station_id"
-    t.bigint "decidim_votings_polling_officer_id", null: false
+    t.bigint "decidim_votings_polling_officer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["decidim_elections_election_id"], name: "index_decidim_elections_closures_on_election_id"
     t.index ["decidim_votings_polling_officer_id"], name: "index_decidim_elections_closures_on_polling_officer_id"
     t.index ["decidim_votings_polling_station_id"], name: "index_decidim_elections_closures_on_polling_station_id"
+    t.index ["phase"], name: "index_decidim_elections_closures_on_phase"
   end
 
   create_table "decidim_elections_elections", force: :cascade do |t|
@@ -767,16 +769,15 @@ ActiveRecord::Schema.define(version: 2021_04_15_150820) do
 
   create_table "decidim_elections_results", force: :cascade do |t|
     t.integer "votes_count", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "result_type"
     t.bigint "decidim_elections_closure_id", null: false
     t.bigint "decidim_elections_answer_id"
     t.bigint "decidim_elections_question_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["decidim_elections_answer_id"], name: "index_decidim_elections_results_on_answer_id"
     t.index ["decidim_elections_closure_id"], name: "index_decidim_elections_results_on_closure_id"
     t.index ["decidim_elections_question_id"], name: "index_decidim_elections_results_on_question_id"
-    t.index ["result_type"], name: "index_decidim_elections_results_on_result_type"
   end
 
   create_table "decidim_elections_trustees", force: :cascade do |t|
