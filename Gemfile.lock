@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: c09c6f1169932bea374003a881e03df97b5c1b6f
+  revision: d19056e7de630b0212e70877657c17f6748c44b2
   branch: develop
   specs:
     decidim (0.25.0.dev)
@@ -152,13 +152,13 @@ GIT
       webmock (~> 3.6)
       wisper-rspec (~> 1.0)
     decidim-elections (0.25.0.dev)
-      decidim-bulletin_board (= 0.17.1)
+      decidim-bulletin_board (= 0.20.0)
       decidim-core (= 0.25.0.dev)
       decidim-forms (= 0.25.0.dev)
       decidim-proposals (= 0.25.0.dev)
       rack-attack (~> 6.0)
-      voting_schemes-dummy (= 0.17.1)
-      voting_schemes-electionguard (= 0.17.1)
+      voting_schemes-dummy (= 0.20.0)
+      voting_schemes-electionguard (= 0.20.0)
     decidim-forms (0.25.0.dev)
       decidim-core (= 0.25.0.dev)
       wicked_pdf (~> 2.1)
@@ -356,7 +356,7 @@ GEM
     db-query-matchers (0.10.0)
       activesupport (>= 4.0, < 7)
       rspec (~> 3.0)
-    decidim-bulletin_board (0.17.1)
+    decidim-bulletin_board (0.20.0)
       byebug (~> 11.0)
       graphlient (~> 0.4.0)
       jwt (~> 2.2.2)
@@ -375,7 +375,7 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.9.3)
       devise (>= 4.7.1)
-    devise_invitable (2.0.4)
+    devise_invitable (2.0.5)
       actionmailer (>= 5.0)
       devise (>= 4.6)
     diff-lcs (1.4.4)
@@ -516,7 +516,7 @@ GEM
     jquery-tmpl-rails (1.1.0)
       rails (>= 3.1.0)
     json (2.5.1)
-    jwt (2.2.2)
+    jwt (2.2.3)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.1)
@@ -625,7 +625,7 @@ GEM
     pg_search (2.3.5)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
-    premailer (1.14.2)
+    premailer (1.14.3)
       addressable
       css_parser (>= 1.6.0)
       htmlentities (>= 4.0.0)
@@ -856,9 +856,9 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
-    voting_schemes-dummy (0.17.1)
+    voting_schemes-dummy (0.20.0)
       rails (>= 5.0.0)
-    voting_schemes-electionguard (0.17.1)
+    voting_schemes-electionguard (0.20.0)
       rails (>= 5.0.0)
     w3c_rspec_validators (0.3.0)
       rails
