@@ -21,6 +21,8 @@ gem "faker", "~> 2.14"
 
 gem "puma"
 
+gem "webpacker", "6.0.0.beta.7"
+
 group :development, :test do
   gem "byebug", platform: :mri
 end
