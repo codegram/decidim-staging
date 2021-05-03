@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 53802b52fab46d267bec70400f472e8bac61ccb0
+  revision: bc8f953ff802bace1afcaf57e15e11068ebc4ecc
   branch: develop
   specs:
     decidim (0.25.0.dev)
@@ -624,7 +624,7 @@ GEM
       activerecord (>= 4.2)
       request_store (~> 1.1)
     parallel (1.20.1)
-    parser (3.0.1.0)
+    parser (3.0.1.1)
       ast (~> 2.4.1)
     pg (1.1.4)
     pg_search (2.3.5)
@@ -760,8 +760,8 @@ GEM
       rubocop-ast (>= 0.5.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
-    rubocop-ast (1.4.1)
-      parser (>= 2.7.1.5)
+    rubocop-ast (1.5.0)
+      parser (>= 3.0.1.1)
     rubocop-rails (2.9.1)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
