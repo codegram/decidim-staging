@@ -4,5 +4,7 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs";
+// Import from the Rails instance application
+import "src/decidim/decidim_application"
 
 Rails.start();
