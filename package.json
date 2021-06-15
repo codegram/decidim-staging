@@ -11,5 +11,9 @@
   },
   "browserslist": [
     "defaults"
-  ]
+  ],
+  "engines": {
+    "node": "^15.14.0",
+    "npm": "^7.7.2"
+  }
 }
