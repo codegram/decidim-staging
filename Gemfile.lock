@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 924982d79e7c725a704911f8c53e553d7e605acf
+  revision: 8bda1826464495e90a65ada401d8ed1197021974
   branch: fix/webpacker-fixes
   specs:
     decidim (0.25.0.dev)
