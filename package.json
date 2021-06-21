@@ -1,5 +1,22 @@
 {
   "name": "decidim_staging",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@decidim/all": "file:packages/all"
+  },
+  "babel": {
+    "presets": [
+      "./node_modules/@rails/webpacker/package/babel/preset.js"
+    ]
+  },
+  "browserslist": [
+    "extends @decidim/browserslist-config"
+  ],
+  "engines": {
+    "node": "^15.14.0",
+    "npm": "^7.7.6"
+  },
+  "devDependencies": {
+    "@decidim/dev": "file:packages/dev"
+  }
 }

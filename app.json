@@ -8,12 +8,15 @@
     "logentries:le_tryit"
   ],
   "scripts": {
-    "postdeploy":"rake db:seed"
+    "postdeploy": "rake db:seed"
   },
   "stack": "heroku-20",
   "buildpacks": [
     {
       "url": "https://github.com/gaffneyc/heroku-buildpack-jemalloc"
+    },
+    {
+      "url": "heroku/nodejs"
     },
     {
       "url": "heroku/ruby"
