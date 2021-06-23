@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_16_101071) do
+ActiveRecord::Schema.define(version: 2021_06_23_085814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -390,6 +390,7 @@ ActiveRecord::Schema.define(version: 2021_06_16_101071) do
     t.string "decidim_author_type", null: false
     t.jsonb "body"
     t.integer "comments_count", default: 0, null: false
+    t.datetime "deleted_at"
     t.index ["created_at"], name: "index_decidim_comments_comments_on_created_at"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_comments_comments_on_decidim_author"
     t.index ["decidim_author_id"], name: "decidim_comments_comment_author"
