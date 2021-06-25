@@ -1,7 +1,7 @@
 GIT
-  remote: https://github.com/decidim/decidim
-  revision: d1c6a85578516015da030aea9931ad0425018883
-  branch: develop
+  remote: https://github.com/mainio/decidim
+  revision: c30cd51aa11ebdaf8533a9a38f954230b23265c1
+  branch: refactor/local-npm-dependencies
   specs:
     decidim (0.25.0.dev)
       decidim-accountability (= 0.25.0.dev)
@@ -257,7 +257,7 @@ GEM
     ast (2.4.2)
     autoprefixer-rails (8.6.5)
       execjs
-    axe-core-api (4.2.0)
+    axe-core-api (4.2.1)
       capybara
       dumb_delegator
       selenium-webdriver
@@ -354,8 +354,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.9.4)
-      devise (>= 4.7.1)
+    devise-i18n (1.10.0)
+      devise (>= 4.8.0)
     devise_invitable (2.0.5)
       actionmailer (>= 5.0)
       devise (>= 4.6)

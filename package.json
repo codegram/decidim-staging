@@ -2,7 +2,7 @@
   "name": "decidim_staging",
   "private": true,
   "dependencies": {
-    "@decidim/all": "file:packages/all"
+    "decidim-local-installer": "github:decidim/decidim-npm-local"
   },
   "babel": {
     "presets": [
@@ -15,8 +15,5 @@
   "engines": {
     "node": "^15.14.0",
     "npm": "^7.7.6"
-  },
-  "devDependencies": {
-    "@decidim/dev": "file:packages/dev"
   }
 }
