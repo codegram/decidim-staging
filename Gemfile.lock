@@ -250,6 +250,22 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     anchored (1.1.0)
     ast (2.4.2)
+    aws-eventstream (1.1.1)
+    aws-partitions (1.472.0)
+    aws-sdk-core (3.115.0)
+      aws-eventstream (~> 1, >= 1.0.2)
+      aws-partitions (~> 1, >= 1.239.0)
+      aws-sigv4 (~> 1.1)
+      jmespath (~> 1.0)
+    aws-sdk-kms (1.44.0)
+      aws-sdk-core (~> 3, >= 3.112.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-s3 (1.96.1)
+      aws-sdk-core (~> 3, >= 3.112.0)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.1)
+    aws-sigv4 (1.2.3)
+      aws-eventstream (~> 1, >= 1.0.2)
     axe-core-api (4.2.1)
       capybara
       dumb_delegator
@@ -471,6 +487,7 @@ GEM
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
     ipaddress (0.8.3)
+    jmespath (1.4.0)
     json (2.5.1)
     jwt (2.2.3)
     kaminari (1.2.1)
@@ -834,6 +851,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk-s3
   byebug
   decidim!
   decidim-dev!
