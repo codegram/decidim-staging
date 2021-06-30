@@ -119,4 +119,7 @@ Rails.application.configure do
       referer: event.payload[:referer],
     }
   end
+
+  # Store files on Amazon S3.
+  config.active_storage.service = :amazon
 end
