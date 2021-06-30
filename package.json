@@ -19,5 +19,8 @@
   },
   "devDependencies": {
     "@decidim/dev": "file:tmp/npmbuild/decidim-dev-0.25.0-dev.tgz"
+  },
+  "scripts": {
+    "heroku-prebuild": "npm exec -y --package github:decidim/decidim-npm-local -- decidimpack ."
   }
 }
