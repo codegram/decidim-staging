@@ -1,0 +1,4 @@
+ca:
+  decidim:
+    sms:
+      text: 'El teu codi per realitzar la votació és: %{code}'

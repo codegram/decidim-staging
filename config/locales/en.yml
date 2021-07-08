@@ -31,8 +31,9 @@
 
 en:
   hello: "Hello world"
-
   decidim:
+    sms:
+      text: 'El teu codi per realitzar la votació és: %{code}'
     components:
       budgets:
         settings:
