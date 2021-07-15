@@ -850,7 +850,6 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   web-console
-  webpacker (= 6.0.0.beta.7)
   wicked_pdf
   wkhtmltopdf-binary
 
