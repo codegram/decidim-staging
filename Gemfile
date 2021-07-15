@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "active_storage_migration" }
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "active_storage_migrations_service" }
 
 gem "decidim", DECIDIM_VERSION
 #gem "decidim-conferences", DECIDIM_VERSION
