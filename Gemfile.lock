@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 9405466f2b5c9b6a53c9255a5c3f89e381ba4191
+  revision: 088c28c203a811b7975f097292394ab87e398278
   branch: active_storage_migrations_service
   specs:
     decidim (0.25.0.dev)
@@ -435,7 +435,7 @@ GEM
     fog-json (1.2.0)
       fog-core
       multi_json (~> 1.10)
-    fog-local (0.6.0)
+    fog-local (0.7.0)
       fog-core (>= 1.27, < 3.0)
     fog-xml (0.1.3)
       fog-core
