@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 088c28c203a811b7975f097292394ab87e398278
+  revision: c0c237dd0c41bb818fe3cd1f5314cced8f1a493e
   branch: active_storage_migrations_service
   specs:
     decidim (0.25.0.dev)
