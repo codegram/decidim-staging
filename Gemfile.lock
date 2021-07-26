@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: a231402703f0d77c2858e4ddadeb541305f5e5b9
+  revision: bdad524f8c4e5979390b5d0628e5ae1079066ec7
   branch: develop
   specs:
     decidim (0.25.0.dev)
@@ -306,7 +306,7 @@ GEM
       actionpack (>= 5.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.7)
-    chef-utils (17.2.29)
+    chef-utils (17.3.48)
       concurrent-ruby
     childprocess (3.0.0)
     coercible (1.0.0)
@@ -419,7 +419,7 @@ GEM
     fog-json (1.2.0)
       fog-core
       multi_json (~> 1.10)
-    fog-local (0.6.0)
+    fog-local (0.7.0)
       fog-core (>= 1.27, < 3.0)
     fog-xml (0.1.3)
       fog-core
@@ -437,7 +437,7 @@ GEM
       faraday (>= 1.0)
       faraday_middleware
       graphql-client
-    graphql (1.12.13)
+    graphql (1.12.14)
     graphql-client (0.16.0)
       activesupport (>= 3.0)
       graphql (~> 1.8)
