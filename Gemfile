@@ -13,7 +13,7 @@ gem "decidim-elections", DECIDIM_VERSION
 #gem "decidim-initiatives", DECIDIM_VERSION
 #gem "decidim-templates", DECIDIM_VERSION
 
-gem "webpacker", "6.0.0.beta.7"
+#gem "webpacker", "6.0.0.rc.5"
 
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
