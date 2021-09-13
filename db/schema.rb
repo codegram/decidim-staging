@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_26_051313) do
+ActiveRecord::Schema.define(version: 2021_09_13_145046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -412,10 +412,13 @@ ActiveRecord::Schema.define(version: 2021_07_26_051313) do
     t.jsonb "body"
     t.integer "comments_count", default: 0, null: false
     t.datetime "deleted_at"
+    t.string "decidim_participatory_space_type"
+    t.integer "decidim_participatory_space_id"
     t.index ["created_at"], name: "index_decidim_comments_comments_on_created_at"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_comments_comments_on_decidim_author"
     t.index ["decidim_author_id"], name: "decidim_comments_comment_author"
     t.index ["decidim_commentable_type", "decidim_commentable_id"], name: "decidim_comments_comment_commentable"
+    t.index ["decidim_participatory_space_id", "decidim_participatory_space_type"], name: "index_decidim_comments_on_decidim_participatory_space"
     t.index ["decidim_root_commentable_type", "decidim_root_commentable_id"], name: "decidim_comments_comment_root_commentable"
     t.index ["decidim_user_group_id"], name: "index_decidim_comments_comments_on_decidim_user_group_id"
   end
