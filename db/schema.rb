@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_13_145046) do
+ActiveRecord::Schema.define(version: 2021_09_20_050442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -726,6 +726,7 @@ ActiveRecord::Schema.define(version: 2021_09_13_145046) do
     t.string "last_comment_by_type"
     t.bigint "decidim_scope_id"
     t.integer "follows_count", default: 0, null: false
+    t.boolean "comments_enabled", default: true
     t.index ["closed_at"], name: "index_decidim_debates_debates_on_closed_at"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_debates_debates_on_decidim_author"
     t.index ["decidim_component_id"], name: "index_decidim_debates_debates_on_decidim_component_id"
@@ -1192,6 +1193,9 @@ ActiveRecord::Schema.define(version: 2021_09_13_145046) do
     t.string "audio_url"
     t.boolean "closing_visible"
     t.boolean "show_embedded_iframe", default: false
+    t.boolean "comments_enabled", default: true
+    t.datetime "comments_start_time"
+    t.datetime "comments_end_time"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_meetings_meetings_on_author"
     t.index ["decidim_author_id"], name: "index_decidim_meetings_meetings_on_decidim_author_id"
     t.index ["decidim_component_id"], name: "index_decidim_meetings_meetings_on_decidim_component_id"
