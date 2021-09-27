@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 40300ef822bdc82154690d7799cfd7d586d4649d
+  revision: 48c59650e729c7c81d05204cffa554b7edeb3411
   branch: develop
   specs:
     decidim (0.26.0.dev)
@@ -250,12 +250,9 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     anchored (1.1.0)
     ast (2.4.2)
-    axe-core-api (4.2.1)
-      capybara
+    axe-core-api (4.3.1)
       dumb_delegator
-      selenium-webdriver
       virtus
-      watir
     axe-core-rspec (4.1.0)
       axe-core-api
       dumb_delegator
@@ -306,7 +303,7 @@ GEM
       actionpack (>= 5.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.7)
-    chef-utils (17.4.38)
+    chef-utils (17.5.22)
       concurrent-ruby
     childprocess (3.0.0)
     coercible (1.0.0)
@@ -360,7 +357,7 @@ GEM
     docile (1.4.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    doorkeeper (5.5.2)
+    doorkeeper (5.5.3)
       railties (>= 5)
     doorkeeper-i18n (4.0.1)
     dumb_delegator (1.0.0)
@@ -517,7 +514,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
-    marcel (1.0.1)
+    marcel (1.0.2)
     mdl (0.11.0)
       kramdown (~> 2.3)
       kramdown-parser-gfm (~> 1.1)
@@ -807,9 +804,6 @@ GEM
       rexml (~> 3.2)
     warden (1.2.9)
       rack (>= 2.0.9)
-    watir (6.19.1)
-      regexp_parser (>= 1.2, < 3)
-      selenium-webdriver (>= 3.142.7)
     web-console (4.1.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)

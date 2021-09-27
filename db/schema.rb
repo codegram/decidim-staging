@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_20_050442) do
+ActiveRecord::Schema.define(version: 2021_09_27_051017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -224,7 +224,6 @@ ActiveRecord::Schema.define(version: 2021_09_20_050442) do
     t.date "birthday"
     t.string "birthplace"
     t.date "designation_date"
-    t.string "designation_mode"
     t.string "position"
     t.string "position_other"
     t.date "ceased_date"
@@ -733,6 +732,15 @@ ActiveRecord::Schema.define(version: 2021_09_20_050442) do
     t.index ["decidim_scope_id"], name: "index_decidim_debates_debates_on_decidim_scope_id"
     t.index ["decidim_user_group_id"], name: "index_decidim_debates_debates_on_decidim_user_group_id"
     t.index ["endorsements_count"], name: "idx_decidim_debates_debates_on_endorsemnts_count"
+  end
+
+  create_table "decidim_editor_images", force: :cascade do |t|
+    t.bigint "decidim_author_id", null: false
+    t.bigint "decidim_organization_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["decidim_author_id"], name: "decidim_awesome_editor_images_author"
+    t.index ["decidim_organization_id"], name: "decidim_awesome_editor_images_constraint_organization"
   end
 
   create_table "decidim_elections_actions", force: :cascade do |t|
@@ -2162,6 +2170,8 @@ ActiveRecord::Schema.define(version: 2021_09_20_050442) do
   add_foreign_key "decidim_consultations_responses", "decidim_consultations_response_groups"
   add_foreign_key "decidim_consultations_votes", "decidim_consultations_responses"
   add_foreign_key "decidim_debates_debates", "decidim_scopes"
+  add_foreign_key "decidim_editor_images", "decidim_organizations"
+  add_foreign_key "decidim_editor_images", "decidim_users", column: "decidim_author_id"
   add_foreign_key "decidim_elections_trustees", "decidim_organizations"
   add_foreign_key "decidim_identities", "decidim_organizations"
   add_foreign_key "decidim_newsletters", "decidim_users", column: "author_id"
