@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_27_051017) do
+ActiveRecord::Schema.define(version: 2021_10_04_050744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1204,6 +1204,7 @@ ActiveRecord::Schema.define(version: 2021_09_27_051017) do
     t.boolean "comments_enabled", default: true
     t.datetime "comments_start_time"
     t.datetime "comments_end_time"
+    t.string "state"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_meetings_meetings_on_author"
     t.index ["decidim_author_id"], name: "index_decidim_meetings_meetings_on_decidim_author_id"
     t.index ["decidim_component_id"], name: "index_decidim_meetings_meetings_on_decidim_component_id"

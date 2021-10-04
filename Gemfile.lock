@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 48c59650e729c7c81d05204cffa554b7edeb3411
+  revision: 623cdd36f04482b3e81a47a0a486f87bfb159556
   branch: develop
   specs:
     decidim (0.26.0.dev)
@@ -250,7 +250,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     anchored (1.1.0)
     ast (2.4.2)
-    axe-core-api (4.3.1)
+    axe-core-api (4.3.2)
       dumb_delegator
       virtus
     axe-core-rspec (4.1.0)
@@ -303,7 +303,7 @@ GEM
       actionpack (>= 5.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.7)
-    chef-utils (17.5.22)
+    chef-utils (17.6.18)
       concurrent-ruby
     childprocess (3.0.0)
     coercible (1.0.0)
@@ -706,7 +706,7 @@ GEM
       rubocop-ast (>= 0.5.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
-    rubocop-ast (1.11.0)
+    rubocop-ast (1.12.0)
       parser (>= 3.0.1.1)
     rubocop-rails (2.9.1)
       activesupport (>= 4.2.0)
