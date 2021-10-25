@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 0908c0dfd400245ca3197cc49efc0545da8b5288
+  revision: 498bcb92c69e551767582d1c83efac9848c66317
   branch: develop
   specs:
     decidim (0.26.0.dev)
@@ -466,7 +466,7 @@ GEM
       terminal-table (>= 1.5.1)
     icalendar (2.7.1)
       ice_cube (~> 0.16)
-    ice_cube (0.16.3)
+    ice_cube (0.16.4)
     ice_nine (0.11.2)
     image_processing (1.12.1)
       mini_magick (>= 4.9.5, < 5)
@@ -474,7 +474,7 @@ GEM
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
     ipaddress (0.8.3)
-    json (2.6.0)
+    json (2.6.1)
     jwt (2.2.3)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
