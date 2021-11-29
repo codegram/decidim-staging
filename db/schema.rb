@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_25_050520) do
+ActiveRecord::Schema.define(version: 2021_11_29_050520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1200,11 +1200,12 @@ ActiveRecord::Schema.define(version: 2021_10_25_050520) do
     t.string "video_url"
     t.string "audio_url"
     t.boolean "closing_visible"
-    t.boolean "show_embedded_iframe", default: false
     t.boolean "comments_enabled", default: true
     t.datetime "comments_start_time"
     t.datetime "comments_end_time"
     t.string "state"
+    t.integer "iframe_access_level", default: 0
+    t.integer "iframe_embed_type", default: 0
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_meetings_meetings_on_author"
     t.index ["decidim_author_id"], name: "index_decidim_meetings_meetings_on_decidim_author_id"
     t.index ["decidim_component_id"], name: "index_decidim_meetings_meetings_on_decidim_component_id"
