@@ -4,9 +4,18 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "develop" }
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", ref: "d901eefa691d8906ff8f78643e6e4cd80a94ec04" }
 
-gem "decidim", DECIDIM_VERSION
+gem "decidim-core", DECIDIM_VERSION
+gem "decidim-admin", DECIDIM_VERSION
+gem "decidim-api", DECIDIM_VERSION
+gem "decidim-comments", DECIDIM_VERSION
+gem "decidim-forms", DECIDIM_VERSION
+gem "decidim-proposals", DECIDIM_VERSION
+gem "decidim-pages", DECIDIM_VERSION
+gem "decidim-system", DECIDIM_VERSION
+gem "decidim-verifications", DECIDIM_VERSION
+gem "decidim-participatory_processes", DECIDIM_VERSION
 #gem "decidim-conferences", DECIDIM_VERSION
 #gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-elections", DECIDIM_VERSION
