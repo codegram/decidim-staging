@@ -34,7 +34,7 @@ group :development do
 end
 
 group :production do
-  gem "fog-aws"
+  gem "aws-sdk-s3", require: false
   gem "lograge"
   gem "sendgrid-ruby"
   gem "sentry-ruby"

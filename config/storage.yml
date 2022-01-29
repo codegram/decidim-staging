@@ -1,0 +1,13 @@
+local:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>
+
+production:
+  amazon:
+    service: S3
+    access_key_id: <%= ENV["AWS_ACCESS_KEY_ID"] %>
+    secret_access_key: <%= ENV["AWS_SECRET_ACCESS_KEY"] %>
+    region: <%= ENV["AWS_REGION"] %>
+    public-read: true
+    bucket: <%= ENV["AWS_BUCKET_NAME"] %>
+    aws_host: <%= ENV["AWS_HOST"] %>
