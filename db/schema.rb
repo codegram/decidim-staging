@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_29_111418) do
+ActiveRecord::Schema.define(version: 2021_11_29_050520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -686,8 +686,6 @@ ActiveRecord::Schema.define(version: 2022_01_29_111418) do
     t.integer "weight"
     t.jsonb "images", default: {}
     t.integer "scoped_resource_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.index ["decidim_organization_id", "scope_name", "scoped_resource_id", "manifest_name"], name: "idx_decidim_content_blocks_org_id_scope_scope_id_manifest"
     t.index ["decidim_organization_id"], name: "index_decidim_content_blocks_on_decidim_organization_id"
     t.index ["manifest_name"], name: "index_decidim_content_blocks_on_manifest_name"
