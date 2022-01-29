@@ -119,4 +119,6 @@ Rails.application.configure do
       referer: event.payload[:referer],
     }
   end
+
+  config.active_storage.service = :amazon
 end
