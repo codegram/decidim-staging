@@ -2,15 +2,15 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# This file is the source Rails uses to define your schema when running `rails
-# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_29_050520) do
+ActiveRecord::Schema.define(version: 2022_03_26_161252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -35,7 +35,14 @@ ActiveRecord::Schema.define(version: 2021_11_29_050520) do
     t.bigint "byte_size", null: false
     t.string "checksum", null: false
     t.datetime "created_at", null: false
+    t.string "service_name", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.integer "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
   create_table "decidim_accountability_results", id: :serial, force: :cascade do |t|
@@ -351,7 +358,7 @@ ActiveRecord::Schema.define(version: 2021_11_29_050520) do
 
   create_table "decidim_categories", id: :serial, force: :cascade do |t|
     t.jsonb "name", null: false
-    t.jsonb "description", null: false
+    t.jsonb "description"
     t.integer "parent_id"
     t.integer "decidim_participatory_space_id"
     t.string "decidim_participatory_space_type"
@@ -686,6 +693,8 @@ ActiveRecord::Schema.define(version: 2021_11_29_050520) do
     t.integer "weight"
     t.jsonb "images", default: {}
     t.integer "scoped_resource_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["decidim_organization_id", "scope_name", "scoped_resource_id", "manifest_name"], name: "idx_decidim_content_blocks_org_id_scope_scope_id_manifest"
     t.index ["decidim_organization_id"], name: "index_decidim_content_blocks_on_decidim_organization_id"
     t.index ["manifest_name"], name: "index_decidim_content_blocks_on_manifest_name"
@@ -1193,7 +1202,7 @@ ActiveRecord::Schema.define(version: 2021_11_29_050520) do
     t.string "registration_type", default: "registration_disabled", null: false
     t.string "registration_url"
     t.string "salt"
-    t.boolean "customize_registration_email", default: false, null: false
+    t.boolean "customize_registration_email", default: false
     t.jsonb "registration_email_custom_content"
     t.integer "follows_count", default: 0, null: false
     t.datetime "published_at"
@@ -1467,6 +1476,14 @@ ActiveRecord::Schema.define(version: 2021_11_29_050520) do
     t.index ["position"], name: "index_order_by_position_for_steps"
   end
 
+  create_table "decidim_participatory_process_types", force: :cascade do |t|
+    t.jsonb "title", null: false
+    t.integer "decidim_organization_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["decidim_organization_id"], name: "index_decidim_process_types_on_decidim_organization_id"
+  end
+
   create_table "decidim_participatory_process_user_roles", id: :serial, force: :cascade do |t|
     t.integer "decidim_user_id"
     t.integer "decidim_participatory_process_id"
@@ -1511,10 +1528,12 @@ ActiveRecord::Schema.define(version: 2021_11_29_050520) do
     t.boolean "show_metrics", default: true
     t.integer "weight", default: 1, null: false
     t.integer "follows_count", default: 0, null: false
+    t.bigint "decidim_participatory_process_type_id"
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id"
     t.index ["decidim_participatory_process_group_id"], name: "idx_process_on_process_group_id"
+    t.index ["decidim_participatory_process_type_id"], name: "index_decidim_processes_on_decidim_process_type_id"
     t.index ["decidim_scope_id"], name: "idx_process_on_scope_id"
     t.index ["decidim_scope_type_id"], name: "index_decidim_participatory_processes_on_decidim_scope_type_id"
   end
@@ -1653,6 +1672,34 @@ ActiveRecord::Schema.define(version: 2021_11_29_050520) do
     t.datetime "updated_at", null: false
     t.index ["decidim_proposal_id"], name: "decidim_proposals_valuation_assignment_proposal"
     t.index ["valuator_role_type", "valuator_role_id"], name: "decidim_proposals_valuation_assignment_valuator_role"
+  end
+
+  create_table "decidim_reminder_deliveries", force: :cascade do |t|
+    t.integer "decidim_reminder_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["decidim_reminder_id"], name: "index_decidim_reminder_deliveries_on_decidim_reminder_id"
+  end
+
+  create_table "decidim_reminder_records", force: :cascade do |t|
+    t.string "state", default: "active"
+    t.string "string", default: "active"
+    t.integer "decidim_reminder_id"
+    t.string "remindable_type", null: false
+    t.integer "remindable_id", null: false
+    t.index ["decidim_reminder_id"], name: "index_decidim_reminder_records_on_decidim_reminder_id"
+    t.index ["remindable_type", "remindable_id"], name: "index_decidim_reminder_records_remindable"
+    t.index ["state"], name: "index_decidim_reminder_records_on_state"
+    t.index ["string"], name: "index_decidim_reminder_records_on_string"
+  end
+
+  create_table "decidim_reminders", force: :cascade do |t|
+    t.integer "decidim_user_id", null: false
+    t.integer "decidim_component_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["decidim_component_id"], name: "index_decidim_reminders_on_decidim_component_id"
+    t.index ["decidim_user_id"], name: "index_decidim_reminders_on_decidim_user_id"
   end
 
   create_table "decidim_reports", id: :serial, force: :cascade do |t|
@@ -2156,6 +2203,7 @@ ActiveRecord::Schema.define(version: 2021_11_29_050520) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "decidim_area_types", "decidim_organizations"
   add_foreign_key "decidim_areas", "decidim_area_types", column: "area_type_id"
   add_foreign_key "decidim_areas", "decidim_organizations"
@@ -2178,8 +2226,14 @@ ActiveRecord::Schema.define(version: 2021_11_29_050520) do
   add_foreign_key "decidim_identities", "decidim_organizations"
   add_foreign_key "decidim_newsletters", "decidim_users", column: "author_id"
   add_foreign_key "decidim_participatory_process_steps", "decidim_participatory_processes"
+  add_foreign_key "decidim_participatory_process_types", "decidim_organizations"
   add_foreign_key "decidim_participatory_processes", "decidim_organizations"
+  add_foreign_key "decidim_participatory_processes", "decidim_participatory_process_types"
   add_foreign_key "decidim_participatory_processes", "decidim_scope_types"
+  add_foreign_key "decidim_reminder_deliveries", "decidim_reminders"
+  add_foreign_key "decidim_reminder_records", "decidim_reminders"
+  add_foreign_key "decidim_reminders", "decidim_components"
+  add_foreign_key "decidim_reminders", "decidim_users"
   add_foreign_key "decidim_scope_types", "decidim_organizations"
   add_foreign_key "decidim_scopes", "decidim_organizations"
   add_foreign_key "decidim_scopes", "decidim_scope_types", column: "scope_type_id"
