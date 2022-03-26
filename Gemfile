@@ -18,6 +18,7 @@ gem "decidim-elections", DECIDIM_VERSION
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
 gem "puma"
+gem "webpush"
 
 group :development, :test do
   gem "byebug", platform: :mri

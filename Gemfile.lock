@@ -868,6 +868,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   web-console
+  webpush
   wicked_pdf
   wkhtmltopdf-binary
 
