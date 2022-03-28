@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 02539236feebe737f6c3637de0d7f42c9b0e07b9
+  revision: 4b211e30d05a1100f0b301ed9371072803d69f04
   branch: fix-voting-with-single-election
   specs:
     decidim (0.27.0.dev)
@@ -598,7 +598,7 @@ GEM
       activerecord (>= 5.2)
       request_store (~> 1.1)
     parallel (1.22.1)
-    parallel_tests (3.7.3)
+    parallel_tests (3.8.0)
       parallel
     parser (3.1.1.0)
       ast (~> 2.4.1)
