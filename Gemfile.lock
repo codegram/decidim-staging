@@ -553,7 +553,7 @@ GEM
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
       tomlrb
-    mixlib-shellout (3.2.6)
+    mixlib-shellout (3.2.7)
       chef-utils
     multi_json (1.15.0)
     multi_xml (0.6.0)
@@ -678,7 +678,7 @@ GEM
       wisper (>= 1.6.1)
     redcarpet (3.5.1)
     redis (4.6.0)
-    regexp_parser (2.2.1)
+    regexp_parser (2.3.0)
     request_store (1.5.1)
       rack (>= 1.4)
     responders (3.0.1)
@@ -725,7 +725,7 @@ GEM
       rubocop-ast (>= 0.5.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
-    rubocop-ast (1.16.0)
+    rubocop-ast (1.17.0)
       parser (>= 3.1.1.0)
     rubocop-rails (2.9.1)
       activesupport (>= 4.2.0)
