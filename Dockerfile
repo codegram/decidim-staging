@@ -3,6 +3,7 @@ FROM ruby:2.7.2
 
 # Installs system dependencies
 ENV DEBIAN_FRONTEND noninteractive
+ENV DATABASE_URL=postgresql://user:pass@127.0.0.1/dbname
 RUN apt-get update -qq && apt-get install -y \
   build-essential \
   graphviz \
@@ -31,14 +32,14 @@ RUN gem install bundler
 RUN bundle config set force_ruby_platform true
 RUN bundle install
 
-# Copy all the code to /app
-ADD . /app
-
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - 
 RUN apt-get install -y nodejs
 
+ADD package.json yarn.lock /app/
+ADD packages/ /app/packages/
 RUN npm install -g yarn
-
-ENV DATABASE_URL=postgresql://user:pass@127.0.0.1/dbname
 RUN yarn install
+
+ADD . /app
+
 RUN bundle exec rake assets:precompile
