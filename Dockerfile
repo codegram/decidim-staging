@@ -35,11 +35,9 @@ RUN bundle install
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - 
 RUN apt-get install -y nodejs
 
-ADD package.json yarn.lock /app/
-ADD packages/ /app/packages/
 RUN npm install -g yarn
-RUN yarn install
 
 ADD . /app
+RUN yarn install
 
-RUN bundle exec rake assets:precompile
+RUN bundle exec rails webpacker:compile

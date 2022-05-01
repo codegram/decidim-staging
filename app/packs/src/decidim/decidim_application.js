@@ -2,4 +2,4 @@
 // as part of that pack
 
 // Load images
-require.context("../../images", true);
+require.context("../../images", true)

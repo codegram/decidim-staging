@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 Decidim.configure do |config|
-  config.application_name = "Decidim Codegram Staging"
-  config.mailer_sender = "change-me@domain.org"
+  config.application_name = 'Decidim Codegram Staging'
+  config.mailer_sender = 'change-me@domain.org'
 
   # Change these lines to set your preferred locales
   config.default_locale = :en
-  config.available_locales = [:en, :ca, :es]
+  config.available_locales = %i[en ca es]
 
   # Geocoder configuration
   # config.maps = {
@@ -91,7 +91,7 @@ Decidim.configure do |config|
   #   end
   # end
   #
-  config.timestamp_service = "Decidim::Initiatives::DummyTimestamp"
+  config.timestamp_service = 'Decidim::Initiatives::DummyTimestamp'
 
   # PDF signature service configuration
   #
@@ -114,7 +114,7 @@ Decidim.configure do |config|
   #   end
   # end
   #
-  config.pdf_signature_service = "Decidim::Initiatives::PdfSignatureExample"
+  config.pdf_signature_service = 'Decidim::Initiatives::PdfSignatureExample'
 
   # Etherpad configuration
   #
@@ -127,11 +127,10 @@ Decidim.configure do |config|
     api_version: Rails.application.secrets.etherpad[:api_version]
   }
 
-  if ENV["HEROKU_APP_NAME"].present?
-    config.base_uploads_path = ENV["HEROKU_APP_NAME"] + "/"
-  end
+  config.base_uploads_path = ENV['HEROKU_APP_NAME'] + '/' if ENV['HEROKU_APP_NAME'].present?
 end
+
+Decidim.register_assets_path File.expand_path('app/packs', Rails.application.root)
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
-

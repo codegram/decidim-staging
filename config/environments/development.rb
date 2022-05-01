@@ -31,7 +31,6 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :letter_opener_web
   config.action_mailer.default_url_options = { port: 3000 }
 
-
   config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
@@ -48,4 +47,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   # Store files locally.
   config.active_storage.service = :local
+
+  config.webpacker.check_yarn_integrity = false
 end
