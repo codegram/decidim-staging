@@ -8,3 +8,4 @@ run:
 release:
   command:
     - bundle exec rails db:migrate
+  image: web
