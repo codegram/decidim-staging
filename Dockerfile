@@ -28,9 +28,17 @@ ENV PATH="${BUNDLE_BIN}:${PATH}"
 # Copy Gemfile and install bundler dependencies
 ADD Gemfile Gemfile.lock /app/
 RUN gem install bundler
+RUN bundle config set force_ruby_platform true
 RUN bundle install
 
 # Copy all the code to /app
 ADD . /app
 
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - 
+RUN apt-get install -y nodejs
+
+RUN npm install -g yarn
+
+ENV DATABASE_URL=postgresql://user:pass@127.0.0.1/dbname
+RUN yarn install
 RUN bundle exec rake assets:precompile
