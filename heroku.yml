@@ -1,0 +1,10 @@
+build:
+  docker:
+    web: Dockerfile
+    sidekiq: Dockerfile
+run:
+  web: bundle exec rails s
+  sidekiq: bundle exec sidekiq
+release:
+  command:
+    - bundle exec rails db:migrate
