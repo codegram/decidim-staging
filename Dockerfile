@@ -1,5 +1,5 @@
 # Starts with a clean ruby image from Debian (slim)
-FROM ruby:2.7.2
+FROM ruby:3.0.2
 
 # Installs system dependencies
 ENV DEBIAN_FRONTEND noninteractive
