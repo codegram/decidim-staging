@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_25_050814) do
+ActiveRecord::Schema.define(version: 2022_05_16_050842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2022_04_25_050814) do
     t.integer "decidim_accountability_result_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.jsonb "title"
     t.index ["decidim_accountability_result_id"], name: "index_decidim_accountability_timeline_entries_on_results_id"
     t.index ["entry_date"], name: "index_decidim_accountability_timeline_entries_on_entry_date"
   end
@@ -2138,6 +2139,7 @@ ActiveRecord::Schema.define(version: 2022_04_25_050814) do
     t.string "voting_type", default: "online"
     t.integer "follows_count", default: 0, null: false
     t.string "census_contact_information"
+    t.boolean "show_check_census", default: true
     t.index ["decidim_organization_id"], name: "index_decidim_votings_votings_on_decidim_organization_id"
     t.index ["decidim_scope_id"], name: "index_decidim_votings_votings_on_decidim_scope_id"
     t.index ["slug"], name: "index_decidim_votings_votings_on_slug"
