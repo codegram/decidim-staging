@@ -331,7 +331,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    commonmarker (0.23.4)
+    commonmarker (0.23.5)
     concurrent-ruby (1.1.10)
     crack (0.4.5)
       rexml
@@ -554,7 +554,7 @@ GEM
       chef-utils
     multi_json (1.15.0)
     multi_xml (0.6.0)
-    multipart-post (2.1.1)
+    multipart-post (2.2.0)
     mustache (1.1.1)
     nio4r (2.5.8)
     nokogiri (1.13.6)
