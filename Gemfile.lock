@@ -1,7 +1,7 @@
 GIT
-  remote: https://github.com/mainio/decidim
-  revision: b5eedf63462a2b2e36e01ef6f721efd1dc670265
-  branch: refactor/upload_fields
+  remote: https://github.com/decidim/decidim
+  revision: 192e832b09fadbce4d56b26a09d70a174f31eedf
+  branch: develop
   specs:
     decidim (0.27.0.dev)
       decidim-accountability (= 0.27.0.dev)
@@ -125,7 +125,7 @@ GIT
       rubocop (~> 1.28.0)
       rubocop-rails (~> 2.14)
       rubocop-rspec (~> 2.10)
-      selenium-webdriver (~> 3.142)
+      selenium-webdriver (~> 4.1.0)
       simplecov (~> 0.19.0)
       simplecov-cobertura (~> 1.3.1)
       w3c_rspec_validators (~> 0.3.0)
@@ -321,7 +321,7 @@ GEM
     charlock_holmes (0.7.7)
     chef-utils (17.10.0)
       concurrent-ruby
-    childprocess (3.0.0)
+    childprocess (4.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     coffee-rails (5.0.0)
@@ -387,7 +387,7 @@ GEM
     erbse (0.1.4)
       temple
     erubi (1.10.0)
-    escape_utils (1.2.1)
+    escape_utils (1.2.2)
     excon (0.92.3)
     execjs (2.8.1)
     extended-markdown-filter (0.7.0)
@@ -415,8 +415,8 @@ GEM
     faraday-em_synchrony (1.0.0)
     faraday-excon (1.1.0)
     faraday-httpclient (1.0.1)
-    faraday-multipart (1.0.3)
-      multipart-post (>= 1.2, < 3)
+    faraday-multipart (1.0.4)
+      multipart-post (~> 2)
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
@@ -614,7 +614,7 @@ GEM
     puma (5.6.4)
       nio4r (~> 2.0)
     racc (1.6.0)
-    rack (2.2.3)
+    rack (2.2.3.1)
     rack-attack (6.6.1)
       rack (>= 1.0, < 3)
     rack-cors (1.1.1)
@@ -738,8 +738,9 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    selenium-webdriver (3.142.7)
-      childprocess (>= 0.5, < 4.0)
+    selenium-webdriver (4.1.0)
+      childprocess (>= 0.5, < 5.0)
+      rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
     sendgrid-ruby (6.6.2)
