@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_23_050951) do
+ActiveRecord::Schema.define(version: 2022_06_13_050951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1794,6 +1794,23 @@ ActiveRecord::Schema.define(version: 2022_05_23_050951) do
     t.index ["decidim_organization_id"], name: "index_decidim_share_tokens_on_decidim_organization_id"
     t.index ["decidim_user_id"], name: "index_decidim_share_tokens_on_decidim_user_id"
     t.index ["token_for_type", "token_for_id"], name: "decidim_share_tokens_token_for"
+  end
+
+  create_table "decidim_short_links", force: :cascade do |t|
+    t.bigint "decidim_organization_id", null: false
+    t.string "target_type", null: false
+    t.bigint "target_id", null: false
+    t.string "identifier", limit: 10, null: false
+    t.string "mounted_engine_name"
+    t.string "route_name"
+    t.jsonb "params"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["decidim_organization_id", "identifier"], name: "idx_decidim_short_links_organization_id_identifier", unique: true
+    t.index ["decidim_organization_id"], name: "index_decidim_short_links_on_decidim_organization_id"
+    t.index ["mounted_engine_name"], name: "index_decidim_short_links_on_mounted_engine_name"
+    t.index ["route_name"], name: "index_decidim_short_links_on_route_name"
+    t.index ["target_type", "target_id"], name: "index_decidim_short_links_on_target"
   end
 
   create_table "decidim_sortitions_sortitions", force: :cascade do |t|
