@@ -4,7 +4,7 @@ build:
     sidekiq: Dockerfile
 run:
   web: bundle exec rails s
-  sidekiq: bundle exec sidekiq
+  sidekiq: bundle exec sidekiq -e ${RACK_ENV:-development} -C config/sidekiq.yml
 release:
   command:
     - bundle exec rails db:migrate
