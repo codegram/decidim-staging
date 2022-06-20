@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_13_050951) do
+ActiveRecord::Schema.define(version: 2022_06_20_050808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -805,7 +805,6 @@ ActiveRecord::Schema.define(version: 2022_06_13_050951) do
   create_table "decidim_elections_questions", force: :cascade do |t|
     t.bigint "decidim_elections_election_id", null: false
     t.jsonb "title", null: false
-    t.jsonb "description"
     t.integer "max_selections", default: 1, null: false
     t.integer "weight", default: 0, null: false
     t.boolean "random_answers_order", default: true, null: false
