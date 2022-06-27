@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_20_050808) do
+ActiveRecord::Schema.define(version: 2022_06_27_051324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -353,6 +353,9 @@ ActiveRecord::Schema.define(version: 2022_06_20_050808) do
     t.date "selected_at"
     t.integer "comments_count", default: 0, null: false
     t.integer "follows_count", default: 0, null: false
+    t.text "address"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["decidim_budgets_budget_id"], name: "index_decidim_budgets_projects_on_decidim_budgets_budget_id"
     t.index ["decidim_scope_id"], name: "index_decidim_budgets_projects_on_decidim_scope_id"
   end
@@ -1997,6 +2000,8 @@ ActiveRecord::Schema.define(version: 2022_06_20_050808) do
     t.jsonb "notification_settings", default: {}
     t.string "notifications_sending_frequency", default: "daily"
     t.datetime "digest_sent_at"
+    t.datetime "password_updated_at"
+    t.string "previous_passwords", default: [], array: true
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["email", "decidim_organization_id"], name: "index_decidim_users_on_email_and_decidim_organization_id", unique: true, where: "((deleted_at IS NULL) AND (managed = false) AND ((type)::text = 'Decidim::User'::text))"
