@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 77536711857ce46d663c68a56abfefeb7ab56661
+  revision: 0ef2b989d0d2740398c65893852c4fe48927780b
   branch: develop
   specs:
     decidim (0.28.0.dev)
@@ -265,7 +265,7 @@ GEM
       aws-sigv4 (~> 1.4)
     aws-sigv4 (1.5.0)
       aws-eventstream (~> 1, >= 1.0.2)
-    axe-core-api (4.4.0)
+    axe-core-api (4.4.1)
       dumb_delegator
       virtus
     axe-core-rspec (4.1.0)
@@ -562,7 +562,7 @@ GEM
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     oauth (0.5.10)
-    oauth2 (1.4.9)
+    oauth2 (1.4.10)
       faraday (>= 0.17.3, < 3.0)
       jwt (>= 1.0, < 3.0)
       multi_json (~> 1.3)
@@ -775,7 +775,7 @@ GEM
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
       spring (>= 1.2, < 3.0)
-    sprockets (4.1.0)
+    sprockets (4.1.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.4.2)
