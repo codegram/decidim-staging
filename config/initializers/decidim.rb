@@ -2,7 +2,7 @@
 
 Decidim.configure do |config|
   config.application_name = 'Decidim Codegram Staging'
-  config.mailer_sender = 'change-me@domain.org'
+  config.mailer_sender = ENV["SMTP_FROM_EMAIL"]
 
   # Change these lines to set your preferred locales
   config.default_locale = :en

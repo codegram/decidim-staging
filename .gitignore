@@ -23,6 +23,7 @@ public/uploads
 
 # Ignore bundle files
 vendor/bundle
+/public/decidim-packs
 /public/packs
 /public/packs-test
 /node_modules
@@ -30,3 +31,6 @@ vendor/bundle
 yarn-debug.log*
 .yarn-integrity
 **/node_modules
+storage/*
+
+.rbenv-vars
