@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 79b525a9ffacfab474d90e4a6271e5073b7013ba
+  revision: 723362665befc8371a9e472c63cc4ab8e50786da
   branch: fix/votings-census-importing
   specs:
     decidim (0.28.0.dev)
