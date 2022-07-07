@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 ruby '3.0.2'
 
-DECIDIM_VERSION = { git: 'https://github.com/decidim/decidim', branch: 'develop' }
+DECIDIM_VERSION = { git: 'https://github.com/decidim/decidim', branch: 'fix/votings-census-importing' }
 
 gem 'decidim', DECIDIM_VERSION
 # gem "decidim-conferences", DECIDIM_VERSION
