@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_27_051324) do
+ActiveRecord::Schema.define(version: 2022_07_11_204019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
+  enable_extension "pg_stat_statements"
   enable_extension "pg_trgm"
   enable_extension "plpgsql"
 
@@ -2074,7 +2075,7 @@ ActiveRecord::Schema.define(version: 2022_06_27_051324) do
   end
 
   create_table "decidim_votings_census_datasets", force: :cascade do |t|
-    t.string "file"
+    t.string "filename"
     t.integer "status", null: false
     t.integer "data_count"
     t.integer "csv_row_raw_count", null: false
