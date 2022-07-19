@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 ruby '3.0.2'
 
-DECIDIM_VERSION = { git: 'https://github.com/openpoke/decidim', branch: 'election-temp-fixes' }
+DECIDIM_VERSION = { git: 'https://github.com/decidim/decidim', branch: 'develop' }
 
 gem 'decidim', DECIDIM_VERSION
 # gem "decidim-conferences", DECIDIM_VERSION

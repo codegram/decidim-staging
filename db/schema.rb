@@ -2075,7 +2075,7 @@ ActiveRecord::Schema.define(version: 2022_07_11_204019) do
   end
 
   create_table "decidim_votings_census_datasets", force: :cascade do |t|
-    t.string "filename"
+    t.string "file"
     t.integer "status", null: false
     t.integer "data_count"
     t.integer "csv_row_raw_count", null: false
