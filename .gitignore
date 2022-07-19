@@ -13,9 +13,6 @@
 !/log/.keep
 !/tmp/.keep
 
-/node_modules
-/yarn-error.log
-
 .byebug_history
 
 # Ignore public uploads
@@ -23,9 +20,11 @@ public/uploads
 
 # Ignore bundle files
 vendor/bundle
+# Ignore webpack packs and related files
 /public/decidim-packs
 /public/packs
 /public/packs-test
+public/sw.js*
 /node_modules
 /yarn-error.log
 yarn-debug.log*
@@ -34,3 +33,12 @@ yarn-debug.log*
 storage/*
 
 .rbenv-vars
+tailwind.config.js
+
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity

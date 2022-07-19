@@ -130,6 +130,24 @@ Decidim.configure do |config|
   config.base_uploads_path = ENV['HEROKU_APP_NAME'] + '/' if ENV['HEROKU_APP_NAME'].present?
 end
 
+
+if Decidim.module_installed? :elections
+  Decidim::Elections.configure do |config|
+    config.setup_minimum_hours_before_start = Rails.application.secrets.dig(:elections, :setup_minimum_hours_before_start)
+    config.start_vote_maximum_hours_before_start = Rails.application.secrets.dig(:elections, :start_vote_maximum_hours_before_start)
+    config.voter_token_expiration_minutes = Rails.application.secrets.dig(:elections, :voter_token_expiration_minutes).presence || 120
+  end
+
+  Decidim::Votings.configure do |config|
+    config.check_census_max_requests = Rails.application.secrets.dig(:elections, :votings, :check_census_max_requests).presence || 5
+    config.throttling_period = Rails.application.secrets.dig(:elections, :votings, :throttling_period).to_i.minutes
+  end
+
+  Decidim::Votings::Census.configure do |config|
+    config.census_access_codes_export_expiry_time = Rails.application.secrets.dig(:elections, :votings, :census, :access_codes_export_expiry_time).to_i.days
+  end
+end
+
 Decidim.register_assets_path File.expand_path('app/packs', Rails.application.root)
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
